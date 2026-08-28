@@ -10,6 +10,7 @@
 .top{min-height:68px;padding:10px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f5f2e9ee;backdrop-filter:blur(14px);z-index:20}.brand{font-weight:800;display:flex;align-items:center;white-space:nowrap}.brand b{background:var(--green);color:white;padding:8px;border-radius:8px;margin-right:8px}.exam{background:var(--paper);border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-size:13px;text-align:center}.shell{max-width:1160px;margin:auto;padding:42px 20px 80px}
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:900;color:var(--green);text-transform:uppercase}h1,h2,h3{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(40px,6vw,68px);line-height:1;margin:10px 0}.hero-copy{color:var(--muted);margin:8px 0 0}
 .progress{background:var(--paper);border:1px solid var(--line);padding:18px;border-radius:16px}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric strong{display:block;font:25px Georgia,serif}.metric small{color:var(--muted)}.bar{height:7px;background:#e6e6df;border-radius:9px;margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--orange);width:0}
+.motivation{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--green);background:var(--paper);border-radius:12px;padding:16px 18px}.motivation .eyebrow{margin:0;white-space:nowrap}.motivation blockquote{margin:0;color:var(--ink);font:clamp(17px,2vw,21px)/1.4 Georgia,serif}
 .roadmap{margin-top:28px}.phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.phase-card{border:1px solid var(--line);background:var(--paper);border-radius:11px;padding:12px}.phase-card b{display:block;font-size:13px;margin-bottom:4px}.phase-card small{color:var(--muted);line-height:1.35}.panel{margin-top:12px;border:1px solid var(--line);background:var(--paper);border-radius:13px;padding:16px}.panel>summary{cursor:pointer;font-weight:800}.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;margin-top:14px}.guide-grid h3{font:19px Georgia,serif;margin:12px 0 4px}.guide-grid p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}
 .nav{margin-top:32px;background:var(--ink);color:white;padding:14px;border-radius:15px 15px 0 0;display:grid;grid-template-columns:115px 1fr 115px;text-align:center;align-items:center}.nav button{border:0;background:none;color:white;font-weight:800;cursor:pointer}.nav button:disabled{opacity:.25}.nav small{display:block;color:#aab8b0}.card{background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;padding:26px}.head{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px}.tag,.badge{display:inline-block;background:#e6eee1;color:var(--green);font-size:10px;font-weight:900;padding:6px 9px;border-radius:99px}.head h2{font-size:32px;margin:10px 0 3px}.head p{color:var(--muted);margin:0}.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}.summary-item{background:#f7f5ee;border:1px solid var(--line);border-radius:9px;padding:10px}.summary-item small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.07em}.summary-item b{display:block;margin-top:4px;font-size:13px}
 .blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.block{padding:18px;border-radius:15px;min-width:0}.morning{background:#e6eee1}.evening{background:#f4e6da}.block h3{font-size:23px;margin:3px 0 10px}.task-wrap{position:relative;border-top:1px solid #17231d1c;padding:10px 0}.task-row{display:grid;grid-template-columns:20px 1fr 32px;gap:9px;align-items:start}.task-row input{width:17px;height:17px;margin-top:4px;accent-color:var(--green)}.task-main,.info-btn{border:0;background:none;color:var(--ink);cursor:pointer;text-align:left;padding:0}.task-main b{font-size:14px}.task-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:3px}.duration{color:var(--muted);font-size:11px}.task-main small{display:block;color:var(--muted);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.info-btn{font-size:17px;text-align:center;border-radius:99px}.tooltip{display:none;position:absolute;left:28px;right:8px;top:calc(100% - 2px);z-index:12;background:var(--ink);color:white;border-radius:9px;padding:11px;font-size:12px;line-height:1.45;box-shadow:0 10px 25px #17231d33}.task-wrap:hover .tooltip,.task-wrap:focus-within .tooltip,.tooltip:hover{display:block}
@@ -21,7 +22,7 @@
 .data-tools{margin-top:24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 dialog{border:0;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 28px);color:var(--ink);box-shadow:0 20px 70px #17231d55}dialog::backdrop{background:#17231d88}.modal-inner{padding:20px}.modal-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.modal-head h2{margin:0;font-size:25px}.modal-body{color:var(--muted);line-height:1.55;white-space:pre-wrap}.close{border:1px solid var(--line);background:white;border-radius:8px;padding:7px 10px;cursor:pointer}
 @media(max-width:850px){.hero,.blocks,.resources,.tools{grid-template-columns:1fr}.phase-grid{grid-template-columns:repeat(2,1fr)}.summary-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.shell{padding:28px 12px 60px}.top{align-items:center;padding-inline:12px;gap:8px}.brand{font-size:12px}.brand b{padding:7px;margin-right:5px}.exam{font-size:10px;padding:8px 10px}.metric-grid{grid-template-columns:repeat(2,1fr)}.guide-grid,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.filters{grid-template-columns:1fr 1fr}.nav{grid-template-columns:72px 1fr 72px}.card{padding:17px}.head{flex-direction:column}.head h2{font-size:27px}.task-main small{white-space:normal;display:-webkit-box;line-clamp:1;-webkit-line-clamp:1;-webkit-box-orient:vertical}.tooltip{display:none!important}.score-summary{grid-template-columns:1fr}.phase-grid{grid-template-columns:1fr}.completion{flex-direction:column}}
+@media(max-width:600px){.shell{padding:28px 12px 60px}.top{align-items:center;padding-inline:12px;gap:8px}.brand{font-size:12px}.brand b{padding:7px;margin-right:5px}.exam{font-size:10px;padding:8px 10px}.metric-grid{grid-template-columns:repeat(2,1fr)}.motivation{grid-template-columns:1fr;gap:8px}.motivation .eyebrow{white-space:normal}.guide-grid,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.filters{grid-template-columns:1fr 1fr}.nav{grid-template-columns:72px 1fr 72px}.card{padding:17px}.head{flex-direction:column}.head h2{font-size:27px}.task-main small{white-space:normal;display:-webkit-box;line-clamp:1;-webkit-line-clamp:1;-webkit-box-orient:vertical}.tooltip{display:none!important}.score-summary{grid-template-columns:1fr}.phase-grid{grid-template-columns:1fr}.completion{flex-direction:column}}
 </style>
 </head>
 <body>
@@ -38,6 +39,8 @@ dialog{border:0;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 2
   <div class="metric"><strong id="latestBand">—</strong><small>Latest est. band · target 8.0</small></div>
  </div><div class="bar" aria-label="Required task progress"><i id="bar"></i></div></div>
 </section>
+
+<section class="motivation" aria-labelledby="motivationHeading"><p class="eyebrow" id="motivationHeading">Today’s Motivation</p><blockquote id="motivationQuote"></blockquote></section>
 
 <section class="roadmap"><p class="eyebrow">Preparation roadmap</p><div class="phase-grid">
  <div class="phase-card"><b>1 · Baseline</b><small>28 Aug–13 Sep<br>Diagnostic + foundation</small></div>
@@ -136,6 +139,86 @@ const START="2026-08-28",END="2026-11-13",EXAM="2026-11-14",MODULES=["Listening"
 const STORE={done:"ielts-offline-progress",diag:"ielts-diagnostic-v1",priorities:"ielts-priorities-v1",scores:"ielts-scores-v1",errors:"ielts-errors-v2",moved:"ielts-moved-v1",skipped:"ielts-skipped-v1"};
 const resourceLinks={hub:"https://app.notion.com/p/3f7ca1de547a835086ef013fb39167e4",grammar:"https://app.notion.com/p/3c9ca1de547a80cfa917cc999f66954e",writing:"https://app.notion.com/p/b56ca1de547a821b8b9381f3301cbeef",reading:"https://app.notion.com/p/a4aca1de547a824a93a38133d5e2d5e9",listening:"https://app.notion.com/p/12fca1de547a831eb969811278b831b2",speaking:"https://app.notion.com/p/e2fca1de547a8218a59701eb490e8cfb",dictionary:"https://saydur-007.github.io/ielts-dictionary/",british:"https://takeielts.britishcouncil.org/take-ielts/prepare",ielts:"https://ielts.org/take-a-test/preparation-resources",cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/"};
 const icons={Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",Vocabulary:"V",Mock:"M",Review:"✓",Priority:"!"};
+const motivationQuotes=[
+ "Consistency beats intensity when intensity does not last.",
+ "Small focused sessions create strong results.",
+ "Discipline makes progress possible on ordinary days.",
+ "Patient practice builds reliable skill.",
+ "One honest study session is a step forward.",
+ "Today’s practice prepares tomorrow’s confidence.",
+ "Progress grows when you return to the work.",
+ "Strong scores begin with steady habits.",
+ "Keep the promises you make to your goal.",
+ "A calm routine can carry you far.",
+ "Every corrected mistake strengthens your preparation.",
+ "Confidence follows evidence from consistent practice.",
+ "Study the weakness, then practise the correction.",
+ "A steady hour is more valuable than a rushed day.",
+ "Learn carefully, practise deliberately, improve steadily.",
+ "Repetition turns difficult skills into familiar ones.",
+ "Your next improvement starts with today’s focus.",
+ "Focus on today’s task, not the whole journey.",
+ "Patient practice produces dependable progress.",
+ "Clear goals make each study block useful.",
+ "Build accuracy first; speed will follow.",
+ "The work you repeat becomes the skill you trust.",
+ "A difficult question is useful training.",
+ "Slow improvement is still real improvement.",
+ "Prepare with purpose, then trust your practice.",
+ "Consistent review keeps learning available when needed.",
+ "Trust the process you follow every day.",
+ "Each focused block adds to your readiness.",
+ "Practise calmly enough to notice what needs improvement.",
+ "Good preparation is built one correction at a time.",
+ "Keep showing up, especially on quiet days.",
+ "Errors are useful when you study their cause.",
+ "One improved answer matters more than many rushed answers.",
+ "Accuracy first, confidence second, speed third.",
+ "Quiet discipline creates visible progress.",
+ "Every study day gives your goal more support.",
+ "Stay patient while your skills become stronger.",
+ "A focused mind learns more from less material.",
+ "Use feedback as a direction, not a judgment.",
+ "Strong habits make difficult days manageable.",
+ "The goal is progress you can repeat.",
+ "You do not need perfection to improve today.",
+ "Review today so the lesson stays tomorrow.",
+ "Confidence grows from work you have actually done.",
+ "Better strategy can turn effort into results.",
+ "Improvement becomes clear when you keep good records.",
+ "Keep the plan simple and the effort consistent.",
+ "A small daily gain becomes a meaningful change.",
+ "Learn from every attempt, including the imperfect ones.",
+ "Your effort counts most when it is focused.",
+ "Practise with attention, then correct with patience.",
+ "One clear focus makes a strong study day.",
+ "Progress often feels quiet before it becomes visible.",
+ "Stay consistent when motivation feels small.",
+ "A corrected mistake is preparation gained.",
+ "Preparation reduces uncertainty and strengthens confidence.",
+ "Keep building the skills the test will measure.",
+ "Patient learners notice details that rushed learners miss.",
+ "Today’s discipline supports exam-day calm.",
+ "Use each session to produce one clear improvement.",
+ "Your score grows from skills, not shortcuts.",
+ "A steady plan protects you from rushed preparation.",
+ "Train the skill, then test it honestly.",
+ "Review until the correction feels natural.",
+ "Real confidence is built through repeated preparation.",
+ "Do the useful work, even when it feels ordinary.",
+ "Strong preparation leaves less room for doubt.",
+ "Keep your practice specific and your expectations patient.",
+ "Every careful rewrite improves future writing.",
+ "Small gains become strong performance when repeated.",
+ "Consistency makes your best performance more reliable.",
+ "Finish today’s priority before chasing a new one.",
+ "Trust steady preparation more than last-minute pressure.",
+ "Stay calm, follow the method, and keep improving.",
+ "Your best result needs patience as well as effort.",
+ "Light review can protect strong preparation.",
+ "You have prepared; now trust your familiar process.",
+ "Calm effort today supports confident performance tomorrow."
+];
 const $=id=>document.getElementById(id),dateAt=n=>new Date(Date.UTC(2026,7,28+n)).toISOString().slice(0,10),utcDay=d=>new Date(d+"T00:00:00Z").getUTCDay(),fmt=d=>new Date(d+"T00:00:00Z").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",timeZone:"UTC"});
 const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 function read(key,fallback){try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch(e){return fallback}}
@@ -241,7 +324,7 @@ $("exportData").onclick=()=>{const blob=new Blob([JSON.stringify(backup(),null,2
 $("importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const x=JSON.parse(reader.result);if(!validateBackup(x))throw Error("Invalid structure");if(!confirm("Import this backup and replace current planner data?"))return;done=x.done;diagnostic=x.diagnostic;priorities=x.priorities;scores=x.scores;errors=x.errors;moved=x.moved;skipped=x.skipped;write(STORE.done,done);write(STORE.diag,diagnostic);write(STORE.priorities,priorities);write(STORE.scores,scores);write(STORE.errors,errors);write(STORE.moved,moved);write(STORE.skipped,skipped);location.reload()}catch(err){alert("Import failed: the JSON backup is invalid.")}};reader.readAsText(file);e.target.value=""};
 $("resetData").onclick=()=>{const answer=prompt("This permanently clears planner progress, scores, priorities, rescheduling and Error Log data on this device. Type RESET to continue.");if(answer!=="RESET")return;Object.values(STORE).forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});try{localStorage.removeItem("ielts-central-error-log")}catch(e){}location.reload()};
 
-function init(){renderDiagnostic();renderScores();renderErrors();resetScoreForm();resetErrorForm();renderDay()}
+function init(){const quoteIndex=today<START?0:today>END?motivationQuotes.length-1:Math.max(0,plan.findIndex(p=>p.date===today));$("motivationQuote").textContent="“"+motivationQuotes[quoteIndex]+"”";renderDiagnostic();renderScores();renderErrors();resetScoreForm();resetErrorForm();renderDay()}
 init();
 </script>
 </body>
