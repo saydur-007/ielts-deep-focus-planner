@@ -254,7 +254,14 @@ dialog::backdrop{background:#17231d88}
   .card{padding:17px}
   .head{flex-direction:column}
   .head h2{font-size:27px}
-  .task-main small{white-space:normal;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+  .task-main small{
+    white-space:normal;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+    line-clamp:2;
+    overflow:hidden;
+}
   .tooltip{display:none!important}
   .score-summary{grid-template-columns:1fr}
   .phase-grid{grid-template-columns:1fr}
@@ -345,7 +352,7 @@ dialog::backdrop{background:#17231d88}
       </ul>
       <div class="form-actions">
         <a class="btn primary" href="https://takeielts.britishcouncil.org/prepare/ielts-ready" target="_blank" rel="noopener noreferrer">Official Mock · British Council ↗</a>
-        <a class="btn" href="https://puropurimocktest.com/" target="_blank" rel="noopener noreferrer">Extra Mock · Puro Puri ↗</a>
+        <a class="btn" href="https://puropurimocktest.com/student/dashboard" target="_blank" rel="noopener noreferrer">Extra Mock · Puro Puri ↗</a>
       </div>
     </article>
 
@@ -662,7 +669,7 @@ const resourceLinks={
   british:"https://takeielts.britishcouncil.org/take-ielts/prepare",
   ielts:"https://ielts.org/take-a-test/preparation-resources",
   cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/",
-  mockPractice:"https://takeielts.britishcouncil.org/prepare/ielts-ready",puroPuri:"https://puropurimocktest.com/"};
+  mockPractice:"https://takeielts.britishcouncil.org/prepare/ielts-ready",puroPuri:"https://puropurimocktest.com/student/dashboard"};
 
 const icons={
   Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",
