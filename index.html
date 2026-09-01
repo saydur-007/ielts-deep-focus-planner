@@ -50,7 +50,7 @@ h1{font-size:clamp(40px,6vw,68px);line-height:1;margin:10px 0}
 
 /* NEW: user's existing resources */
 .my-resources{margin-top:22px}
-.resource-library{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.resource-library{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .library-card{
   border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:18px;min-width:0
 }
@@ -61,6 +61,7 @@ h1{font-size:clamp(40px,6vw,68px);line-height:1;margin:10px 0}
 .library-card.primary-resource{border-left:4px solid var(--green)}
 .library-card.grammar-resource{border-left:4px solid var(--orange)}
 .library-card.mock-resource{border-left:4px solid var(--blue)}
+.library-card.word-resource{border-left:4px solid var(--purple)}
 .resource-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
 
 .sync-panel{
@@ -332,6 +333,23 @@ dialog::backdrop{background:#17231d88}
     </article>
 
     <article class="library-card mock-resource">
+      <span class="resource-label">IELTS Mock Practice</span>
+      <h3>Official + Extra Mock Tests</h3>
+      <p>Use British Council for your important benchmark mocks and Puro Puri for additional timed practice between official mocks.</p>
+      <ul>
+        <li><strong>British Council IELTS Ready:</strong> baseline, major full mocks and official-style benchmarking</li>
+        <li><strong>Puro Puri Mock Test:</strong> extra weekly practice and additional mock exposure</li>
+        <li>Use strict exam timing for both</li>
+        <li>Record every result in Score History</li>
+        <li>Analyse mistakes in the Error Log the next day</li>
+      </ul>
+      <div class="form-actions">
+        <a class="btn primary" href="https://takeielts.britishcouncil.org/prepare/ielts-ready" target="_blank" rel="noopener noreferrer">Official Mock · British Council ↗</a>
+        <a class="btn" href="https://puropurimocktest.com/" target="_blank" rel="noopener noreferrer">Extra Mock · Puro Puri ↗</a>
+      </div>
+    </article>
+
+    <article class="library-card word-resource">
       <span class="resource-label">Word Practice</span>
       <h3>LanGeek Dictionary</h3>
       <p>Use this for daily vocabulary practice: meaning, pronunciation, examples, synonyms and word usage.</p>
@@ -384,7 +402,7 @@ dialog::backdrop{background:#17231d88}
     <div class="guide-grid">
       <div>
         <h3>Resource order</h3>
-        <p>Use Munzereen Shahid's IELTS course first, your online mock platform second, and Cambridge/official sources only where they add value.</p>
+        <p>Use Munzereen Shahid's IELTS course first, your British Council IELTS Ready second, and Cambridge/official sources only where they add value.</p>
 
         <h3>Weekly balance</h3>
         <p>At least three Listening, three Reading and three recorded Speaking sessions; one Task 1, one Task 2, two targeted Grammar sessions, daily vocabulary, weekly Error Log review and a weekend timed test.</p>
@@ -644,8 +662,7 @@ const resourceLinks={
   british:"https://takeielts.britishcouncil.org/take-ielts/prepare",
   ielts:"https://ielts.org/take-a-test/preparation-resources",
   cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/",
-  mockPractice:"https://puropurimocktest.com/"
-};
+  mockPractice:"https://takeielts.britishcouncil.org/prepare/ielts-ready",puroPuri:"https://puropurimocktest.com/"};
 
 const icons={
   Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",
@@ -878,7 +895,7 @@ function baselineDay(d,i){
       task(
         i+"r1","morning","Review","Review my IELTS resources",30,
         "Understand exactly what resources are already available.",
-        "Review IELTS Course by Munzereen Shahid, the Complete English Grammar Course and the online mock platform. Do not add more resources yet.",
+        "Review IELTS Course by Munzereen Shahid, the Complete English Grammar Course and the British Council IELTS Ready. Do not add more resources yet.",
         "high"
       ),
       task(
@@ -954,7 +971,7 @@ function miniMockDay(d,i){
     type:"mock",
     tasks:[
       vocab(i),
-      task(i+"m","morning","Listening","Timed Listening section",35,"Complete and score one section.","Use your online mock platform. Predict answers, complete without pausing, score it and inspect the transcript only afterward.","high"),
+      task(i+"m","morning","Listening","Timed Listening section",35,"Complete and score one section.","Use your British Council IELTS Ready. Predict answers, complete without pausing, score it and inspect the transcript only afterward.","high"),
       task(i+"r","morning","Reading","Timed Reading passage",35,"Complete, score and locate evidence.","Use an exam-style passage with a firm time limit. Categorize wrong answers by question type.","high"),
       task(i+"w","morning","Writing","Timed Writing response",60,"Write Task 1 or Task 2; alternate weekly.","Analyse briefly, write under time and check the four official criteria. Save detailed rewriting for the analysis session.","high"),
       task(i+"e","evening","Speaking","Speaking mock and score record",50,"Record all three parts, then save results.","Use authentic preparation, avoid scripts and note the biggest issue. Add the mini-mock result to Score History.","high")
@@ -973,7 +990,7 @@ function fullMockDay(d,i){
     type:"mock",
     tasks:[
       vocab(i,"evening"),
-      task(i+"m","morning","Mock","Full Listening–Reading–Writing mock",165,"Use exam timing with no interruptions.","Use your online mock platform or an unused Cambridge-style test. Complete Listening, Academic Reading and both Writing tasks in exam order.","high"),
+      task(i+"m","morning","Mock","Full Listening–Reading–Writing mock",165,"Use exam timing with no interruptions.","Use your British Council IELTS Ready or an unused Cambridge-style test. Complete Listening, Academic Reading and both Writing tasks in exam order.","high"),
       task(i+"s","evening","Speaking","Full Speaking mock",25,"Record Parts 1, 2 and 3 in one sitting.","Use authentic preparation and timing. Do not restart or use memorized scripts.","high"),
       task(i+"e","evening","Review","Record scores and evidence",25,"Save raw scores, bands and brief notes.","Enter the result in Score History and preserve answers, writing and recording for the next analysis day.","high")
     ]
@@ -1144,7 +1161,7 @@ function standardDay(d,i){
     tasks=[
       vocab(i),
       task(i+"m","morning","Review","Munzereen course catch-up",75,"Finish the week's highest-value unfinished lesson.","Prioritize the module that produced the most errors this week. Do not start several new lessons.","high"),
-      task(i+"r","morning","Mock","One timed module test",60,"Use the online mock platform for one module.","Choose Listening or Reading based on this week's weakest evidence. Complete it under time and save the score.","high"),
+      task(i+"r","morning","Mock","One timed module test",60,"Use the British Council IELTS Ready for one module.","Choose Listening or Reading based on this week's weakest evidence. Complete it under time and save the score.","high"),
       task(i+"e","evening","Review","Weekly analysis",45,"Update Score History and Error Log.","Review scores, recurring errors and unfinished tasks. Set one specific priority for next week.","high")
     ];
   }
@@ -1272,7 +1289,7 @@ function resourcesFor(day){
 
   if(day.type==="mock"){
     return[
-      ["Online IELTS Mock Practice",resourceLinks.mockPractice],
+      ["British Council IELTS Ready",resourceLinks.mockPractice],
       ["Cambridge IELTS Practice",resourceLinks.cambridge],
       ["My score / analysis hub",resourceLinks.hub]
     ];
@@ -1281,7 +1298,7 @@ function resourcesFor(day){
   if(main==="Listening"){
     return[
       ["Munzereen Shahid · Listening",resourceLinks.listening],
-      ["Online Mock Practice",resourceLinks.mockPractice],
+      ["British Council IELTS Ready",resourceLinks.mockPractice],
       ["Cambridge IELTS Practice",resourceLinks.cambridge]
     ];
   }
@@ -1289,7 +1306,7 @@ function resourcesFor(day){
   if(main==="Reading"){
     return[
       ["Munzereen Shahid · Academic Reading",resourceLinks.reading],
-      ["Online Mock Practice",resourceLinks.mockPractice],
+      ["British Council IELTS Ready",resourceLinks.mockPractice],
       ["Cambridge IELTS Practice",resourceLinks.cambridge]
     ];
   }
@@ -1320,7 +1337,7 @@ function resourcesFor(day){
 
   return[
     ["My IELTS Course",resourceLinks.hub],
-    ["Online IELTS Mock Practice",resourceLinks.mockPractice],
+    ["British Council IELTS Ready",resourceLinks.mockPractice],
     ["IELTS Dictionary",resourceLinks.dictionary]
   ];
 }
