@@ -5,152 +5,660 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>IELTS Band 8 Deep Focus Planner</title>
 <style>
-:root{--ink:#17231d;--muted:#66746c;--cream:#f5f2e9;--paper:#fffdf8;--green:#315d46;--orange:#e98a4b;--line:#d9ddd6;--red:#a84b42;--blue:#386783;--purple:#725782}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;overflow-x:hidden}button,input,select,textarea{font:inherit}button,a,input,select,textarea{outline-offset:3px}:focus-visible{outline:3px solid #e98a4b}
-.top{min-height:68px;padding:10px 5vw;display:flex;align-items:center;justify-content:space-between;gap:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f5f2e9ee;backdrop-filter:blur(14px);z-index:20}.brand{font-weight:800;display:flex;align-items:center;white-space:nowrap}.brand b{background:var(--green);color:white;padding:8px;border-radius:8px;margin-right:8px}.exam{background:var(--paper);border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-size:13px;text-align:center}.shell{max-width:1160px;margin:auto;padding:42px 20px 80px}
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:900;color:var(--green);text-transform:uppercase}h1,h2,h3{font-family:Georgia,serif;font-weight:500}h1{font-size:clamp(40px,6vw,68px);line-height:1;margin:10px 0}.hero-copy{color:var(--muted);margin:8px 0 0}
-.progress{background:var(--paper);border:1px solid var(--line);padding:18px;border-radius:16px}.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric strong{display:block;font:25px Georgia,serif}.metric small{color:var(--muted)}.bar{height:7px;background:#e6e6df;border-radius:9px;margin-top:14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--orange);width:0}
-.motivation{margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border:1px solid var(--line);border-left:4px solid var(--green);background:var(--paper);border-radius:12px;padding:16px 18px}.motivation .eyebrow{margin:0;white-space:nowrap}.motivation blockquote{margin:0;color:var(--ink);font:clamp(17px,2vw,21px)/1.4 Georgia,serif}
-.sync-panel{margin-top:12px;display:grid;grid-template-columns:minmax(210px,.8fr) minmax(300px,1.2fr);gap:14px;align-items:center;border:1px solid var(--line);background:var(--paper);border-radius:12px;padding:14px 16px}.sync-panel[data-state="synced"]{border-left:4px solid var(--green)}.sync-panel[data-state="error"]{border-left:4px solid var(--red)}.sync-title{display:block;margin:3px 0}.sync-status{display:block;color:var(--muted);font-size:12px;line-height:1.4}.sync-form,.sync-account{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}.sync-form input{min-width:160px;flex:1;border:1px solid var(--line);background:white;border-radius:8px;padding:9px;color:var(--ink)}.sync-account span{color:var(--muted);font-size:12px;overflow-wrap:anywhere}.sync-panel [hidden]{display:none!important}
-.roadmap{margin-top:28px}.phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}.phase-card{border:1px solid var(--line);background:var(--paper);border-radius:11px;padding:12px}.phase-card b{display:block;font-size:13px;margin-bottom:4px}.phase-card small{color:var(--muted);line-height:1.35}.panel{margin-top:12px;border:1px solid var(--line);background:var(--paper);border-radius:13px;padding:16px}.panel>summary{cursor:pointer;font-weight:800}.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;margin-top:14px}.guide-grid h3{font:19px Georgia,serif;margin:12px 0 4px}.guide-grid p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}
-.nav{margin-top:32px;background:var(--ink);color:white;padding:14px;border-radius:15px 15px 0 0;display:grid;grid-template-columns:115px 1fr 115px;text-align:center;align-items:center}.nav button{border:0;background:none;color:white;font-weight:800;cursor:pointer}.nav button:disabled{opacity:.25}.nav small{display:block;color:#aab8b0}.card{background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;padding:26px}.head{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px}.tag,.badge{display:inline-block;background:#e6eee1;color:var(--green);font-size:10px;font-weight:900;padding:6px 9px;border-radius:99px}.head h2{font-size:32px;margin:10px 0 3px}.head p{color:var(--muted);margin:0}.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}.summary-item{background:#f7f5ee;border:1px solid var(--line);border-radius:9px;padding:10px}.summary-item small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.07em}.summary-item b{display:block;margin-top:4px;font-size:13px}
-.blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}.block{padding:18px;border-radius:15px;min-width:0}.morning{background:#e6eee1}.evening{background:#f4e6da}.block h3{font-size:23px;margin:3px 0 10px}.task-wrap{position:relative;border-top:1px solid #17231d1c;padding:10px 0}.task-row{display:grid;grid-template-columns:20px 1fr 32px;gap:9px;align-items:start}.task-row input{width:17px;height:17px;margin-top:4px;accent-color:var(--green)}.task-main,.info-btn{border:0;background:none;color:var(--ink);cursor:pointer;text-align:left;padding:0}.task-main b{font-size:14px}.task-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:3px}.duration{color:var(--muted);font-size:11px}.task-main small{display:block;color:var(--muted);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}.info-btn{font-size:17px;text-align:center;border-radius:99px}.tooltip{display:none;position:absolute;left:28px;right:8px;top:calc(100% - 2px);z-index:12;background:var(--ink);color:white;border-radius:9px;padding:11px;font-size:12px;line-height:1.45;box-shadow:0 10px 25px #17231d33}.task-wrap:hover .tooltip,.task-wrap:focus-within .tooltip,.tooltip:hover{display:block}
-.module-Listening{background:#e1edf4;color:#285b79}.module-Reading{background:#e6eee1;color:#315d46}.module-Writing{background:#f5e5dc;color:#9b542f}.module-Speaking{background:#eee5f2;color:#694c78}.module-Grammar{background:#f2ecd6;color:#77621f}.module-Mock{background:#f1dddd;color:#913f38}.module-Review{background:#e8e8e6;color:#555}.module-Vocabulary{background:#e7efe9;color:#315d46}
-.resources{border-top:1px solid var(--line);margin-top:20px;padding-top:18px;display:grid;grid-template-columns:.75fr 1.25fr;gap:16px}.links{display:grid;gap:7px}.links a{color:var(--ink);font-weight:800;text-decoration:none;border:1px solid var(--line);background:white;padding:10px;border-radius:8px;display:flex;justify-content:space-between;font-size:13px}.review{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}.review summary{cursor:pointer;font-weight:800}.review li{margin:6px 0;color:var(--muted);font-size:13px}.completion{display:flex;gap:7px;margin:16px 0 0;padding:12px;border-radius:9px;background:#f7f5ee}.completion span{color:var(--muted)}.day-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:9px 12px;border-radius:8px;cursor:pointer;font-weight:700}.btn.primary{background:var(--green);color:white;border-color:var(--green)}.btn.danger{color:var(--red);border-color:#d9aaa5}.btn.small{padding:6px 8px;font-size:12px}
-.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}.tool-card{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:17px}.tool-card h2{font-size:24px;margin:4px 0 8px}.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.field{display:flex;flex-direction:column;gap:4px}.field.full{grid-column:1/-1}.field label{font-size:11px;font-weight:800;color:var(--muted)}.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:white;border-radius:7px;padding:9px;color:var(--ink)}.field textarea{min-height:72px;resize:vertical}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.weak-list{margin:10px 0;padding:10px;background:#f7f5ee;border-radius:8px;font-size:13px}.note{color:var(--muted);font-size:12px;line-height:1.4}
-.score-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}.score-summary div{background:#f7f5ee;border-radius:8px;padding:9px}.score-summary b{display:block}.trend{height:70px;display:flex;align-items:end;gap:5px;border-bottom:1px solid var(--line);padding-top:8px}.trend i{flex:1;min-width:8px;max-width:30px;background:var(--green);border-radius:4px 4px 0 0}.table-wrap{overflow:auto;max-width:100%;margin-top:10px}table{width:100%;border-collapse:collapse;font-size:12px;min-width:680px}th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left}th{color:var(--muted)}.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}.error-list{display:grid;gap:8px;max-height:440px;overflow:auto}.error-entry{border:1px solid var(--line);border-radius:9px;padding:11px}.error-entry header{display:flex;justify-content:space-between;gap:8px}.error-entry p{font-size:12px;margin:6px 0;color:var(--muted);white-space:pre-wrap}.error-entry strong{color:var(--ink)}
-.calendar{margin-top:40px}.month-tabs{display:flex;gap:5px;margin:14px 0;flex-wrap:wrap}.month-tabs button{border:1px solid var(--line);background:var(--paper);padding:8px 11px;border-radius:8px;cursor:pointer}.month-tabs .active{background:var(--green);color:white}.calendar-scroll{overflow-x:auto;padding-bottom:6px}.grid{display:grid;grid-template-columns:repeat(7,minmax(105px,1fr));gap:8px;min-width:790px}.weekday{text-align:center;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:4px}.calendar-blank{min-height:1px}.day{min-height:122px;text-align:left;border:1px solid var(--line);background:var(--paper);border-radius:11px;padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:5px}.day.selected{border:2px solid var(--green)}.day.today{box-shadow:inset 0 0 0 2px var(--orange)}.day.complete{background:#edf4e9}.day.missed{border-color:#c98780}.day.mock{background:#f8e9e6}.day.light{background:#efefec}.day.outside-plan{cursor:default;background:#efefec;color:var(--muted);border-style:dashed}.day.outside-plan em{color:#9aa39e}.day.exam-day{background:var(--ink);color:white;cursor:pointer}.day em{font:23px Georgia,serif;color:var(--orange);font-style:normal}.day b{font-size:13px;line-height:1.25}.day small{color:var(--muted);font-size:11px}.day.exam-day small{color:#cdd5d0}
+:root{
+  --ink:#17231d;--muted:#66746c;--cream:#f5f2e9;--paper:#fffdf8;
+  --green:#315d46;--orange:#e98a4b;--line:#d9ddd6;--red:#a84b42;
+  --blue:#386783;--purple:#725782
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,sans-serif;overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button,a,input,select,textarea{outline-offset:3px}
+:focus-visible{outline:3px solid #e98a4b}
+
+.top{
+  min-height:68px;padding:10px 5vw;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#f5f2e9ee;
+  backdrop-filter:blur(14px);z-index:20
+}
+.brand{font-weight:800;display:flex;align-items:center;white-space:nowrap}
+.brand b{background:var(--green);color:white;padding:8px;border-radius:8px;margin-right:8px}
+.exam{background:var(--paper);border:1px solid var(--line);padding:9px 14px;border-radius:99px;font-size:13px;text-align:center}
+.shell{max-width:1160px;margin:auto;padding:42px 20px 80px}
+
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}
+.eyebrow{font-size:10px;letter-spacing:.18em;font-weight:900;color:var(--green);text-transform:uppercase}
+h1,h2,h3{font-family:Georgia,serif;font-weight:500}
+h1{font-size:clamp(40px,6vw,68px);line-height:1;margin:10px 0}
+.hero-copy{color:var(--muted);margin:8px 0 0}
+
+.progress{background:var(--paper);border:1px solid var(--line);padding:18px;border-radius:16px}
+.metric-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.metric strong{display:block;font:25px Georgia,serif}
+.metric small{color:var(--muted)}
+.bar{height:7px;background:#e6e6df;border-radius:9px;margin-top:14px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--orange);width:0}
+
+.motivation{
+  margin-top:20px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;
+  border:1px solid var(--line);border-left:4px solid var(--green);background:var(--paper);
+  border-radius:12px;padding:16px 18px
+}
+.motivation .eyebrow{margin:0;white-space:nowrap}
+.motivation blockquote{margin:0;color:var(--ink);font:clamp(17px,2vw,21px)/1.4 Georgia,serif}
+
+/* NEW: user's existing resources */
+.my-resources{margin-top:22px}
+.resource-library{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.library-card{
+  border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:18px;min-width:0
+}
+.library-card h3{margin:6px 0 8px;font-size:21px}
+.library-card p{font-size:13px;color:var(--muted);line-height:1.5}
+.library-card ul{padding-left:18px;margin:12px 0}
+.library-card li{margin:6px 0;color:var(--muted);font-size:12px}
+.library-card.primary-resource{border-left:4px solid var(--green)}
+.library-card.grammar-resource{border-left:4px solid var(--orange)}
+.library-card.mock-resource{border-left:4px solid var(--blue)}
+.resource-label{font-size:10px;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+
+.sync-panel{
+  margin-top:12px;display:grid;grid-template-columns:minmax(210px,.8fr) minmax(300px,1.2fr);
+  gap:14px;align-items:center;border:1px solid var(--line);background:var(--paper);
+  border-radius:12px;padding:14px 16px
+}
+.sync-panel[data-state="synced"]{border-left:4px solid var(--green)}
+.sync-panel[data-state="error"]{border-left:4px solid var(--red)}
+.sync-title{display:block;margin:3px 0}
+.sync-status{display:block;color:var(--muted);font-size:12px;line-height:1.4}
+.sync-form,.sync-account{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+.sync-form input{min-width:160px;flex:1;border:1px solid var(--line);background:white;border-radius:8px;padding:9px;color:var(--ink)}
+.sync-account span{color:var(--muted);font-size:12px;overflow-wrap:anywhere}
+.sync-panel [hidden]{display:none!important}
+
+.roadmap{margin-top:28px}
+.phase-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.phase-card{border:1px solid var(--line);background:var(--paper);border-radius:11px;padding:12px}
+.phase-card b{display:block;font-size:13px;margin-bottom:4px}
+.phase-card small{color:var(--muted);line-height:1.35}
+
+.panel{margin-top:12px;border:1px solid var(--line);background:var(--paper);border-radius:13px;padding:16px}
+.panel>summary{cursor:pointer;font-weight:800}
+.guide-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;margin-top:14px}
+.guide-grid h3{font:19px Georgia,serif;margin:12px 0 4px}
+.guide-grid p{color:var(--muted);font-size:13px;line-height:1.5;margin:0}
+
+.nav{
+  margin-top:32px;background:var(--ink);color:white;padding:14px;border-radius:15px 15px 0 0;
+  display:grid;grid-template-columns:115px 1fr 115px;text-align:center;align-items:center
+}
+.nav button{border:0;background:none;color:white;font-weight:800;cursor:pointer}
+.nav button:disabled{opacity:.25}
+.nav small{display:block;color:#aab8b0}
+
+.card{background:var(--paper);border:1px solid var(--line);border-top:0;border-radius:0 0 20px 20px;padding:26px}
+.head{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.tag,.badge{display:inline-block;background:#e6eee1;color:var(--green);font-size:10px;font-weight:900;padding:6px 9px;border-radius:99px}
+.head h2{font-size:32px;margin:10px 0 3px}
+.head p{color:var(--muted);margin:0}
+
+.summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:16px}
+.summary-item{background:#f7f5ee;border:1px solid var(--line);border-radius:9px;padding:10px}
+.summary-item small{display:block;color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:.07em}
+.summary-item b{display:block;margin-top:4px;font-size:13px}
+
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
+.block{padding:18px;border-radius:15px;min-width:0}
+.morning{background:#e6eee1}
+.evening{background:#f4e6da}
+.block h3{font-size:23px;margin:3px 0 10px}
+
+.task-wrap{position:relative;border-top:1px solid #17231d1c;padding:10px 0}
+.task-row{display:grid;grid-template-columns:20px 1fr 32px;gap:9px;align-items:start}
+.task-row input{width:17px;height:17px;margin-top:4px;accent-color:var(--green)}
+.task-main,.info-btn{border:0;background:none;color:var(--ink);cursor:pointer;text-align:left;padding:0}
+.task-main b{font-size:14px}
+.task-meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-bottom:3px}
+.duration{color:var(--muted);font-size:11px}
+.task-main small{display:block;color:var(--muted);line-height:1.35;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.info-btn{font-size:17px;text-align:center;border-radius:99px}
+.tooltip{
+  display:none;position:absolute;left:28px;right:8px;top:calc(100% - 2px);z-index:12;
+  background:var(--ink);color:white;border-radius:9px;padding:11px;font-size:12px;line-height:1.45;
+  box-shadow:0 10px 25px #17231d33
+}
+.task-wrap:hover .tooltip,.task-wrap:focus-within .tooltip,.tooltip:hover{display:block}
+
+.module-Listening{background:#e1edf4;color:#285b79}
+.module-Reading{background:#e6eee1;color:#315d46}
+.module-Writing{background:#f5e5dc;color:#9b542f}
+.module-Speaking{background:#eee5f2;color:#694c78}
+.module-Grammar{background:#f2ecd6;color:#77621f}
+.module-Mock{background:#f1dddd;color:#913f38}
+.module-Review{background:#e8e8e6;color:#555}
+.module-Vocabulary{background:#e7efe9;color:#315d46}
+
+.resources{
+  border-top:1px solid var(--line);margin-top:20px;padding-top:18px;
+  display:grid;grid-template-columns:.75fr 1.25fr;gap:16px
+}
+.links{display:grid;gap:7px}
+.links a{
+  color:var(--ink);font-weight:800;text-decoration:none;border:1px solid var(--line);
+  background:white;padding:10px;border-radius:8px;display:flex;justify-content:space-between;font-size:13px
+}
+
+.review{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.review summary{cursor:pointer;font-weight:800}
+.review li{margin:6px 0;color:var(--muted);font-size:13px}
+.completion{display:flex;gap:7px;margin:16px 0 0;padding:12px;border-radius:9px;background:#f7f5ee}
+.completion span{color:var(--muted)}
+.day-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+.btn{border:1px solid var(--line);background:white;color:var(--ink);padding:9px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+.btn.primary{background:var(--green);color:white;border-color:var(--green)}
+.btn.danger{color:var(--red);border-color:#d9aaa5}
+.btn.small{padding:6px 8px;font-size:12px}
+
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.tool-card{border:1px solid var(--line);background:var(--paper);border-radius:14px;padding:17px}
+.tool-card h2{font-size:24px;margin:4px 0 8px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field.full{grid-column:1/-1}
+.field label{font-size:11px;font-weight:800;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line);background:white;border-radius:7px;padding:9px;color:var(--ink)}
+.field textarea{min-height:72px;resize:vertical}
+.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.weak-list{margin:10px 0;padding:10px;background:#f7f5ee;border-radius:8px;font-size:13px}
+.note{color:var(--muted);font-size:12px;line-height:1.4}
+
+.score-summary{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:12px 0}
+.score-summary div{background:#f7f5ee;border-radius:8px;padding:9px}
+.score-summary b{display:block}
+.trend{height:70px;display:flex;align-items:end;gap:5px;border-bottom:1px solid var(--line);padding-top:8px}
+.trend i{flex:1;min-width:8px;max-width:30px;background:var(--green);border-radius:4px 4px 0 0}
+
+.table-wrap{overflow:auto;max-width:100%;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:12px;min-width:680px}
+th,td{border-bottom:1px solid var(--line);padding:8px;text-align:left}
+th{color:var(--muted)}
+
+.filters{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:10px 0}
+.error-list{display:grid;gap:8px;max-height:440px;overflow:auto}
+.error-entry{border:1px solid var(--line);border-radius:9px;padding:11px}
+.error-entry header{display:flex;justify-content:space-between;gap:8px}
+.error-entry p{font-size:12px;margin:6px 0;color:var(--muted);white-space:pre-wrap}
+.error-entry strong{color:var(--ink)}
+
+.calendar{margin-top:40px}
+.month-tabs{display:flex;gap:5px;margin:14px 0;flex-wrap:wrap}
+.month-tabs button{border:1px solid var(--line);background:var(--paper);padding:8px 11px;border-radius:8px;cursor:pointer}
+.month-tabs .active{background:var(--green);color:white}
+.calendar-scroll{overflow-x:auto;padding-bottom:6px}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(105px,1fr));gap:8px;min-width:790px}
+.weekday{text-align:center;color:var(--muted);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;padding:4px}
+.calendar-blank{min-height:1px}
+.day{
+  min-height:122px;text-align:left;border:1px solid var(--line);background:var(--paper);
+  border-radius:11px;padding:12px;cursor:pointer;display:flex;flex-direction:column;gap:5px
+}
+.day.selected{border:2px solid var(--green)}
+.day.today{box-shadow:inset 0 0 0 2px var(--orange)}
+.day.complete{background:#edf4e9}
+.day.missed{border-color:#c98780}
+.day.mock{background:#f8e9e6}
+.day.light{background:#efefec}
+.day.outside-plan{cursor:default;background:#efefec;color:var(--muted);border-style:dashed}
+.day.outside-plan em{color:#9aa39e}
+.day.exam-day{background:var(--ink);color:white;cursor:pointer}
+.day em{font:23px Georgia,serif;color:var(--orange);font-style:normal}
+.day b{font-size:13px;line-height:1.25}
+.day small{color:var(--muted);font-size:11px}
+.day.exam-day small{color:#cdd5d0}
+
 .data-tools{margin-top:24px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-dialog{border:0;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 28px);color:var(--ink);box-shadow:0 20px 70px #17231d55}dialog::backdrop{background:#17231d88}.modal-inner{padding:20px}.modal-head{display:flex;align-items:start;justify-content:space-between;gap:12px}.modal-head h2{margin:0;font-size:25px}.modal-body{color:var(--muted);line-height:1.55;white-space:pre-wrap}.close{border:1px solid var(--line);background:white;border-radius:8px;padding:7px 10px;cursor:pointer}
-@media(max-width:850px){.hero,.blocks,.resources,.tools,.sync-panel{grid-template-columns:1fr}.sync-form,.sync-account{justify-content:flex-start}.phase-grid{grid-template-columns:repeat(2,1fr)}.summary-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.shell{padding:28px 12px 60px}.top{align-items:center;padding-inline:12px;gap:8px}.brand{font-size:12px}.brand b{padding:7px;margin-right:5px}.exam{font-size:10px;padding:8px 10px}.metric-grid{grid-template-columns:repeat(2,1fr)}.motivation{grid-template-columns:1fr;gap:8px}.motivation .eyebrow{white-space:normal}.sync-form,.sync-account{align-items:stretch;flex-direction:column}.sync-form input{min-width:0;width:100%}.guide-grid,.form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.filters{grid-template-columns:1fr 1fr}.nav{grid-template-columns:72px 1fr 72px}.card{padding:17px}.head{flex-direction:column}.head h2{font-size:27px}.task-main small{white-space:normal;display:-webkit-box;line-clamp:1;-webkit-line-clamp:1;-webkit-box-orient:vertical}.tooltip{display:none!important}.score-summary{grid-template-columns:1fr}.phase-grid{grid-template-columns:1fr}.completion{flex-direction:column}}
+
+dialog{border:0;border-radius:14px;padding:0;max-width:540px;width:calc(100% - 28px);color:var(--ink);box-shadow:0 20px 70px #17231d55}
+dialog::backdrop{background:#17231d88}
+.modal-inner{padding:20px}
+.modal-head{display:flex;align-items:start;justify-content:space-between;gap:12px}
+.modal-head h2{margin:0;font-size:25px}
+.modal-body{color:var(--muted);line-height:1.55;white-space:pre-wrap}
+.close{border:1px solid var(--line);background:white;border-radius:8px;padding:7px 10px;cursor:pointer}
+
+@media(max-width:850px){
+  .hero,.blocks,.resources,.tools,.sync-panel{grid-template-columns:1fr}
+  .resource-library{grid-template-columns:1fr}
+  .sync-form,.sync-account{justify-content:flex-start}
+  .phase-grid{grid-template-columns:repeat(2,1fr)}
+  .summary-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+  .shell{padding:28px 12px 60px}
+  .top{align-items:center;padding-inline:12px;gap:8px}
+  .brand{font-size:12px}
+  .brand b{padding:7px;margin-right:5px}
+  .exam{font-size:10px;padding:8px 10px}
+  .metric-grid{grid-template-columns:repeat(2,1fr)}
+  .motivation{grid-template-columns:1fr;gap:8px}
+  .motivation .eyebrow{white-space:normal}
+  .sync-form,.sync-account{align-items:stretch;flex-direction:column}
+  .sync-form input{min-width:0;width:100%}
+  .guide-grid,.form-grid{grid-template-columns:1fr}
+  .field.full{grid-column:auto}
+  .filters{grid-template-columns:1fr 1fr}
+  .nav{grid-template-columns:72px 1fr 72px}
+  .card{padding:17px}
+  .head{flex-direction:column}
+  .head h2{font-size:27px}
+  .task-main small{white-space:normal;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical}
+  .tooltip{display:none!important}
+  .score-summary{grid-template-columns:1fr}
+  .phase-grid{grid-template-columns:1fr}
+  .completion{flex-direction:column}
+}
 </style>
 </head>
 <body>
-<header class="top"><div class="brand"><b>IELTS</b> Deep Focus</div><div class="exam"><strong>Target Band 8.0</strong> · 14 Nov 2026 · Exam Day — No Study</div></header>
+
+<header class="top">
+  <div class="brand"><b>IELTS</b> Deep Focus</div>
+  <div class="exam"><strong>Target Band 8.0</strong> · 14 Nov 2026 · Exam Day — No Study</div>
+</header>
+
 <main class="shell">
+
 <section class="hero">
- <div><p class="eyebrow">Balanced offline planner</p><h1>Focused days.<br>Balanced weeks.</h1><p class="hero-copy">A realistic Band 8.0 target—not a guarantee—guided by scores, errors and deliberate practice.</p></div>
- <div class="progress"><div class="metric-grid">
-  <div class="metric"><strong id="daysComplete">0</strong><small>Study days complete</small></div>
-  <div class="metric"><strong id="tasksComplete">0/0</strong><small>Required tasks</small></div>
-  <div class="metric"><strong id="streak">0</strong><small>Current streak</small></div>
-  <div class="metric"><strong id="weeklyRate">0%</strong><small>This week</small></div>
-  <div class="metric"><strong id="daysLeft">78</strong><small>Days remaining</small></div>
-  <div class="metric"><strong id="latestBand">—</strong><small>Latest est. band · target 8.0</small></div>
- </div><div class="bar" aria-label="Required task progress"><i id="bar"></i></div></div>
+  <div>
+    <p class="eyebrow">Balanced offline planner</p>
+    <h1>Focused days.<br>Balanced weeks.</h1>
+    <p class="hero-copy">A realistic Band 8.0 target—not a guarantee—guided by scores, errors and deliberate practice.</p>
+  </div>
+
+  <div class="progress">
+    <div class="metric-grid">
+      <div class="metric"><strong id="daysComplete">0</strong><small>Study days complete</small></div>
+      <div class="metric"><strong id="tasksComplete">0/0</strong><small>Required tasks</small></div>
+      <div class="metric"><strong id="streak">0</strong><small>Current streak</small></div>
+      <div class="metric"><strong id="weeklyRate">0%</strong><small>This week</small></div>
+      <div class="metric"><strong id="daysLeft">0</strong><small>Days remaining</small></div>
+      <div class="metric"><strong id="latestBand">—</strong><small>Latest est. band · target 8.0</small></div>
+    </div>
+    <div class="bar" aria-label="Required task progress"><i id="bar"></i></div>
+  </div>
 </section>
 
-<section class="motivation" aria-labelledby="motivationHeading"><p class="eyebrow" id="motivationHeading">Today’s Motivation</p><blockquote id="motivationQuote"></blockquote></section>
+<section class="motivation" aria-labelledby="motivationHeading">
+  <p class="eyebrow" id="motivationHeading">Today's Motivation</p>
+  <blockquote id="motivationQuote"></blockquote>
+</section>
 
-<section class="sync-panel" id="syncPanel" data-state="local" aria-labelledby="syncHeading"><div><p class="eyebrow">Cloud sync</p><strong class="sync-title" id="syncHeading">Keep every device updated</strong><small class="sync-status" id="syncStatus" aria-live="polite">Local mode · sign in to synchronize.</small></div><form class="sync-form" id="syncForm"><input id="syncEmail" type="email" autocomplete="username" placeholder="Firebase account email" aria-label="Firebase account email" required><input id="syncPassword" type="password" autocomplete="current-password" placeholder="Password" aria-label="Firebase account password" required><button class="btn primary" type="submit">Sign in</button></form><div class="sync-account" id="syncAccount" hidden><span id="syncUser"></span><button class="btn" id="syncNow" type="button">Sync now</button><button class="btn" id="syncSignOut" type="button">Sign out</button></div></section>
+<details class="panel resource-panel">
+  <summary>Use what I already have first</summary>
 
-<section class="roadmap"><p class="eyebrow">Preparation roadmap</p><div class="phase-grid">
- <div class="phase-card"><b>1 · Baseline</b><small>28 Aug–13 Sep<br>Diagnostic + foundation</small></div>
- <div class="phase-card"><b>2 · Skills</b><small>14 Sep–4 Oct<br>All modules weekly</small></div>
- <div class="phase-card"><b>3 · Timed</b><small>5–31 Oct<br>Cambridge + full mocks</small></div>
- <div class="phase-card"><b>4 · Improve</b><small>1–11 Nov<br>Priorities + final mock</small></div>
- <div class="phase-card"><b>5 · Light</b><small>12–13 Nov<br>Calm familiar review</small></div>
-</div>
-<details class="panel"><summary>Open the study-system guide</summary><div class="guide-grid">
- <div><h3>Weekly balance</h3><p>At least three Listening, three Reading and three recorded Speaking sessions; one Task 1, one Task 2, two targeted Grammar sessions, daily vocabulary, weekly Error Log review and a weekend timed test.</p><h3>Vocabulary</h3><p>Up to five useful words daily. Review on Days 2, 7, 14 and 30; record pronunciation, meaning, part of speech, collocations and one original IELTS-style sentence.</p><h3>Writing</h3><p>Analyse → plan → write → check four criteria → feedback → correct → rewrite the weakest section → record repeated errors. AI feedback is practice guidance, not an official score.</p></div>
- <div><h3>Speaking</h3><p>Prepare ideas → record → listen → evaluate four criteria → identify one major problem → answer again. Use natural language, not memorized scripts.</p><h3>Mocks</h3><p>Full mocks use long Saturdays, uninterrupted exam timing and nearby Speaking. Every mock has a separate analysis day classifying lost marks before priorities change.</p><h3>Adaptation</h3><p>The diagnostic suggests the weakest modules. You retain control of Priority 1–3, and November repair days use those choices.</p></div>
-</div></details></section>
+  <div class="resource-library" style="margin-top:14px">
 
-<nav class="nav" aria-label="Daily plan navigation"><button id="prev">← Previous</button><div><small id="dayNo"></small><b id="dateTitle"></b></div><button id="next">Next →</button></nav>
+    <article class="library-card primary-resource">
+      <span class="resource-label">Primary IELTS Course</span>
+      <h3>IELTS Course by Munzereen Shahid</h3>
+      <p>This is the main structured IELTS learning resource. Complete the relevant lesson here before adding extra material.</p>
+      <ul>
+        <li>Academic Reading</li>
+        <li>Listening</li>
+        <li>Academic Writing</li>
+        <li>Speaking</li>
+        <li>Mock Tests</li>
+        <li>Paper-based templates and support materials</li>
+      </ul>
+      <a class="btn primary" href="https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview" target="_blank" rel="noopener noreferrer">Open IELTS Course ↗</a>
+    </article>
+
+    <article class="library-card grammar-resource">
+      <span class="resource-label">Grammar Foundation</span>
+      <h3>Complete English Grammar Course</h3>
+      <p>Use this mainly to repair grammar weaknesses found in Writing, Speaking and the Error Log.</p>
+      <ul>
+        <li>Tense</li>
+        <li>Verbs & Modal Verbs</li>
+        <li>Subject Verb Agreement</li>
+        <li>Articles & Determiners</li>
+        <li>Prepositions & Conjunctions</li>
+        <li>Conditional Sentences</li>
+        <li>Voice, Narration and Punctuation</li>
+      </ul>
+      <a class="btn primary" href="https://app.10minuteschool.com/skills/courses/learn/english-grammar-course/overview?slug=english-grammar-course" target="_blank" rel="noopener noreferrer">Open Grammar Course ↗</a>
+    </article>
+
+    <article class="library-card mock-resource">
+      <span class="resource-label">Word Practice</span>
+      <h3>LanGeek Dictionary</h3>
+      <p>Use this for daily vocabulary practice: meaning, pronunciation, examples, synonyms and word usage.</p>
+      <ul>
+        <li>Learn up to 5 useful words daily</li>
+        <li>Check pronunciation and meaning</li>
+        <li>Study example sentences</li>
+        <li>Review synonyms and related words</li>
+        <li>Create one IELTS-style sentence</li>
+      </ul>
+      <a class="btn primary" href="https://dictionary.langeek.co/en-BN/word/82067?entry=good" target="_blank" rel="noopener noreferrer">Open Word Practice ↗</a>
+    </article>
+
+  </div>
+</details>
+
+<section class="sync-panel" id="syncPanel" data-state="local" aria-labelledby="syncHeading">
+  <div>
+    <p class="eyebrow">Cloud sync</p>
+    <strong class="sync-title" id="syncHeading">Keep every device updated</strong>
+    <small class="sync-status" id="syncStatus" aria-live="polite">Local mode · sign in to synchronize.</small>
+  </div>
+
+  <form class="sync-form" id="syncForm">
+    <input id="syncEmail" type="email" autocomplete="username" placeholder="Firebase account email" aria-label="Firebase account email" required>
+    <input id="syncPassword" type="password" autocomplete="current-password" placeholder="Password" aria-label="Firebase account password" required>
+    <button class="btn primary" type="submit">Sign in</button>
+  </form>
+
+  <div class="sync-account" id="syncAccount" hidden>
+    <span id="syncUser"></span>
+    <button class="btn" id="syncNow" type="button">Sync now</button>
+    <button class="btn" id="syncSignOut" type="button">Sign out</button>
+  </div>
+</section>
+
+<section class="roadmap">
+  <p class="eyebrow">Preparation roadmap</p>
+
+  <div class="phase-grid">
+    <div class="phase-card"><b>1 · Baseline</b><small>1–6 Sep<br>Resource setup + diagnostic</small></div>
+    <div class="phase-card"><b>2 · Build Skills</b><small>7 Sep–4 Oct<br>Munzereen course + targeted practice</small></div>
+    <div class="phase-card"><b>3 · Timed Practice</b><small>5–31 Oct<br>Online mocks + Cambridge practice</small></div>
+    <div class="phase-card"><b>4 · Final Improvement</b><small>1–11 Nov<br>Repair weakest modules</small></div>
+    <div class="phase-card"><b>5 · Light Review</b><small>12–13 Nov<br>Confidence + exam preparation</small></div>
+  </div>
+
+  <details class="panel">
+    <summary>Open the study-system guide</summary>
+    <div class="guide-grid">
+      <div>
+        <h3>Resource order</h3>
+        <p>Use Munzereen Shahid's IELTS course first, your online mock platform second, and Cambridge/official sources only where they add value.</p>
+
+        <h3>Weekly balance</h3>
+        <p>At least three Listening, three Reading and three recorded Speaking sessions; one Task 1, one Task 2, two targeted Grammar sessions, daily vocabulary, weekly Error Log review and a weekend timed test.</p>
+
+        <h3>Vocabulary</h3>
+        <p>Up to five useful words daily. Review on Days 2, 7, 14 and 30; record pronunciation, meaning, part of speech, collocations and one original IELTS-style sentence.</p>
+      </div>
+
+      <div>
+        <h3>Mocks</h3>
+        <p>Saturday is the main testing day. Sunday is analysis day. Do not simply collect scores—classify lost marks and decide what to repair.</p>
+
+        <h3>Writing</h3>
+        <p>Analyse → plan → write → check four criteria → feedback → correct → rewrite the weakest section → record repeated errors.</p>
+
+        <h3>Speaking</h3>
+        <p>Prepare ideas → record → listen → evaluate four criteria → identify one major problem → answer again. Use natural language, not memorized scripts.</p>
+      </div>
+    </div>
+  </details>
+</section>
+
+<nav class="nav" aria-label="Daily plan navigation">
+  <button id="prev">← Previous</button>
+  <div><small id="dayNo"></small><b id="dateTitle"></b></div>
+  <button id="next">Next →</button>
+</nav>
+
 <article class="card">
- <div class="head"><div><p class="eyebrow">Today's plan</p><span class="tag" id="module"></span><h2 id="focus"></h2><p id="topic"></p></div><time id="date"></time></div>
- <div class="summary-grid" aria-label="Daily summary">
-  <div class="summary-item"><small>Main focus</small><b id="sumMain"></b></div>
-  <div class="summary-item"><small>Secondary</small><b id="sumSecondary"></b></div>
-  <div class="summary-item"><small>Planned</small><b id="sumMinutes"></b></div>
-  <div class="summary-item"><small>Today's target</small><b id="sumTarget"></b></div>
-  <div class="summary-item"><small>Current phase</small><b id="sumPhase"></b></div>
- </div>
- <div class="blocks">
-  <section class="block morning"><p class="eyebrow">01 · Morning block</p><h3 id="morningTime"></h3><div id="morningTasks"></div></section>
-  <section class="block evening"><p class="eyebrow">02 · Evening block</p><h3 id="eveningTime"></h3><div id="eveningTasks"></div></section>
- </div>
- <section class="resources"><div><p class="eyebrow">Today's resources</p><h3>Maximum three</h3></div><div class="links" id="resources"></div></section>
- <details class="review"><summary>Daily completion checklist</summary><ul id="reviewItems"></ul></details>
- <p class="completion"><strong>Completion goal:</strong><span id="completionGoal"></span></p>
- <div class="day-actions"><button class="btn" id="moveTasks">Move unfinished tasks</button><button class="btn" id="skipTasks">Skip unfinished tasks</button></div>
+  <div class="head">
+    <div>
+      <p class="eyebrow">Today's plan</p>
+      <span class="tag" id="module"></span>
+      <h2 id="focus"></h2>
+      <p id="topic"></p>
+    </div>
+    <time id="date"></time>
+  </div>
+
+  <div class="summary-grid" aria-label="Daily summary">
+    <div class="summary-item"><small>Main focus</small><b id="sumMain"></b></div>
+    <div class="summary-item"><small>Secondary</small><b id="sumSecondary"></b></div>
+    <div class="summary-item"><small>Planned</small><b id="sumMinutes"></b></div>
+    <div class="summary-item"><small>Today's target</small><b id="sumTarget"></b></div>
+    <div class="summary-item"><small>Current phase</small><b id="sumPhase"></b></div>
+  </div>
+
+  <div class="blocks">
+    <section class="block morning">
+      <p class="eyebrow">01 · Morning block</p>
+      <h3 id="morningTime"></h3>
+      <div id="morningTasks"></div>
+    </section>
+
+    <section class="block evening">
+      <p class="eyebrow">02 · Evening block</p>
+      <h3 id="eveningTime"></h3>
+      <div id="eveningTasks"></div>
+    </section>
+  </div>
+
+  <section class="resources">
+    <div><p class="eyebrow">Today's resources</p><h3>Maximum three</h3></div>
+    <div class="links" id="resources"></div>
+  </section>
+
+  <details class="review">
+    <summary>Daily completion checklist</summary>
+    <ul id="reviewItems"></ul>
+  </details>
+
+  <p class="completion"><strong>Completion goal:</strong><span id="completionGoal"></span></p>
+
+  <div class="day-actions">
+    <button class="btn" id="moveTasks">Move unfinished tasks</button>
+    <button class="btn" id="skipTasks">Skip unfinished tasks</button>
+  </div>
 </article>
 
 <section class="tools" aria-label="Adaptive planning tools">
- <div class="tool-card"><p class="eyebrow">Diagnostic and priorities</p><h2>Baseline scores</h2><p class="note">Enter the first-weekend diagnostic. Raw-score bands are estimates based on common IELTS Academic conversion ranges.</p>
-  <div class="form-grid">
-   <div class="field"><label for="diagListening">Listening /40</label><input id="diagListening" type="number" min="0" max="40"></div>
-   <div class="field"><label for="diagReading">Academic Reading /40</label><input id="diagReading" type="number" min="0" max="40"></div>
-   <div class="field"><label for="diagWriting">Writing estimated band</label><input id="diagWriting" type="number" min="0" max="9" step=".5"></div>
-   <div class="field"><label for="diagSpeaking">Speaking estimated band</label><input id="diagSpeaking" type="number" min="0" max="9" step=".5"></div>
-  </div>
-  <div class="weak-list" id="weakest">Enter all four results to identify the weakest modules.</div>
-  <div class="form-grid">
-   <div class="field"><label for="priority1">Priority 1</label><select id="priority1"></select></div>
-   <div class="field"><label for="priority2">Priority 2</label><select id="priority2"></select></div>
-   <div class="field"><label for="priority3">Priority 3</label><select id="priority3"></select></div>
-  </div>
- </div>
+  <div class="tool-card">
+    <p class="eyebrow">Diagnostic and priorities</p>
+    <h2>Baseline scores</h2>
+    <p class="note">Enter the 5 September diagnostic. Raw-score bands are estimates based on common IELTS Academic conversion ranges.</p>
 
- <div class="tool-card"><p class="eyebrow">Estimated score tracker</p><h2>Practice results</h2>
-  <form id="scoreForm"><input type="hidden" id="scoreId"><div class="form-grid">
-   <div class="field"><label for="scoreDate">Date</label><input id="scoreDate" type="date" required></div>
-   <div class="field"><label for="scoreType">Test type</label><select id="scoreType"><option>Diagnostic</option><option>Mini-mock</option><option>Full mock</option><option>Module test</option></select></div>
-   <div class="field"><label for="scoreListening">Listening raw /40</label><input id="scoreListening" type="number" min="0" max="40" required></div>
-   <div class="field"><label for="scoreReading">Reading raw /40</label><input id="scoreReading" type="number" min="0" max="40" required></div>
-   <div class="field"><label for="scoreWriting">Writing est. band</label><input id="scoreWriting" type="number" min="0" max="9" step=".5" required></div>
-   <div class="field"><label for="scoreSpeaking">Speaking est. band</label><input id="scoreSpeaking" type="number" min="0" max="9" step=".5" required></div>
-   <div class="field full"><label for="scoreNotes">Notes</label><textarea id="scoreNotes" maxlength="500"></textarea></div>
-  </div><div class="form-actions"><button class="btn primary" type="submit">Add result</button><button class="btn" type="button" id="cancelScore" hidden>Cancel edit</button></div></form>
-  <div class="score-summary"><div><b id="latestScore">—</b><small>Latest estimate</small></div><div><b id="bestScore">—</b><small>Best estimate</small></div><div><b>Estimated</b><small>Not an official IELTS score</small></div></div>
-  <div class="trend" id="trend" aria-label="Estimated band trend"></div>
- </div>
+    <div class="form-grid">
+      <div class="field"><label for="diagListening">Listening /40</label><input id="diagListening" type="number" min="0" max="40"></div>
+      <div class="field"><label for="diagReading">Academic Reading /40</label><input id="diagReading" type="number" min="0" max="40"></div>
+      <div class="field"><label for="diagWriting">Writing estimated band</label><input id="diagWriting" type="number" min="0" max="9" step=".5"></div>
+      <div class="field"><label for="diagSpeaking">Speaking estimated band</label><input id="diagSpeaking" type="number" min="0" max="9" step=".5"></div>
+    </div>
+
+    <div class="weak-list" id="weakest">Enter all four results to identify the weakest modules.</div>
+
+    <div class="form-grid">
+      <div class="field"><label for="priority1">Priority 1</label><select id="priority1"></select></div>
+      <div class="field"><label for="priority2">Priority 2</label><select id="priority2"></select></div>
+      <div class="field"><label for="priority3">Priority 3</label><select id="priority3"></select></div>
+    </div>
+  </div>
+
+  <div class="tool-card">
+    <p class="eyebrow">Estimated score tracker</p>
+    <h2>Practice results</h2>
+
+    <form id="scoreForm">
+      <input type="hidden" id="scoreId">
+      <div class="form-grid">
+        <div class="field"><label for="scoreDate">Date</label><input id="scoreDate" type="date" required></div>
+        <div class="field"><label for="scoreType">Test type</label><select id="scoreType"><option>Diagnostic</option><option>Mini-mock</option><option>Full mock</option><option>Module test</option></select></div>
+        <div class="field"><label for="scoreListening">Listening raw /40</label><input id="scoreListening" type="number" min="0" max="40" required></div>
+        <div class="field"><label for="scoreReading">Reading raw /40</label><input id="scoreReading" type="number" min="0" max="40" required></div>
+        <div class="field"><label for="scoreWriting">Writing est. band</label><input id="scoreWriting" type="number" min="0" max="9" step=".5" required></div>
+        <div class="field"><label for="scoreSpeaking">Speaking est. band</label><input id="scoreSpeaking" type="number" min="0" max="9" step=".5" required></div>
+        <div class="field full"><label for="scoreNotes">Notes</label><textarea id="scoreNotes" maxlength="500"></textarea></div>
+      </div>
+      <div class="form-actions">
+        <button class="btn primary" type="submit">Add result</button>
+        <button class="btn" type="button" id="cancelScore" hidden>Cancel edit</button>
+      </div>
+    </form>
+
+    <div class="score-summary">
+      <div><b id="latestScore">—</b><small>Latest estimate</small></div>
+      <div><b id="bestScore">—</b><small>Best estimate</small></div>
+      <div><b>Estimated</b><small>Not an official IELTS score</small></div>
+    </div>
+
+    <div class="trend" id="trend" aria-label="Estimated band trend"></div>
+  </div>
 </section>
 
-<details class="panel" open><summary>Score history</summary><div class="table-wrap"><table><thead><tr><th>Date</th><th>Type</th><th>Listening</th><th>Reading</th><th>Writing</th><th>Speaking</th><th>Overall est.</th><th>Notes</th><th>Actions</th></tr></thead><tbody id="scoreRows"></tbody></table></div></details>
-
-<details class="panel" id="errorPanel"><summary>Central IELTS Error Log</summary>
- <form id="errorForm"><input type="hidden" id="errorId"><div class="form-grid">
-  <div class="field"><label for="errorDate">Date</label><input id="errorDate" type="date" required></div>
-  <div class="field"><label for="errorModule">Module</label><select id="errorModule"></select></div>
-  <div class="field full"><label for="errorTopic">Question or topic</label><input id="errorTopic" maxlength="160" required></div>
-  <div class="field full"><label for="errorMistake">Mistake</label><textarea id="errorMistake" maxlength="1000" required></textarea></div>
-  <div class="field"><label for="errorCause">Cause</label><textarea id="errorCause" maxlength="700" required></textarea></div>
-  <div class="field"><label for="errorCorrection">Correct answer / improved version</label><textarea id="errorCorrection" maxlength="1000" required></textarea></div>
-  <div class="field"><label for="errorRule">Rule or strategy</label><textarea id="errorRule" maxlength="700" required></textarea></div>
-  <div class="field"><label for="errorPrevention">Prevention step</label><textarea id="errorPrevention" maxlength="700" required></textarea></div>
-  <div class="field"><label for="errorStatus">Status</label><select id="errorStatus"><option>New</option><option>Reviewing</option><option>Fixed</option></select></div>
- </div><div class="form-actions"><button class="btn primary" type="submit">Add error</button><button class="btn" type="button" id="cancelError" hidden>Cancel edit</button></div></form>
- <div class="filters">
-  <div class="field"><label for="filterModule">Filter module</label><select id="filterModule"></select></div>
-  <div class="field"><label for="filterStatus">Filter status</label><select id="filterStatus"><option value="">All statuses</option><option>New</option><option>Reviewing</option><option>Fixed</option></select></div>
-  <div class="field"><label for="filterFrom">From</label><input id="filterFrom" type="date"></div>
-  <div class="field"><label for="filterTo">To</label><input id="filterTo" type="date"></div>
- </div><div class="error-list" id="errorList"></div>
+<details class="panel" open>
+  <summary>Score history</summary>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Type</th><th>Listening</th><th>Reading</th><th>Writing</th><th>Speaking</th><th>Overall est.</th><th>Notes</th><th>Actions</th></tr>
+      </thead>
+      <tbody id="scoreRows"></tbody>
+    </table>
+  </div>
 </details>
 
-<section class="calendar"><p class="eyebrow">Full calendar</p><h2>Jump to any study day</h2><div class="month-tabs" id="months"></div><div class="calendar-scroll"><div class="grid" id="grid"></div></div></section>
-<section class="data-tools" aria-label="Planner data tools"><strong>Data backup:</strong><button class="btn" id="exportData">Export JSON</button><label class="btn" for="importFile">Import JSON</label><input id="importFile" type="file" accept="application/json" hidden><button class="btn danger" id="resetData">Reset all data</button><small class="note">Progress, scores, priorities, rescheduling and errors remain on this device unless exported.</small></section>
+<details class="panel" id="errorPanel">
+  <summary>Central IELTS Error Log</summary>
+
+  <form id="errorForm">
+    <input type="hidden" id="errorId">
+    <div class="form-grid">
+      <div class="field"><label for="errorDate">Date</label><input id="errorDate" type="date" required></div>
+      <div class="field"><label for="errorModule">Module</label><select id="errorModule"></select></div>
+      <div class="field full"><label for="errorTopic">Question or topic</label><input id="errorTopic" maxlength="160" required></div>
+      <div class="field full"><label for="errorMistake">Mistake</label><textarea id="errorMistake" maxlength="1000" required></textarea></div>
+      <div class="field"><label for="errorCause">Cause</label><textarea id="errorCause" maxlength="700" required></textarea></div>
+      <div class="field"><label for="errorCorrection">Correct answer / improved version</label><textarea id="errorCorrection" maxlength="1000" required></textarea></div>
+      <div class="field"><label for="errorRule">Rule or strategy</label><textarea id="errorRule" maxlength="700" required></textarea></div>
+      <div class="field"><label for="errorPrevention">Prevention step</label><textarea id="errorPrevention" maxlength="700" required></textarea></div>
+      <div class="field"><label for="errorStatus">Status</label><select id="errorStatus"><option>New</option><option>Reviewing</option><option>Fixed</option></select></div>
+    </div>
+
+    <div class="form-actions">
+      <button class="btn primary" type="submit">Add error</button>
+      <button class="btn" type="button" id="cancelError" hidden>Cancel edit</button>
+    </div>
+  </form>
+
+  <div class="filters">
+    <div class="field"><label for="filterModule">Filter module</label><select id="filterModule"></select></div>
+    <div class="field"><label for="filterStatus">Filter status</label><select id="filterStatus"><option value="">All statuses</option><option>New</option><option>Reviewing</option><option>Fixed</option></select></div>
+    <div class="field"><label for="filterFrom">From</label><input id="filterFrom" type="date"></div>
+    <div class="field"><label for="filterTo">To</label><input id="filterTo" type="date"></div>
+  </div>
+
+  <div class="error-list" id="errorList"></div>
+</details>
+
+<section class="calendar">
+  <p class="eyebrow">Full calendar</p>
+  <h2>Jump to any study day</h2>
+  <div class="month-tabs" id="months"></div>
+  <div class="calendar-scroll"><div class="grid" id="grid"></div></div>
+</section>
+
+<section class="data-tools" aria-label="Planner data tools">
+  <strong>Data backup:</strong>
+  <button class="btn" id="exportData">Export JSON</button>
+  <label class="btn" for="importFile">Import JSON</label>
+  <input id="importFile" type="file" accept="application/json" hidden>
+  <button class="btn danger" id="resetData">Reset all data</button>
+  <small class="note">Progress, scores, priorities, rescheduling and errors remain on this device unless synchronized or exported.</small>
+</section>
+
 </main>
 
-<dialog id="modal" aria-labelledby="modalTitle"><div class="modal-inner"><div class="modal-head"><h2 id="modalTitle"></h2><button class="close" id="modalClose">Close</button></div><div class="modal-body" id="modalBody"></div><div class="form-actions" id="modalActions"></div></div></dialog>
+<dialog id="modal" aria-labelledby="modalTitle">
+  <div class="modal-inner">
+    <div class="modal-head">
+      <h2 id="modalTitle"></h2>
+      <button class="close" id="modalClose">Close</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="form-actions" id="modalActions"></div>
+  </div>
+</dialog>
 
 <script>
 "use strict";
-const START="2026-08-28",END="2026-11-13",EXAM="2026-11-14",MODULES=["Listening","Reading","Writing","Speaking","Grammar"],ALL_MODULES=["Listening","Reading","Writing","Speaking","Grammar","Vocabulary","Mock","Review"];
-const STORE={done:"ielts-offline-progress",diag:"ielts-diagnostic-v1",priorities:"ielts-priorities-v1",scores:"ielts-scores-v1",errors:"ielts-errors-v2",moved:"ielts-moved-v1",skipped:"ielts-skipped-v1"};
-const FIREBASE_CONFIG={apiKey:"AIzaSyD-tmv9_TeqMLlzYKkTA3jFzSEpDewc0Uc",authDomain:"ielts-deep-focus-planner.firebaseapp.com",projectId:"ielts-deep-focus-planner",storageBucket:"ielts-deep-focus-planner.firebasestorage.app",messagingSenderId:"55337347931",appId:"1:55337347931:web:e08caedd4a2a90bbac887e",measurementId:"G-01ZQZDPVGG"};
-const SYNC_META="ielts-cloud-sync-meta-v1",STORE_KEYS=new Set(Object.values(STORE));
-const resourceLinks={hub:"https://app.notion.com/p/3f7ca1de547a835086ef013fb39167e4",grammar:"https://app.notion.com/p/3c9ca1de547a80cfa917cc999f66954e",writing:"https://app.notion.com/p/b56ca1de547a821b8b9381f3301cbeef",reading:"https://app.notion.com/p/a4aca1de547a824a93a38133d5e2d5e9",listening:"https://app.notion.com/p/12fca1de547a831eb969811278b831b2",speaking:"https://app.notion.com/p/e2fca1de547a8218a59701eb490e8cfb",dictionary:"https://saydur-007.github.io/ielts-dictionary/",british:"https://takeielts.britishcouncil.org/take-ielts/prepare",ielts:"https://ielts.org/take-a-test/preparation-resources",cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/"};
-const icons={Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",Vocabulary:"V",Mock:"M",Review:"✓",Priority:"!"};
+
+/* =========================================================
+   UPDATED PLAN DATES
+   ========================================================= */
+const START="2026-09-01";
+const END="2026-11-13";
+const EXAM="2026-11-14";
+
+const PLAN_DAYS =
+  Math.floor(
+    (new Date(END+"T00:00:00Z") - new Date(START+"T00:00:00Z")) / 86400000
+  ) + 1;
+
+const MODULES=["Listening","Reading","Writing","Speaking","Grammar"];
+const ALL_MODULES=["Listening","Reading","Writing","Speaking","Grammar","Vocabulary","Mock","Review"];
+
+const STORE={
+  done:"ielts-offline-progress",
+  diag:"ielts-diagnostic-v1",
+  priorities:"ielts-priorities-v1",
+  scores:"ielts-scores-v1",
+  errors:"ielts-errors-v2",
+  moved:"ielts-moved-v1",
+  skipped:"ielts-skipped-v1"
+};
+
+const FIREBASE_CONFIG={
+  apiKey:"AIzaSyD-tmv9_TeqMLlzYKkTA3jFzSEpDewc0Uc",
+  authDomain:"ielts-deep-focus-planner.firebaseapp.com",
+  projectId:"ielts-deep-focus-planner",
+  storageBucket:"ielts-deep-focus-planner.firebasestorage.app",
+  messagingSenderId:"55337347931",
+  appId:"1:55337347931:web:e08caedd4a2a90bbac887e",
+  measurementId:"G-01ZQZDPVGG"
+};
+
+const SYNC_META="ielts-cloud-sync-meta-v1";
+const STORE_KEYS=new Set(Object.values(STORE));
+
+/* Correct URL values: plain URLs, not Markdown syntax */
+const resourceLinks={
+  hub:"https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview",
+  grammar:"https://app.10minuteschool.com/skills/courses/learn/english-grammar-course/overview?slug=english-grammar-course",
+  writing:"https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview",
+  reading:"https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview",
+  listening:"https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview",
+  speaking:"https://app.10minuteschool.com/skills/courses/learn/ielts-course/overview",
+  dictionary:"https://dictionary.langeek.co/en-BN/word/82067?entry=good",
+  british:"https://takeielts.britishcouncil.org/take-ielts/prepare",
+  ielts:"https://ielts.org/take-a-test/preparation-resources",
+  cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/",
+  mockPractice:"https://puropurimocktest.com/"
+};
+
+const icons={
+  Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",
+  Vocabulary:"V",Mock:"M",Review:"✓",Priority:"!"
+};
+
 const motivationQuotes=[
  "Consistency beats intensity when intensity does not last.",
  "Small focused sessions create strong results.",
  "Discipline makes progress possible on ordinary days.",
  "Patient practice builds reliable skill.",
  "One honest study session is a step forward.",
- "Today’s practice prepares tomorrow’s confidence.",
+ "Today's practice prepares tomorrow's confidence.",
  "Progress grows when you return to the work.",
  "Strong scores begin with steady habits.",
  "Keep the promises you make to your goal.",
@@ -161,8 +669,8 @@ const motivationQuotes=[
  "A steady hour is more valuable than a rushed day.",
  "Learn carefully, practise deliberately, improve steadily.",
  "Repetition turns difficult skills into familiar ones.",
- "Your next improvement starts with today’s focus.",
- "Focus on today’s task, not the whole journey.",
+ "Your next improvement starts with today's focus.",
+ "Focus on today's task, not the whole journey.",
  "Patient practice produces dependable progress.",
  "Clear goals make each study block useful.",
  "Build accuracy first; speed will follow.",
@@ -203,7 +711,7 @@ const motivationQuotes=[
  "Preparation reduces uncertainty and strengthens confidence.",
  "Keep building the skills the test will measure.",
  "Patient learners notice details that rushed learners miss.",
- "Today’s discipline supports exam-day calm.",
+ "Today's discipline supports exam-day calm.",
  "Use each session to produce one clear improvement.",
  "Your score grows from skills, not shortcuts.",
  "A steady plan protects you from rushed preparation.",
@@ -216,139 +724,1911 @@ const motivationQuotes=[
  "Every careful rewrite improves future writing.",
  "Small gains become strong performance when repeated.",
  "Consistency makes your best performance more reliable.",
- "Finish today’s priority before chasing a new one.",
+ "Finish today's priority before chasing a new one.",
  "Trust steady preparation more than last-minute pressure.",
- "Stay calm, follow the method, and keep improving.",
- "Your best result needs patience as well as effort.",
- "Light review can protect strong preparation.",
- "You have prepared; now trust your familiar process.",
- "Calm effort today supports confident performance tomorrow."
+ "Stay calm, follow the method, and keep improving."
 ];
-const $=id=>document.getElementById(id),dateAt=n=>new Date(Date.UTC(2026,7,28+n)).toISOString().slice(0,10),utcDay=d=>new Date(d+"T00:00:00Z").getUTCDay(),fmt=d=>new Date(d+"T00:00:00Z").toLocaleDateString("en-GB",{weekday:"long",day:"numeric",month:"long",timeZone:"UTC"});
-const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-let firebaseApi=null,firebaseLoadPromise=null,cloudUser=null,cloudRef=null,cloudUnsubscribe=null,cloudSaveTimer=null,applyingCloud=false;
-function read(key,fallback){try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch(e){return fallback}}
-function writeLocal(key,value){try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}}
-function localSyncTime(){return Number(read(SYNC_META,{}).updatedAt)||0}
-function setLocalSyncTime(updatedAt){writeLocal(SYNC_META,{updatedAt})}
-function write(key,value){writeLocal(key,value);if(STORE_KEYS.has(key)&&!applyingCloud){setLocalSyncTime(Date.now());scheduleCloudSave()}}
-let done=read(STORE.done,{}),diagnostic=read(STORE.diag,{}),priorities=read(STORE.priorities,{}),scores=read(STORE.scores,[]),errors=read(STORE.errors,[]),moved=read(STORE.moved,{}),skipped=read(STORE.skipped,{});
-const legacyError=(()=>{try{return localStorage.getItem("ielts-central-error-log")||""}catch(e){return""}})();
-if(legacyError&&!errors.length){errors=[{id:crypto.randomUUID?crypto.randomUUID():String(Date.now()),date:START,module:"Review",topic:"Imported legacy notes",mistake:legacyError,cause:"Imported from the earlier free-text Error Log.",correction:"Review and restructure this note.",rule:"Preserved during upgrade.",prevention:"Update its status after review.",status:"New"}];write(STORE.errors,errors)}
 
-function phaseFor(d){if(d<="2026-09-13")return{n:1,name:"Baseline & Foundation"};if(d<="2026-10-04")return{n:2,name:"Skill Development"};if(d<="2026-10-31")return{n:3,name:"Timed Exam Practice"};if(d<="2026-11-11")return{n:4,name:"Final Improvement"};return{n:5,name:"Light Review"}}
-function task(id,block,module,title,duration,short,detail,priority="normal",optional=false){return{id,block,module,title,duration,short,detail,priority,optional}}
-function vocab(i,block="morning"){const due=[[1,"Day 2"],[6,"Day 7"],[13,"Day 14"],[29,"Day 30"]].filter(x=>i>=x[0]).map(x=>x[1]+" review: planner Day "+(i-x[0]+1));return task(i+"v",block,"Vocabulary","Vocabulary review",30,"Learn ≤5 words and review due cards.","Use the IELTS Dictionary. Add pronunciation, meaning, part of speech, useful collocations and one original IELTS-style sentence. "+(due.length?"Due now: "+due.join(", ")+".":"Start new cards today.")+" Synonyms must preserve meaning and grammar; add antonyms only when useful.","normal")}
-const readingTopics=["Skimming and passage map","True/False/Not Given evidence","Matching headings","Summary completion","Multiple choice evidence","Time management"];
-const listeningTopics=["Prediction and answer type","Sections 1–2 accuracy","Section 3 distractors","Section 4 signposting","Spelling and word limits","Concentration recovery"];
-const task2Topics=["Opinion essay planning","Discussion essay structure","Problem–solution ideas","Advantages–disadvantages","Two-part question response"];
-const task1Topics=["Charts: overview and comparisons","Tables and key features","Process sequencing","Map changes","Mixed visuals"];
-function levelText(p){return p.n===1?"guided":p.n===2?"section-timed":p.n===3?"exam-style timed":"priority-led timed"}
-function standardDay(d,i){const dow=utcDay(d),p=phaseFor(d),w=Math.floor(i/7),lvl=levelText(p),r=readingTopics[w%readingTopics.length],l=listeningTopics[w%listeningTopics.length],w2=task2Topics[w%task2Topics.length],w1=task1Topics[w%task1Topics.length];let focus,secondary,target,tasks=[];
- if(dow===0){focus="Reading · "+r;secondary="Recorded Speaking";target="One passage with evidence for every answer";tasks=[vocab(i),task(i+"m","morning","Reading",r,60,"Complete one "+lvl+" passage.","Preview the questions, map the passage, answer with text evidence and record accuracy by question type.","high"),task(i+"e","evening","Speaking","Recorded Part 1 and Part 3",45,"Record, evaluate and answer again.","Prepare ideas; record natural answers; assess fluency, vocabulary, grammar and pronunciation; identify one major problem and answer again. Avoid memorized scripts.","high"),task(i+"x","evening","Review","Review due errors",30,"Update New and Reviewing errors.","Filter the Central Error Log for Reading and Speaking. Correct due items and change status only when the prevention step works.","normal")]}
- if(dow===1){focus="Listening · "+l;secondary="Targeted Grammar";target="Accurate answers plus one grammar repair";tasks=[vocab(i),task(i+"m","morning","Listening",l,60,"Complete one "+lvl+" Listening set.","Predict answer types, listen without pausing during timed work, check the transcript and note missed keywords or distractors.","high"),task(i+"e","evening","Grammar","Grammar from recent errors",60,"Repair one repeated grammar pattern.","Choose a real Error Log pattern; review the rule, correct saved examples and create five accurate IELTS sentences.","high"),task(i+"x","evening","Review","Listening error classification",30,"Log cause, correction and prevention.","Classify each loss as knowledge, strategy, timing, careless, vocabulary or grammar. Add high-value items to the Central Error Log.","normal")]}
- if(dow===2){focus="Writing Task 2 · "+w2;secondary="Recorded Speaking";target="Improve one response through feedback";tasks=[vocab(i),task(i+"m","morning","Writing",w2,60,"Analyse, plan and study one useful model.","Identify the question type and instruction words, create a position and paragraph plan, then compare only the structure of a strong model.","high"),task(i+"e","evening","Writing","Task 2 write–feedback–rewrite",60,"Draft, check and rewrite the weakest section.","Write under the planned limit; check Task Response, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy; receive feedback, correct and rewrite the weakest section. AI feedback is not an official score.","high"),task(i+"s","evening","Speaking","Two recorded answers",30,"Evaluate one problem and answer again.","Prepare brief ideas, record two answers, listen, score the four Speaking criteria informally and repeat the weaker answer without memorizing it.","normal")]}
- if(dow===3){focus="Reading · "+r;secondary="Targeted Grammar";target="Raise accuracy on one question type";tasks=[vocab(i),task(i+"m","morning","Reading",r,60,"Complete and explain one passage set.","Use a timer when the phase requires it. For every wrong answer, locate the evidence and name the question-type trap.","high"),task(i+"e","evening","Grammar","Sentence accuracy repair",60,"Correct errors found in Reading or Writing.","Review only the grammar pattern currently causing errors; correct examples and use it in five new sentences.","high"),task(i+"x","evening","Review","Midweek Error Log check",30,"Fix or reschedule high-value errors.","Review New entries, attempt corrections without notes and mark Fixed only after a successful retest.","normal")]}
- if(dow===4){focus="Listening · "+l;secondary="Recorded Speaking";target="Improve listening control and spoken fluency";tasks=[vocab(i),task(i+"m","morning","Listening",l,60,"Complete one "+lvl+" Listening set.","Predict keywords and paraphrases, complete the audio without interruption, then use the transcript to diagnose losses.","high"),task(i+"e","evening","Speaking","Part 2 cue card",45,"Plan 1 minute; speak for 2 minutes twice.","Use a Makkar or existing cue card if available. Prepare notes for one minute, record a natural two-minute answer, evaluate four criteria, improve one problem and answer again.","high"),task(i+"x","evening","Review","Listening and Speaking corrections",30,"Record repeated errors and prevention cues.","Add only useful recurring problems to the Error Log; include the exact correction and a small retest.","normal")]}
- if(dow===5){focus="Writing Task 1 · "+w1;secondary="Grammar + Speaking";target="One improved Task 1 response";tasks=[vocab(i),task(i+"m","morning","Writing",w1,150,"Analyse, write, receive feedback and rewrite.","Analyse the task, select key features, plan, write, check Task Achievement, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy; correct feedback and rewrite the weakest section.","high"),task(i+"g","morning","Grammar","Task 1 grammar repair",30,"Fix one pattern from the draft.","Use errors from the response—not a random grammar chapter. Correct the pattern and add it to the Error Log if repeated.","normal"),task(i+"e","evening","Speaking","Full recorded Speaking set",60,"Practise Parts 1, 2 and 3 naturally.","Use common Part 1 questions, a one-minute Part 2 plan and two-minute answer, then developed Part 3 opinions. Listen, identify one major problem and answer again.","high"),task(i+"x","evening","Review","Weekly Error Log review",30,"Choose next week's repair priority.","Filter New and Reviewing errors, retest the most frequent patterns and choose one measurable priority for next week.","normal")]}
- const mainName=focus.startsWith("Writing")?"Writing":focus.split(" · ")[0];return{date:d,phase:p,main:mainName,focus,secondary,target,type:"study",tasks}
-}
-function baselineDay(d,i){return{date:d,phase:phaseFor(d),main:"Grammar",focus:"Baseline setup and sentence accuracy",secondary:"Short four-skill warm-up",target:"Prepare for tomorrow's diagnostic without fatigue",type:"study",tasks:[vocab(i),task(i+"m","morning","Grammar","Sentence foundation check",90,"Review clauses and write accurate sentences.","Review subjects, verbs, clauses and sentence boundaries. Correct ten examples and create five clear sentences; record only recurring errors.","high"),task(i+"r","morning","Reading","Short evidence warm-up",30,"Answer five questions with text evidence.","Use one short familiar passage. This is an untimed warm-up, not a score prediction before the diagnostic.","normal"),task(i+"e","evening","Listening","Short prediction warm-up",30,"Predict and complete one short set.","Preview answer types, listen once and note only the keywords or distractors that caused difficulty.","normal"),task(i+"s","evening","Speaking","Natural-answer recording",30,"Record three Part 1 answers once.","Give direct natural answers with one detail. Listen once, note hesitation and stop early so tomorrow's diagnostic remains valid.","normal")]}}
-function diagnosticDay(d,i){return{date:d,phase:phaseFor(d),main:"Mock",focus:"Four-module diagnostic",secondary:"Baseline scoring",target:"Record honest baseline scores and three priorities",type:"mock",tasks:[vocab(i),task(i+"m","morning","Mock","Uninterrupted diagnostic LRW",165,"Complete Listening, Reading and Writing in exam timing.","Use an unused Cambridge-style test: Listening, Academic Reading and Writing without checking answers, pausing or using aids. Keep normal exam timing.","high"),task(i+"s","evening","Speaking","Diagnostic Speaking recording",25,"Record Parts 1, 2 and 3 once.","Use authentic timings: natural Part 1, one-minute Part 2 preparation, two-minute answer and developed Part 3 responses.","high"),task(i+"e","evening","Review","Record diagnostic scores",25,"Enter all four results and identify weaknesses.","Use the Diagnostic panel. Listening and Reading conversions are estimates; Writing and Speaking are self/teacher estimates, not official scores.","high"),task(i+"x","evening","Review","Baseline Error Log",45,"Log patterns and set Priority 1–3.","Classify representative errors, record causes and prevention steps, then confirm three manual priorities for later improvement days.","normal")]}
-}
-function miniMockDay(d,i){return{date:d,phase:phaseFor(d),main:"Mock",focus:"Weekend mini-mock",secondary:"Four-module check",target:"Measure one week of improvement",type:"mock",tasks:[vocab(i),task(i+"m","morning","Listening","Timed Listening section",35,"Complete and score one section.","Predict answers, complete without pausing, score it and inspect the transcript only afterward.","high"),task(i+"r","morning","Reading","Timed Reading passage",35,"Complete, score and locate evidence.","Use an exam-style passage with a firm time limit. Categorize wrong answers by question type.","high"),task(i+"w","morning","Writing","Timed Writing response",60,"Write Task 1 or Task 2; alternate weekly.","Analyse briefly, write under time and check the four official criteria. Save detailed rewriting for the analysis session.","high"),task(i+"e","evening","Speaking","Speaking mock and score record",50,"Record all three parts, then save results.","Use authentic preparation, avoid scripts and note the biggest issue. Add the mini-mock result to Score History; keep detailed correction for tomorrow's analysis.","high")]}
-}
-function fullMockDay(d,i){return{date:d,phase:phaseFor(d),main:"Mock",focus:"Full IELTS mock",secondary:"Score recording",target:"Complete an uninterrupted exam simulation",type:"mock",tasks:[vocab(i,"evening"),task(i+"m","morning","Mock","Full Listening–Reading–Writing mock",165,"Use exam timing with no interruptions.","Complete Listening, Academic Reading and both Writing tasks in exam order using an unused Cambridge-style test. No checking, phone use or pauses between modules beyond exam rules.","high"),task(i+"s","evening","Speaking","Full Speaking mock",25,"Record Parts 1, 2 and 3 in one sitting.","Use authentic preparation and timing. Do not restart or use memorized scripts; keep the recording for tomorrow's analysis.","high"),task(i+"e","evening","Review","Record scores and evidence",25,"Save raw scores, bands and brief notes.","Enter the result in Score History. Label conversions as estimates and preserve answers, writing and recording for the separate analysis day.","high")]}
-}
-function analysisDay(d,i,full=false){return{date:d,phase:phaseFor(d),main:"Review",focus:(full?"Full mock":"Timed practice")+" analysis",secondary:"All four modules",target:"Explain lost marks and set the next priority",type:"review",tasks:[vocab(i),task(i+"m","morning","Review","Listening and Reading analysis",60,"Classify every lost mark.","For each loss choose: knowledge gap, strategy, timing, careless mistake, vocabulary or grammar. Locate evidence and write a prevention step.","high"),task(i+"e","evening","Writing","Writing feedback and correction",40,"Categorize and rewrite the weakest section.","Check Task Achievement/Response, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy. Correct and rewrite the weakest section.","high"),task(i+"s","evening","Speaking","Speaking recording review",20,"Evaluate four criteria and answer again.","Listen for fluency, vocabulary, grammar and pronunciation; identify one major problem, improve the answer and record it again.","high"),task(i+"x","evening","Review","Update priorities and Error Log",30,"Retest errors and set one weekly action.","Add structured entries, move statuses accurately and update Priority 1–3 only when the evidence supports a change.","normal")]}
-}
-function priorityDay(d,i,n){return{date:d,phase:phaseFor(d),main:"Priority",focus:"Priority "+n+" improvement",secondary:"Error-led practice",target:"Retest and improve the selected weak module",type:"review",priorityNumber:n,tasks:[vocab(i),task(i+"m","morning","Priority","Priority "+n+" strategy repair",60,"Study the exact rule or strategy causing losses.","Use Priority "+n+" and its Error Log evidence. Review one cause, study a focused example and define a prevention cue.","high"),task(i+"e","evening","Priority","Priority "+n+" timed retest",60,"Repeat a comparable task under time.","Use a fresh but comparable task. Record accuracy, timing and whether the original error pattern returned.","high"),task(i+"x","evening","Review","Compare and update status",30,"Explain the change and update the Error Log.","Compare old and new performance, keep unsuccessful items Reviewing and mark Fixed only with evidence.","normal")]}
-}
-function lightDay(d,i,final=false){return{date:d,phase:phaseFor(d),main:"Review",focus:final?"Final preparation":"Light familiar review",secondary:"Rest and confidence",target:final?"Finish early and protect sleep":"Review familiar cues without heavy testing",type:"light",tasks:[vocab(i),task(i+"m","morning","Review",final?"Exam-day readiness":"Familiar strategy review",45,final?"Check documents, route and essentials.":"Review only known checklists and common errors.","Do not attempt a new test. "+(final?"Prepare identification, stationery, water, clothing, route and alarms; confirm reporting time.":"Review familiar timing plans, prevention cues and a small set of useful vocabulary."),"high"),task(i+"e","evening","Review",final?"Early rest and calm routine":"Confidence review",30,final?"Stop studying early and prioritize sleep.":"Read successful examples and finish early.","Avoid heavy practice. Use a short calming routine, prepare tomorrow's materials and protect sleep.","normal")]}
-}
-const fullMocks=new Set(["2026-10-10","2026-10-17","2026-10-24","2026-10-31","2026-11-07"]);
-const miniMocks=new Set(["2026-09-05","2026-09-12","2026-09-19","2026-09-26","2026-10-03"]);
-const analysisMap=new Map([["2026-08-30",false],["2026-09-06",false],["2026-09-13",false],["2026-09-20",false],["2026-09-27",false],["2026-10-04",false],["2026-10-11",true],["2026-10-18",true],["2026-10-25",true],["2026-11-01",true],["2026-11-08",true]]);
-const priorityMap={"2026-11-02":1,"2026-11-04":2,"2026-11-09":3};
-const plan=Array.from({length:78},(_,i)=>{const d=dateAt(i);if(d==="2026-08-28")return baselineDay(d,i);if(d==="2026-08-29")return diagnosticDay(d,i);if(fullMocks.has(d))return fullMockDay(d,i);if(miniMocks.has(d))return miniMockDay(d,i);if(analysisMap.has(d))return analysisDay(d,i,analysisMap.get(d));if(priorityMap[d])return priorityDay(d,i,priorityMap[d]);if(d==="2026-11-12")return lightDay(d,i,false);if(d==="2026-11-13")return lightDay(d,i,true);return standardDay(d,i)});
+const $=id=>document.getElementById(id);
 
-function rawBand(raw,kind){const n=Number(raw);if(!Number.isFinite(n))return null;const ranges=kind==="Listening"?[[39,9],[37,8.5],[35,8],[32,7.5],[30,7],[26,6.5],[23,6],[18,5.5],[16,5],[13,4.5],[10,4],[0,3.5]]:[[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[0,3.5]];return ranges.find(x=>n>=x[0])[1]}
+const dateAt=n=>{
+  const d=new Date(START+"T00:00:00Z");
+  d.setUTCDate(d.getUTCDate()+n);
+  return d.toISOString().slice(0,10);
+};
+
+const utcDay=d=>new Date(d+"T00:00:00Z").getUTCDay();
+
+const fmt=d=>new Date(d+"T00:00:00Z").toLocaleDateString(
+  "en-GB",
+  {weekday:"long",day:"numeric",month:"long",timeZone:"UTC"}
+);
+
+const safe=s=>String(s??"").replace(/[&<>"']/g,c=>({
+  "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+}[c]));
+
+let firebaseApi=null;
+let firebaseLoadPromise=null;
+let cloudUser=null;
+let cloudRef=null;
+let cloudUnsubscribe=null;
+let cloudSaveTimer=null;
+let applyingCloud=false;
+
+function read(key,fallback){
+  try{
+    const value=JSON.parse(localStorage.getItem(key));
+    return value??fallback;
+  }catch(e){
+    return fallback;
+  }
+}
+
+function writeLocal(key,value){
+  try{localStorage.setItem(key,JSON.stringify(value))}catch(e){}
+}
+
+function localSyncTime(){
+  return Number(read(SYNC_META,{}).updatedAt)||0;
+}
+
+function setLocalSyncTime(updatedAt){
+  writeLocal(SYNC_META,{updatedAt});
+}
+
+function write(key,value){
+  writeLocal(key,value);
+  if(STORE_KEYS.has(key)&&!applyingCloud){
+    setLocalSyncTime(Date.now());
+    scheduleCloudSave();
+  }
+}
+
+let done=read(STORE.done,{});
+let diagnostic=read(STORE.diag,{});
+let priorities=read(STORE.priorities,{});
+let scores=read(STORE.scores,[]);
+let errors=read(STORE.errors,[]);
+let moved=read(STORE.moved,{});
+let skipped=read(STORE.skipped,{});
+
+function phaseFor(d){
+  if(d<="2026-09-06") return {n:1,name:"Baseline & Diagnostic"};
+  if(d<="2026-10-04") return {n:2,name:"Course & Skill Development"};
+  if(d<="2026-10-31") return {n:3,name:"Timed Mock Practice"};
+  if(d<="2026-11-11") return {n:4,name:"Final Improvement"};
+  return {n:5,name:"Light Review"};
+}
+
+function task(id,block,module,title,duration,short,detail,priority="normal",optional=false){
+  return {id,block,module,title,duration,short,detail,priority,optional};
+}
+
+function vocab(i,block="morning"){
+  const due=[[1,"Day 2"],[6,"Day 7"],[13,"Day 14"],[29,"Day 30"]]
+    .filter(x=>i>=x[0])
+    .map(x=>x[1]+" review: planner Day "+(i-x[0]+1));
+
+  return task(
+    i+"v",
+    block,
+    "Vocabulary",
+    "Vocabulary review",
+    30,
+    "Learn ≤5 words and review due cards.",
+    "Use the IELTS Dictionary. Add pronunciation, meaning, part of speech, useful collocations and one original IELTS-style sentence. "+
+    (due.length ? "Due now: "+due.join(", ")+".":"Start new cards today."),
+    "normal"
+  );
+}
+
+const readingTopics=[
+  "Skimming and passage map",
+  "True/False/Not Given evidence",
+  "Matching headings",
+  "Summary completion",
+  "Multiple choice evidence",
+  "Time management"
+];
+
+const listeningTopics=[
+  "Prediction and answer type",
+  "Sections 1–2 accuracy",
+  "Section 3 distractors",
+  "Section 4 signposting",
+  "Spelling and word limits",
+  "Concentration recovery"
+];
+
+const task2Topics=[
+  "Opinion essay planning",
+  "Discussion essay structure",
+  "Problem–solution ideas",
+  "Advantages–disadvantages",
+  "Two-part question response"
+];
+
+const task1Topics=[
+  "Charts: overview and comparisons",
+  "Tables and key features",
+  "Process sequencing",
+  "Map changes",
+  "Mixed visuals"
+];
+
+function levelText(p){
+  return p.n===1 ? "guided" :
+         p.n===2 ? "section-timed" :
+         p.n===3 ? "exam-style timed" :
+         "priority-led timed";
+}
+
+/* NEW: Day 1 is resource setup */
+function baselineDay(d,i){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Review",
+    focus:"Resource setup + IELTS preparation baseline",
+    secondary:"Course orientation",
+    target:"Organize resources and understand the preparation system",
+    type:"study",
+    tasks:[
+      task(
+        i+"r1","morning","Review","Review my IELTS resources",30,
+        "Understand exactly what resources are already available.",
+        "Review IELTS Course by Munzereen Shahid, the Complete English Grammar Course and the online mock platform. Do not add more resources yet.",
+        "high"
+      ),
+      task(
+        i+"r2","morning","Reading","Explore Munzereen IELTS Course",45,
+        "Review the IELTS course curriculum.",
+        "Check Academic Reading, Listening, Academic Writing, Speaking, Mock Test and PDF sections. Identify completed and remaining lessons.",
+        "high"
+      ),
+      task(
+        i+"r3","evening","Grammar","Grammar course baseline",30,
+        "Review the grammar course structure.",
+        "Check the Pre Assessment and grammar modules. Later, select grammar lessons according to real IELTS mistakes.",
+        "normal"
+      ),
+      task(
+        i+"r4","evening","Mock","Prepare online mock account",30,
+        "Prepare for Saturday's diagnostic.",
+        "Check test format, timing, scoring and available unused mocks. Do not take the full diagnostic today.",
+        "high"
+      ),
+      vocab(i,"evening")
+    ]
+  };
+}
+
+function diagnosticDay(d,i){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Mock",
+    focus:"Four-module diagnostic",
+    secondary:"Baseline scoring",
+    target:"Record honest baseline scores and three priorities",
+    type:"mock",
+    tasks:[
+      vocab(i),
+      task(
+        i+"m","morning","Mock","Uninterrupted diagnostic LRW",165,
+        "Complete Listening, Reading and Writing in exam timing.",
+        "Use an unused online or Cambridge-style test: Listening, Academic Reading and Writing without checking answers, pausing or using aids.",
+        "high"
+      ),
+      task(
+        i+"s","evening","Speaking","Diagnostic Speaking recording",25,
+        "Record Parts 1, 2 and 3 once.",
+        "Use authentic timings: natural Part 1, one-minute Part 2 preparation, two-minute answer and developed Part 3 responses.",
+        "high"
+      ),
+      task(
+        i+"e","evening","Review","Record diagnostic scores",25,
+        "Enter all four results and identify weaknesses.",
+        "Use the Diagnostic panel. Listening and Reading conversions are estimates; Writing and Speaking are self/teacher estimates.",
+        "high"
+      ),
+      task(
+        i+"x","evening","Review","Baseline Error Log",45,
+        "Log patterns and set Priority 1–3.",
+        "Classify representative errors, record causes and prevention steps, then confirm three manual priorities.",
+        "normal"
+      )
+    ]
+  };
+}
+
+function miniMockDay(d,i){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Mock",
+    focus:"Weekend mini-mock",
+    secondary:"Four-module check",
+    target:"Measure one week of improvement",
+    type:"mock",
+    tasks:[
+      vocab(i),
+      task(i+"m","morning","Listening","Timed Listening section",35,"Complete and score one section.","Use your online mock platform. Predict answers, complete without pausing, score it and inspect the transcript only afterward.","high"),
+      task(i+"r","morning","Reading","Timed Reading passage",35,"Complete, score and locate evidence.","Use an exam-style passage with a firm time limit. Categorize wrong answers by question type.","high"),
+      task(i+"w","morning","Writing","Timed Writing response",60,"Write Task 1 or Task 2; alternate weekly.","Analyse briefly, write under time and check the four official criteria. Save detailed rewriting for the analysis session.","high"),
+      task(i+"e","evening","Speaking","Speaking mock and score record",50,"Record all three parts, then save results.","Use authentic preparation, avoid scripts and note the biggest issue. Add the mini-mock result to Score History.","high")
+    ]
+  };
+}
+
+function fullMockDay(d,i){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Mock",
+    focus:"Full IELTS mock",
+    secondary:"Score recording",
+    target:"Complete an uninterrupted exam simulation",
+    type:"mock",
+    tasks:[
+      vocab(i,"evening"),
+      task(i+"m","morning","Mock","Full Listening–Reading–Writing mock",165,"Use exam timing with no interruptions.","Use your online mock platform or an unused Cambridge-style test. Complete Listening, Academic Reading and both Writing tasks in exam order.","high"),
+      task(i+"s","evening","Speaking","Full Speaking mock",25,"Record Parts 1, 2 and 3 in one sitting.","Use authentic preparation and timing. Do not restart or use memorized scripts.","high"),
+      task(i+"e","evening","Review","Record scores and evidence",25,"Save raw scores, bands and brief notes.","Enter the result in Score History and preserve answers, writing and recording for the next analysis day.","high")
+    ]
+  };
+}
+
+function analysisDay(d,i,full=false){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Review",
+    focus:(full?"Full mock":"Timed practice")+" analysis",
+    secondary:"All four modules",
+    target:"Explain lost marks and set the next priority",
+    type:"review",
+    tasks:[
+      vocab(i),
+      task(i+"m","morning","Review","Listening and Reading analysis",60,"Classify every lost mark.","For each loss choose: knowledge gap, strategy, timing, careless mistake, vocabulary or grammar. Locate evidence and write a prevention step.","high"),
+      task(i+"e","evening","Writing","Writing feedback and correction",40,"Categorize and rewrite the weakest section.","Check Task Achievement/Response, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy.","high"),
+      task(i+"s","evening","Speaking","Speaking recording review",20,"Evaluate four criteria and answer again.","Listen for fluency, vocabulary, grammar and pronunciation; identify one major problem, improve the answer and record it again.","high"),
+      task(i+"x","evening","Review","Update priorities and Error Log",30,"Retest errors and set one weekly action.","Add structured entries, move statuses accurately and update Priority 1–3 only when the evidence supports a change.","normal")
+    ]
+  };
+}
+
+function priorityDay(d,i,n){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Priority",
+    focus:"Priority "+n+" improvement",
+    secondary:"Error-led practice",
+    target:"Retest and improve the selected weak module",
+    type:"review",
+    priorityNumber:n,
+    tasks:[
+      vocab(i),
+      task(i+"m","morning","Priority","Priority "+n+" strategy repair",60,"Study the exact rule or strategy causing losses.","Use Priority "+n+" and Error Log evidence. Review one cause, study a focused example and define a prevention cue.","high"),
+      task(i+"e","evening","Priority","Priority "+n+" timed retest",60,"Repeat a comparable task under time.","Use a fresh but comparable task. Record accuracy, timing and whether the original error pattern returned.","high"),
+      task(i+"x","evening","Review","Compare and update status",30,"Explain the change and update the Error Log.","Compare old and new performance, keep unsuccessful items Reviewing and mark Fixed only with evidence.","normal")
+    ]
+  };
+}
+
+function lightDay(d,i,final=false){
+  return{
+    date:d,
+    phase:phaseFor(d),
+    main:"Review",
+    focus:final?"Final preparation":"Light familiar review",
+    secondary:"Rest and confidence",
+    target:final?"Finish early and protect sleep":"Review familiar cues without heavy testing",
+    type:"light",
+    tasks:[
+      vocab(i),
+      task(
+        i+"m","morning","Review",
+        final?"Exam-day readiness":"Familiar strategy review",
+        45,
+        final?"Check documents, route and essentials.":"Review only known checklists and common errors.",
+        "Do not attempt a new test. "+(final
+          ?"Prepare identification, stationery, water, clothing, route and alarms; confirm reporting time."
+          :"Review familiar timing plans, prevention cues and a small set of useful vocabulary."),
+        "high"
+      ),
+      task(
+        i+"e","evening","Review",
+        final?"Early rest and calm routine":"Confidence review",
+        30,
+        final?"Stop studying early and prioritize sleep.":"Read successful examples and finish early.",
+        "Avoid heavy practice. Use a short calming routine, prepare tomorrow's materials and protect sleep.",
+        "normal"
+      )
+    ]
+  };
+}
+
+function standardDay(d,i){
+  const dow=utcDay(d);
+  const p=phaseFor(d);
+  const w=Math.floor(i/7);
+  const lvl=levelText(p);
+  const r=readingTopics[w%readingTopics.length];
+  const l=listeningTopics[w%listeningTopics.length];
+  const w2=task2Topics[w%task2Topics.length];
+  const w1=task1Topics[w%task1Topics.length];
+
+  let focus,secondary,target,tasks=[];
+
+  if(dow===0){
+    focus="Reading · "+r;
+    secondary="Recorded Speaking";
+    target="One passage with evidence for every answer";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Reading",r,60,"Complete one "+lvl+" passage.","Start with the relevant Munzereen Reading lesson, then complete one passage. Preview questions, map the passage, answer with text evidence and record accuracy by question type.","high"),
+      task(i+"e","evening","Speaking","Recorded Part 1 and Part 3",45,"Record, evaluate and answer again.","Use the relevant Munzereen Speaking lesson, prepare ideas, record natural answers, assess four criteria, identify one major problem and answer again.","high"),
+      task(i+"x","evening","Review","Review due errors",30,"Update New and Reviewing errors.","Filter the Central Error Log for Reading and Speaking. Correct due items and change status only when the prevention step works.","normal")
+    ];
+  }
+
+  if(dow===1){
+    focus="Listening · "+l;
+    secondary="Targeted Grammar";
+    target="Accurate answers plus one grammar repair";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Listening",l,60,"Complete one "+lvl+" Listening set.","Start with the matching Munzereen Listening lesson, then use timed practice. Predict answer types, listen without pausing, check transcript and note distractors.","high"),
+      task(i+"e","evening","Grammar","Grammar from recent errors",60,"Repair one repeated grammar pattern.","Open the Complete English Grammar Course only for a pattern actually found in the Error Log. Review the lesson and create five accurate IELTS sentences.","high"),
+      task(i+"x","evening","Review","Listening error classification",30,"Log cause, correction and prevention.","Classify each loss as knowledge, strategy, timing, careless, vocabulary or grammar.","normal")
+    ];
+  }
+
+  if(dow===2){
+    focus="Writing Task 2 · "+w2;
+    secondary="Recorded Speaking";
+    target="Improve one response through feedback";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Writing",w2,60,"Analyse, plan and study one useful model.","Start with the relevant Munzereen Writing lesson. Identify the question type and instruction words, create a position and paragraph plan, then compare structure with a strong model.","high"),
+      task(i+"e","evening","Writing","Task 2 write–feedback–rewrite",60,"Draft, check and rewrite the weakest section.","Write under time; check Task Response, Coherence and Cohesion, Lexical Resource, and Grammatical Range and Accuracy; correct and rewrite the weakest section.","high"),
+      task(i+"s","evening","Speaking","Two recorded answers",30,"Evaluate one problem and answer again.","Prepare brief ideas, record two answers, listen, score the four Speaking criteria informally and repeat the weaker answer.","normal")
+    ];
+  }
+
+  if(dow===3){
+    focus="Reading · "+r;
+    secondary="Targeted Grammar";
+    target="Raise accuracy on one question type";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Reading",r,60,"Complete and explain one passage set.","Use the relevant Munzereen Reading lesson first, then timed practice where appropriate. For every wrong answer, locate the evidence and name the trap.","high"),
+      task(i+"e","evening","Grammar","Sentence accuracy repair",60,"Correct errors found in Reading or Writing.","Use the Complete English Grammar Course only for the pattern currently causing errors; correct examples and use it in five new sentences.","high"),
+      task(i+"x","evening","Review","Midweek Error Log check",30,"Fix or reschedule high-value errors.","Review New entries, attempt corrections without notes and mark Fixed only after a successful retest.","normal")
+    ];
+  }
+
+  if(dow===4){
+    focus="Listening · "+l;
+    secondary="Recorded Speaking";
+    target="Improve listening control and spoken fluency";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Listening",l,60,"Complete one "+lvl+" Listening set.","Use Munzereen Listening first, then timed practice. Predict keywords and paraphrases, complete the audio without interruption, then diagnose losses.","high"),
+      task(i+"e","evening","Speaking","Part 2 cue card",45,"Plan 1 minute; speak for 2 minutes twice.","Use the Munzereen Speaking course or an existing cue card. Prepare one minute, record two minutes, evaluate four criteria and answer again.","high"),
+      task(i+"x","evening","Review","Listening and Speaking corrections",30,"Record repeated errors and prevention cues.","Add only useful recurring problems to the Error Log; include the exact correction and a small retest.","normal")
+    ];
+  }
+
+  if(dow===5){
+    focus="Writing Task 1 · "+w1;
+    secondary="Grammar + Speaking";
+    target="One improved Task 1 response";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Writing",w1,150,"Analyse, write, receive feedback and rewrite.","Use the relevant Munzereen Writing lesson, then analyse the task, select key features, plan, write, check all criteria, correct feedback and rewrite the weakest section.","high"),
+      task(i+"g","morning","Grammar","Task 1 grammar repair",30,"Fix one pattern from the draft.","Use the Complete English Grammar Course only for an error from the response.","normal"),
+      task(i+"e","evening","Speaking","Full recorded Speaking set",60,"Practise Parts 1, 2 and 3 naturally.","Use the Munzereen Speaking course plus recorded practice. Avoid memorized scripts.","high"),
+      task(i+"x","evening","Review","Weekly Error Log review",30,"Choose next week's repair priority.","Filter New and Reviewing errors, retest the most frequent patterns and choose one measurable priority.","normal")
+    ];
+  }
+
+  if(dow===6){
+    /* Saturdays that are not explicit mocks remain lighter prep/testing days */
+    focus="Weekly consolidation";
+    secondary="Course catch-up + timed practice";
+    target="Finish unfinished course work and test one skill";
+    tasks=[
+      vocab(i),
+      task(i+"m","morning","Review","Munzereen course catch-up",75,"Finish the week's highest-value unfinished lesson.","Prioritize the module that produced the most errors this week. Do not start several new lessons.","high"),
+      task(i+"r","morning","Mock","One timed module test",60,"Use the online mock platform for one module.","Choose Listening or Reading based on this week's weakest evidence. Complete it under time and save the score.","high"),
+      task(i+"e","evening","Review","Weekly analysis",45,"Update Score History and Error Log.","Review scores, recurring errors and unfinished tasks. Set one specific priority for next week.","high")
+    ];
+  }
+
+  const mainName=focus.startsWith("Writing") ? "Writing" : focus.split(" · ")[0];
+
+  return{
+    date:d,
+    phase:p,
+    main:mainName,
+    focus,
+    secondary,
+    target,
+    type:"study",
+    tasks
+  };
+}
+
+/* =========================================================
+   UPDATED MOCK SCHEDULE
+   ========================================================= */
+const fullMocks=new Set([
+  "2026-10-10",
+  "2026-10-17",
+  "2026-10-24",
+  "2026-10-31",
+  "2026-11-07"
+]);
+
+const miniMocks=new Set([
+  "2026-09-12",
+  "2026-09-19",
+  "2026-09-26",
+  "2026-10-03"
+]);
+
+const analysisMap=new Map([
+  ["2026-09-06",true],
+  ["2026-09-13",false],
+  ["2026-09-20",false],
+  ["2026-09-27",false],
+  ["2026-10-04",false],
+  ["2026-10-11",true],
+  ["2026-10-18",true],
+  ["2026-10-25",true],
+  ["2026-11-01",true],
+  ["2026-11-08",true]
+]);
+
+const priorityMap={
+  "2026-11-02":1,
+  "2026-11-04":2,
+  "2026-11-09":3
+};
+
+const plan=Array.from({length:PLAN_DAYS},(_,i)=>{
+  const d=dateAt(i);
+
+  if(d==="2026-09-01") return baselineDay(d,i);
+  if(d==="2026-09-05") return diagnosticDay(d,i);
+  if(fullMocks.has(d)) return fullMockDay(d,i);
+  if(miniMocks.has(d)) return miniMockDay(d,i);
+  if(analysisMap.has(d)) return analysisDay(d,i,analysisMap.get(d));
+  if(priorityMap[d]) return priorityDay(d,i,priorityMap[d]);
+  if(d==="2026-11-12") return lightDay(d,i,false);
+  if(d==="2026-11-13") return lightDay(d,i,true);
+
+  return standardDay(d,i);
+});
+
+function rawBand(raw,kind){
+  const n=Number(raw);
+  if(!Number.isFinite(n)) return null;
+
+  const ranges=kind==="Listening"
+    ? [[39,9],[37,8.5],[35,8],[32,7.5],[30,7],[26,6.5],[23,6],[18,5.5],[16,5],[13,4.5],[10,4],[0,3.5]]
+    : [[39,9],[37,8.5],[35,8],[33,7.5],[30,7],[27,6.5],[23,6],[19,5.5],[15,5],[13,4.5],[10,4],[0,3.5]];
+
+  return ranges.find(x=>n>=x[0])[1];
+}
+
 const roundBand=n=>Math.round(n*2)/2;
-function overall(s){return roundBand((rawBand(s.listening,"Listening")+rawBand(s.reading,"Reading")+Number(s.writing)+Number(s.speaking))/4)}
-function weakestModules(){const vals=[["Listening",rawBand(diagnostic.listening,"Listening")],["Reading",rawBand(diagnostic.reading,"Reading")],["Writing",Number(diagnostic.writing)],["Speaking",Number(diagnostic.speaking)]];return vals.every(x=>Number.isFinite(x[1])&&x[1]>0)?vals.sort((a,b)=>a[1]-b[1]):[]}
-function priority(n){return priorities[n]||weakestModules()[n-1]?.[0]||["Reading","Writing","Listening"][n-1]}
-function resolve(value){return String(value).replace(/Priority ([123])/g,(_,n)=>"Priority "+n+" · "+priority(Number(n)))}
-function taskModule(t){return t.module==="Priority"?priority(Number((t.title.match(/[123]/)||["1"])[0])):t.module}
-function resourcesFor(day){const main=day.main==="Priority"?priority(day.priorityNumber):day.main;if(day.type==="mock")return[["Cambridge IELTS practice",resourceLinks.cambridge],["Official IELTS preparation",resourceLinks.ielts],["My score / analysis hub",resourceLinks.hub]];if(main==="Listening")return[["My Listening course",resourceLinks.listening],["Cambridge IELTS materials",resourceLinks.cambridge],["British Council IELTS",resourceLinks.british]];if(main==="Reading")return[["My Reading course",resourceLinks.reading],["Cambridge IELTS materials",resourceLinks.cambridge],["British Council IELTS",resourceLinks.british]];if(main==="Writing")return[["My Writing course",resourceLinks.writing],["Official IELTS criteria",resourceLinks.ielts],["Cambridge IELTS materials",resourceLinks.cambridge]];if(main==="Speaking")return[["My Speaking course",resourceLinks.speaking],["Official IELTS preparation",resourceLinks.ielts],["British Council IELTS",resourceLinks.british]];if(main==="Grammar")return[["My Grammar course",resourceLinks.grammar],["My IELTS course",resourceLinks.hub],["IELTS Dictionary",resourceLinks.dictionary]];return[["My IELTS course",resourceLinks.hub],["IELTS Dictionary",resourceLinks.dictionary],["Cambridge IELTS materials",resourceLinks.cambridge]]}
 
-function incomingFor(i){const date=plan[i].date;return Object.entries(moved).filter(([,v])=>v.target===date).map(([id,v])=>({...v,id,block:v.block||"evening",moved:true}))}
-function tasksFor(i){return [...plan[i].tasks,...incomingFor(i)]}
-function requiredFor(i){return tasksFor(i).filter(t=>!t.optional&&!skipped[t.id])}
-function dayComplete(i){const req=requiredFor(i);return req.length>0&&req.every(t=>done[t.id])}
-function renderTask(t){const module=taskModule(t),title=resolve(t.title),short=resolve(t.short),detail=resolve(t.detail),state=moved[t.id]&&moved[t.id].source===plan[selected].date?" · moved to "+moved[t.id].target:"";return '<div class="task-wrap"><div class="task-row"><input type="checkbox" data-task="'+safe(t.id)+'" aria-label="Complete '+safe(title)+'" '+(done[t.id]?"checked":"")+'><button class="task-main" type="button" data-info="'+safe(t.id)+'"><span class="task-meta"><span class="badge module-'+safe(module)+'">'+safe(icons[module]||"!")+' · '+safe(module)+'</span><span class="duration">'+t.duration+' min'+safe(state)+(t.optional?" · optional":"")+'</span></span><b>'+safe(title)+'</b><small>'+safe(short)+'</small></button><button class="info-btn" type="button" data-info="'+safe(t.id)+'" aria-label="More information about '+safe(title)+'">ⓘ</button></div><div class="tooltip" role="tooltip">'+safe(detail)+'</div></div>'}
+function overall(s){
+  return roundBand(
+    (
+      rawBand(s.listening,"Listening")+
+      rawBand(s.reading,"Reading")+
+      Number(s.writing)+
+      Number(s.speaking)
+    )/4
+  );
+}
 
-let selected=0,month=8;
-const localToday=()=>{const n=new Date();return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0")},today=localToday();
-selected=today<START?0:today>END?77:Math.max(0,plan.findIndex(x=>x.date===today));month=Number(plan[selected].date.slice(5,7));
+function weakestModules(){
+  const vals=[
+    ["Listening",rawBand(diagnostic.listening,"Listening")],
+    ["Reading",rawBand(diagnostic.reading,"Reading")],
+    ["Writing",Number(diagnostic.writing)],
+    ["Speaking",Number(diagnostic.speaking)]
+  ];
+
+  return vals.every(x=>Number.isFinite(x[1])&&x[1]>0)
+    ? vals.sort((a,b)=>a[1]-b[1])
+    : [];
+}
+
+function priority(n){
+  return priorities[n] || weakestModules()[n-1]?.[0] || ["Reading","Writing","Listening"][n-1];
+}
+
+function resolve(value){
+  return String(value).replace(/Priority ([123])/g,(_,n)=>"Priority "+n+" · "+priority(Number(n)));
+}
+
+function taskModule(t){
+  return t.module==="Priority"
+    ? priority(Number((t.title.match(/[123]/)||["1"])[0]))
+    : t.module;
+}
+
+/* Resource hierarchy: user's courses first */
+function resourcesFor(day){
+  const main=day.main==="Priority" ? priority(day.priorityNumber) : day.main;
+
+  if(day.type==="mock"){
+    return[
+      ["Online IELTS Mock Practice",resourceLinks.mockPractice],
+      ["Cambridge IELTS Practice",resourceLinks.cambridge],
+      ["My score / analysis hub",resourceLinks.hub]
+    ];
+  }
+
+  if(main==="Listening"){
+    return[
+      ["Munzereen Shahid · Listening",resourceLinks.listening],
+      ["Online Mock Practice",resourceLinks.mockPractice],
+      ["Cambridge IELTS Practice",resourceLinks.cambridge]
+    ];
+  }
+
+  if(main==="Reading"){
+    return[
+      ["Munzereen Shahid · Academic Reading",resourceLinks.reading],
+      ["Online Mock Practice",resourceLinks.mockPractice],
+      ["Cambridge IELTS Practice",resourceLinks.cambridge]
+    ];
+  }
+
+  if(main==="Writing"){
+    return[
+      ["Munzereen Shahid · Academic Writing",resourceLinks.writing],
+      ["Official IELTS Preparation",resourceLinks.ielts],
+      ["Cambridge IELTS Practice",resourceLinks.cambridge]
+    ];
+  }
+
+  if(main==="Speaking"){
+    return[
+      ["Munzereen Shahid · Speaking",resourceLinks.speaking],
+      ["Official IELTS Preparation",resourceLinks.ielts],
+      ["British Council IELTS",resourceLinks.british]
+    ];
+  }
+
+  if(main==="Grammar"){
+    return[
+      ["Complete English Grammar Course",resourceLinks.grammar],
+      ["My IELTS Course",resourceLinks.hub],
+      ["IELTS Dictionary",resourceLinks.dictionary]
+    ];
+  }
+
+  return[
+    ["My IELTS Course",resourceLinks.hub],
+    ["Online IELTS Mock Practice",resourceLinks.mockPractice],
+    ["IELTS Dictionary",resourceLinks.dictionary]
+  ];
+}
+
+function incomingFor(i){
+  const date=plan[i].date;
+  return Object.entries(moved)
+    .filter(([,v])=>v.target===date)
+    .map(([id,v])=>({...v,id,block:v.block||"evening",moved:true}));
+}
+
+function tasksFor(i){
+  return [...plan[i].tasks,...incomingFor(i)];
+}
+
+function requiredFor(i){
+  return tasksFor(i).filter(t=>!t.optional&&!skipped[t.id]);
+}
+
+function dayComplete(i){
+  const req=requiredFor(i);
+  return req.length>0 && req.every(t=>done[t.id]);
+}
+
+function renderTask(t){
+  const module=taskModule(t);
+  const title=resolve(t.title);
+  const short=resolve(t.short);
+  const detail=resolve(t.detail);
+
+  const state=moved[t.id] && moved[t.id].source===plan[selected].date
+    ? " · moved to "+moved[t.id].target
+    : "";
+
+  return `
+    <div class="task-wrap">
+      <div class="task-row">
+        <input type="checkbox" data-task="${safe(t.id)}" aria-label="Complete ${safe(title)}" ${done[t.id]?"checked":""}>
+        <button class="task-main" type="button" data-info="${safe(t.id)}">
+          <span class="task-meta">
+            <span class="badge module-${safe(module)}">${safe(icons[module]||"!")} · ${safe(module)}</span>
+            <span class="duration">${t.duration} min${safe(state)}${t.optional?" · optional":""}</span>
+          </span>
+          <b>${safe(title)}</b>
+          <small>${safe(short)}</small>
+        </button>
+        <button class="info-btn" type="button" data-info="${safe(t.id)}" aria-label="More information about ${safe(title)}">ⓘ</button>
+      </div>
+      <div class="tooltip" role="tooltip">${safe(detail)}</div>
+    </div>
+  `;
+}
+
+let selected=0;
+let month=9;
+
+const localToday=()=>{
+  const n=new Date();
+  return n.getFullYear()+"-"+String(n.getMonth()+1).padStart(2,"0")+"-"+String(n.getDate()).padStart(2,"0");
+};
+
+const today=localToday();
+
+selected=
+  today<START ? 0 :
+  today>END ? plan.length-1 :
+  Math.max(0,plan.findIndex(x=>x.date===today));
+
+month=Number(plan[selected].date.slice(5,7));
+
 let lastFocus=null;
-function showModal(title,text,actionsBuilder){$("modalTitle").textContent=title;$("modalBody").textContent=text;$("modalActions").replaceChildren();if(actionsBuilder)actionsBuilder($("modalActions"));lastFocus=document.activeElement;if(typeof $("modal").showModal==="function")$("modal").showModal();else $("modal").setAttribute("open","")}
-function closeModal(){if(typeof $("modal").close==="function")$("modal").close();else $("modal").removeAttribute("open");if(lastFocus&&lastFocus.focus)lastFocus.focus()}
-$("modalClose").onclick=closeModal;$("modal").addEventListener("click",e=>{if(e.target===$("modal"))closeModal()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("modal").open)closeModal()});
 
-function currentCloudData(){return{done,diagnostic,priorities,scores,errors,moved,skipped}}
-function hasCloudData(x){return Object.keys(x.done||{}).some(k=>x.done[k])||Object.values(x.diagnostic||{}).some(v=>v!==null&&v!==""&&v!==undefined)||Object.keys(x.priorities||{}).length>0||(x.scores||[]).length>0||(x.errors||[]).length>0||Object.keys(x.moved||{}).length>0||Object.keys(x.skipped||{}).some(k=>x.skipped[k])}
-function mergeFlags(a={},b={}){const result={...a,...b};new Set([...Object.keys(a),...Object.keys(b)]).forEach(k=>result[k]=Boolean(a[k]||b[k]));return result}
-function mergeObjects(a={},b={}){const result={...a};Object.entries(b).forEach(([k,v])=>{if(v!==null&&v!==""&&v!==undefined)result[k]=v});return result}
-function mergeById(a=[],b=[]){return[...new Map([...a,...b].map(x=>[x.id,x])).values()]}
-function mergeInitialCloud(remote,local){return{done:mergeFlags(remote.done,local.done),diagnostic:mergeObjects(remote.diagnostic,local.diagnostic),priorities:mergeObjects(remote.priorities,local.priorities),scores:mergeById(remote.scores,local.scores),errors:mergeById(remote.errors,local.errors),moved:{...(remote.moved||{}),...(local.moved||{})},skipped:mergeFlags(remote.skipped,local.skipped)}}
-function validCloudData(data){return validateBackup({schemaVersion:1,done:data?.done,diagnostic:data?.diagnostic,priorities:data?.priorities,scores:data?.scores,errors:data?.errors,moved:data?.moved,skipped:data?.skipped})}
-function setSyncStatus(message,state="local"){$("syncStatus").textContent=message;$("syncPanel").dataset.state=state}
-function applyCloudData(data,updatedAt){if(!validCloudData(data))throw Error("Cloud planner data has an invalid structure.");applyingCloud=true;done=data.done;diagnostic=data.diagnostic;priorities=data.priorities;scores=data.scores;errors=data.errors;moved=data.moved;skipped=data.skipped;writeLocal(STORE.done,done);writeLocal(STORE.diag,diagnostic);writeLocal(STORE.priorities,priorities);writeLocal(STORE.scores,scores);writeLocal(STORE.errors,errors);writeLocal(STORE.moved,moved);writeLocal(STORE.skipped,skipped);setLocalSyncTime(updatedAt);applyingCloud=false;renderDiagnostic();renderScores();renderErrors();renderDay()}
-function scheduleCloudSave(){if(!cloudUser||!cloudRef||!firebaseApi)return;clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(()=>saveCloudNow(),700)}
-async function saveCloudNow(){if(!cloudUser||!cloudRef||!firebaseApi||applyingCloud)return;clearTimeout(cloudSaveTimer);let updatedAt=localSyncTime();if(!updatedAt){updatedAt=Date.now();setLocalSyncTime(updatedAt)}const data=currentCloudData();if(new Blob([JSON.stringify(data)]).size>900000){setSyncStatus("Sync paused · planner data is too large for one cloud record.","error");return}setSyncStatus("Synchronizing changes…");try{await firebaseApi.setDoc(cloudRef,{schemaVersion:1,updatedAt,data});setSyncStatus("Synced across devices · "+new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}),"synced")}catch(e){setSyncStatus("Cloud save failed · local copy is safe.","error")}}
-async function connectCloudUser(user){if(cloudUnsubscribe){cloudUnsubscribe();cloudUnsubscribe=null}cloudUser=user;$("syncForm").hidden=Boolean(user);$("syncAccount").hidden=!user;$("syncUser").textContent=user?.email||"";if(!user){cloudRef=null;setSyncStatus(navigator.onLine?"Local mode · sign in to synchronize.":"Offline · local data is still saved.");return}cloudRef=firebaseApi.doc(firebaseApi.db,"users",user.uid,"planner","state");setSyncStatus("Connecting to your cloud planner…");cloudUnsubscribe=firebaseApi.onSnapshot(cloudRef,async snapshot=>{try{const local=currentCloudData(),localTime=localSyncTime();if(!snapshot.exists()){if(hasCloudData(local)){if(!localTime)setLocalSyncTime(Date.now());await saveCloudNow()}else setSyncStatus("Cloud connected · your first change will be synchronized.","synced");return}const record=snapshot.data();if(record.schemaVersion!==1||!validCloudData(record.data))throw Error("Invalid cloud data");const remoteTime=Number(record.updatedAt)||0;if(!localTime&&hasCloudData(local)){const merged=mergeInitialCloud(record.data,local),mergedAt=Date.now();applyCloudData(merged,mergedAt);await saveCloudNow()}else if(remoteTime>localTime){applyCloudData(record.data,remoteTime);setSyncStatus("Updated from another device.","synced")}else if(localTime>remoteTime){await saveCloudNow()}else setSyncStatus("Synced across devices.","synced")}catch(e){setSyncStatus("Cloud data could not be applied · local copy is safe.","error")}},()=>setSyncStatus("Cloud connection failed · check Firestore rules.","error"))}
-function startFirebase(){if(firebaseApi)return Promise.resolve(firebaseApi);if(firebaseLoadPromise)return firebaseLoadPromise;if(!navigator.onLine){setSyncStatus("Offline · local data is still saved.");return Promise.reject(Error("Offline"))}setSyncStatus("Loading secure cloud sync…");firebaseLoadPromise=(async()=>{const version="11.10.0",[appSdk,authSdk,storeSdk]=await Promise.all([import("https://www.gstatic.com/firebasejs/"+version+"/firebase-app.js"),import("https://www.gstatic.com/firebasejs/"+version+"/firebase-auth.js"),import("https://www.gstatic.com/firebasejs/"+version+"/firebase-firestore.js")]),app=appSdk.initializeApp(FIREBASE_CONFIG),auth=authSdk.getAuth(app),db=storeSdk.getFirestore(app);try{await authSdk.setPersistence(auth,authSdk.browserLocalPersistence)}catch(e){}firebaseApi={auth,db,signIn:authSdk.signInWithEmailAndPassword,signOut:authSdk.signOut,doc:storeSdk.doc,setDoc:storeSdk.setDoc,deleteDoc:storeSdk.deleteDoc,onSnapshot:storeSdk.onSnapshot};authSdk.onAuthStateChanged(auth,connectCloudUser);return firebaseApi})().catch(e=>{firebaseLoadPromise=null;setSyncStatus("Cloud sync unavailable · local mode continues.","error");throw e});return firebaseLoadPromise}
-function bindSyncUI(){$("syncForm").onsubmit=async e=>{e.preventDefault();setSyncStatus("Signing in…");try{const api=await startFirebase();await api.signIn(api.auth,$("syncEmail").value.trim(),$("syncPassword").value);$("syncPassword").value=""}catch(err){const message=err?.code==="auth/invalid-credential"?"Incorrect email or password.":err?.code==="auth/too-many-requests"?"Too many attempts · try again later.":"Sign-in failed · check Authentication setup.";setSyncStatus(message,"error")}};$("syncSignOut").onclick=async()=>{if(firebaseApi)await firebaseApi.signOut(firebaseApi.auth)};$("syncNow").onclick=()=>{setLocalSyncTime(Date.now());saveCloudNow()};window.addEventListener("offline",()=>setSyncStatus("Offline · changes remain saved on this device."));window.addEventListener("online",()=>startFirebase().then(()=>scheduleCloudSave()).catch(()=>{}))}
+function showModal(title,text,actionsBuilder){
+  $("modalTitle").textContent=title;
+  $("modalBody").textContent=text;
+  $("modalActions").replaceChildren();
 
-function bindTasks(){document.querySelectorAll("[data-task]").forEach(x=>x.onchange=()=>{done[x.dataset.task]=x.checked;write(STORE.done,done);renderProgress();renderCalendar()});document.querySelectorAll("[data-info]").forEach(b=>b.onclick=()=>{const t=tasksFor(selected).find(x=>x.id===b.dataset.info);if(t)showModal(resolve(t.title),resolve(t.detail)+"\n\nSuccess: "+resolve(t.short))})}
-function renderDay(){const day=plan[selected],all=tasksFor(selected),morning=all.filter(t=>t.block==="morning"),evening=all.filter(t=>t.block==="evening"),main=day.main==="Priority"?priority(day.priorityNumber):day.main;month=Number(day.date.slice(5,7));$("dayNo").textContent="DAY "+(selected+1)+" OF 78";$("dateTitle").textContent=fmt(day.date);$("module").textContent=main;$("focus").textContent=resolve(day.focus);$("topic").textContent=day.phase.name;$("date").textContent=day.date;$("sumMain").textContent=main;$("sumSecondary").textContent=resolve(day.secondary);$("sumMinutes").textContent=all.reduce((n,t)=>n+t.duration,0)+" min";$("sumTarget").textContent=resolve(day.target);$("sumPhase").textContent=day.phase.n+" · "+day.phase.name;const long=[5,6].includes(utcDay(day.date));$("morningTime").textContent=long?"8:00–11:30 AM":"6:00–7:30 AM";$("eveningTime").textContent=long?"7:00–9:00 PM":"7:00–8:30 PM";$("morningTasks").innerHTML=morning.map(renderTask).join("");$("eveningTasks").innerHTML=evening.map(renderTask).join("");$("resources").innerHTML=resourcesFor(day).slice(0,3).map(x=>'<a href="'+x[1]+'" target="_blank" rel="noopener noreferrer">'+safe(x[0])+'<span>↗</span></a>').join("");const required=requiredFor(selected);$("reviewItems").innerHTML="<li>Complete all "+required.length+" required tasks; optional work does not affect completion.</li><li>Record scores after timed work and structured errors after important mistakes.</li><li>Keep the main task within today's available study minutes.</li>";$("completionGoal").textContent=resolve(day.target)+". Finish with evidence: a score, corrected output, recording or updated Error Log.";$("prev").disabled=selected===0;$("next").disabled=selected===77;bindTasks();renderProgress();renderMonths();renderCalendar()}
+  if(actionsBuilder) actionsBuilder($("modalActions"));
 
-function renderProgress(){const completed=plan.filter((_,i)=>dayComplete(i)).length,allRequired=plan.flatMap((_,i)=>requiredFor(i)),unique=[...new Map(allRequired.map(t=>[t.id,t])).values()],doneCount=unique.filter(t=>done[t.id]).length;$("daysComplete").textContent=completed;$("tasksComplete").textContent=doneCount+"/"+unique.length;$("bar").style.width=(unique.length?doneCount/unique.length*100:0)+"%";let endIndex=today<START?-1:today>END?77:plan.findIndex(x=>x.date===today),run=0;for(let i=endIndex;i>=0&&dayComplete(i);i--)run++;$("streak").textContent=run;const td=new Date((today<START?START:today)+"T00:00:00Z"),sun=new Date(td);sun.setUTCDate(td.getUTCDate()-td.getUTCDay());const sat=new Date(sun);sat.setUTCDate(sun.getUTCDate()+6);const ws=sun.toISOString().slice(0,10),we=sat.toISOString().slice(0,10),weekIndexes=plan.map((p,i)=>({p,i})).filter(x=>x.p.date>=ws&&x.p.date<=we).map(x=>x.i),weekTasks=weekIndexes.flatMap(i=>requiredFor(i)),weekUnique=[...new Map(weekTasks.map(t=>[t.id,t])).values()];$("weeklyRate").textContent=(weekUnique.length?Math.round(weekUnique.filter(t=>done[t.id]).length/weekUnique.length*100):0)+"%";$("daysLeft").textContent=today>END?0:plan.filter(p=>p.date>=today).length;const sorted=[...scores].sort((a,b)=>a.date.localeCompare(b.date));$("latestBand").textContent=sorted.length?overall(sorted.at(-1)).toFixed(1):"—"}
-function renderMonths(){$("months").innerHTML=[[8,"August"],[9,"September"],[10,"October"],[11,"November"]].map(x=>'<button data-month="'+x[0]+'" class="'+(month===x[0]?"active":"")+'" aria-pressed="'+(month===x[0])+'">'+x[1]+'</button>').join("");$("months").querySelectorAll("button").forEach(b=>b.onclick=()=>{month=Number(b.dataset.month);renderMonths();renderCalendar()})}
-function renderCalendar(){const weekdays=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],daysInMonth=new Date(Date.UTC(2026,month,0)).getUTCDate(),firstDay=new Date(Date.UTC(2026,month-1,1)).getUTCDay(),cards=weekdays.map(x=>'<div class="weekday">'+x+'</div>');for(let i=0;i<firstDay;i++)cards.push('<div class="calendar-blank" aria-hidden="true"></div>');for(let dayNumber=1;dayNumber<=daysInMonth;dayNumber++){const date="2026-"+String(month).padStart(2,"0")+"-"+String(dayNumber).padStart(2,"0"),i=plan.findIndex(p=>p.date===date);if(i>=0){const p=plan[i],complete=dayComplete(i),missed=p.date<today&&!complete,main=p.main==="Priority"?priority(p.priorityNumber):p.main,status=complete?"Complete":missed?"Missed":p.date===today?"Today":"Planned";cards.push('<button class="day '+(i===selected?"selected ":"")+(p.date===today?"today ":"")+(complete?"complete ":"")+(missed?"missed ":"")+(p.type==="mock"?"mock ":"")+(p.type==="light"?"light ":"")+'" data-day="'+i+'" aria-label="'+safe(fmt(p.date))+': '+safe(resolve(p.focus))+', '+status+'"><em>'+dayNumber+'</em><span class="badge module-'+safe(main)+'">'+safe(icons[main]||"✓")+' · '+safe(main)+'</span><b>'+safe(resolve(p.focus))+'</b><small>'+status+'</small></button>')}else if(date===EXAM){cards.push('<button class="day exam-day '+(today===EXAM?"today":"")+'" id="examCard" aria-label="14 November 2026, Exam Day, no study"><em>14</em><span class="badge">Exam</span><b>Exam Day — No Study</b><small>Calm, prepared and on time</small></button>')}else{const label=date<START?"Before preparation":date>EXAM?"After exam":"No study scheduled";cards.push('<div class="day outside-plan" aria-label="'+safe(fmt(date))+': '+label+'"><em>'+dayNumber+'</em><b>'+label+'</b><small>No study task</small></div>')}}while((cards.length-7)%7)cards.push('<div class="calendar-blank" aria-hidden="true"></div>');$("grid").innerHTML=cards.join("");$("grid").querySelectorAll("[data-day]").forEach(b=>b.onclick=()=>{selected=Number(b.dataset.day);renderDay();window.scrollTo({top:0,behavior:"smooth"})});const ex=$("examCard");if(ex)ex.onclick=()=>showModal("Exam Day — No Study","14 November 2026\n\nUse your familiar routine, arrive early and focus on calm execution. No study is scheduled.")}
-$("prev").onclick=()=>{if(selected){selected--;renderDay()}};$("next").onclick=()=>{if(selected<77){selected++;renderDay()}};
+  lastFocus=document.activeElement;
 
-function moveUnfinished(){const item=plan[selected].tasks.find(t=>t.priority==="high"&&!done[t.id]&&!skipped[t.id]&&!moved[t.id]);if(!item)return showModal("Nothing to move","There are no unrescheduled high-priority tasks on this day.");const options=[];for(let i=selected+1;i<plan.length;i++){const p=plan[i];if(fullMocks.has(p.date)||!(p.type==="review"||p.type==="light"||[5,6].includes(utcDay(p.date))))continue;const long=[5,6].includes(utcDay(p.date)),limits={morning:long?210:90,evening:long?120:90};for(const block of ["morning","evening"]){const used=tasksFor(i).filter(t=>t.block===block).reduce((n,t)=>n+t.duration,0);if(limits[block]-used>=item.duration){options.push({p,block});break}}if(options.length===6)break}if(!options.length)return showModal("No safe catch-up block","No future catch-up block has enough unused time for “"+resolve(item.title)+"”. Skip it manually or keep it unfinished; the planner will not overload another day.");showModal("Move one priority task","Move “"+resolve(item.title)+"” only. Every suggested block has enough unused time, so the next normal day is not overloaded.",box=>{const select=document.createElement("select");options.forEach(x=>{const o=document.createElement("option");o.value=x.p.date+"|"+x.block;o.textContent=x.p.date+" · "+x.block+" · "+resolve(x.p.focus);select.append(o)});box.append(select);const moveButton=document.createElement("button");moveButton.className="btn primary";moveButton.textContent="Move task";moveButton.onclick=()=>{const [target,block]=select.value.split("|");moved[item.id]={...item,source:plan[selected].date,target,block};write(STORE.moved,moved);closeModal();renderDay()};box.append(moveButton)})}
-function skipUnfinished(){const unfinished=plan[selected].tasks.filter(t=>!done[t.id]&&!t.optional&&!skipped[t.id]);if(!unfinished.length)return showModal("Nothing to skip","All required tasks are complete or already skipped.");showModal("Skip unfinished tasks","Skipping removes these tasks from required progress. Use this only when rescheduling would create overload.",box=>{const b=document.createElement("button");b.className="btn danger";b.textContent="Skip "+unfinished.length+" task"+(unfinished.length>1?"s":"");b.onclick=()=>{unfinished.forEach(t=>skipped[t.id]=true);write(STORE.skipped,skipped);closeModal();renderDay()};box.append(b)})}
-$("moveTasks").onclick=moveUnfinished;$("skipTasks").onclick=skipUnfinished;
+  if(typeof $("modal").showModal==="function") $("modal").showModal();
+  else $("modal").setAttribute("open","");
+}
 
-function optionList(select,includeAll=false){select.replaceChildren();if(includeAll){const o=document.createElement("option");o.value="";o.textContent="All modules";select.append(o)}MODULES.concat(["Review"]).forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;select.append(o)})}
-optionList($("errorModule"));optionList($("filterModule"),true);[1,2,3].forEach(n=>{const s=$("priority"+n);MODULES.slice(0,4).forEach(m=>{const o=document.createElement("option");o.value=m;o.textContent=m;s.append(o)});s.onchange=()=>{priorities[n]=s.value;write(STORE.priorities,priorities);renderDiagnostic();renderDay()}});
-["diagListening","diagReading","diagWriting","diagSpeaking"].forEach(id=>$(id).oninput=()=>{diagnostic[id.replace("diag","").toLowerCase()]=$(id).value===""?null:Number($(id).value);write(STORE.diag,diagnostic);renderDiagnostic()});
-function renderDiagnostic(){const mapping={diagListening:"listening",diagReading:"reading",diagWriting:"writing",diagSpeaking:"speaking"};Object.entries(mapping).forEach(([id,key])=>{if(document.activeElement!==$(id))$(id).value=diagnostic[key]??""});const weak=weakestModules();$("weakest").textContent=weak.length?"Suggested weakest: "+weak.map(x=>x[0]+" (est. "+x[1].toFixed(1)+")").join(" → "):"Enter all four results to identify the weakest modules.";[1,2,3].forEach(n=>{$("priority"+n).value=priority(n)})}
+function closeModal(){
+  if(typeof $("modal").close==="function") $("modal").close();
+  else $("modal").removeAttribute("open");
 
-function validScore(s){return s&&typeof s.id==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(s.date)&&typeof s.type==="string"&&Number.isFinite(Number(s.listening))&&Number(s.listening)>=0&&Number(s.listening)<=40&&Number.isFinite(Number(s.reading))&&Number(s.reading)>=0&&Number(s.reading)<=40&&Number.isFinite(Number(s.writing))&&Number(s.writing)>=0&&Number(s.writing)<=9&&Number.isFinite(Number(s.speaking))&&Number(s.speaking)>=0&&Number(s.speaking)<=9&&typeof s.notes==="string"&&s.notes.length<=500}
-function resetScoreForm(){$("scoreForm").reset();$("scoreId").value="";$("scoreDate").value=plan[selected].date;$("scoreForm").querySelector("button[type=submit]").textContent="Add result";$("cancelScore").hidden=true}
-$("scoreForm").onsubmit=e=>{e.preventDefault();const item={id:$("scoreId").value||String(Date.now()),date:$("scoreDate").value,type:$("scoreType").value,listening:Number($("scoreListening").value),reading:Number($("scoreReading").value),writing:Number($("scoreWriting").value),speaking:Number($("scoreSpeaking").value),notes:$("scoreNotes").value.trim()};if(!validScore(item))return alert("Please enter valid score values.");const at=scores.findIndex(x=>x.id===item.id);if(at>=0)scores[at]=item;else scores.push(item);write(STORE.scores,scores);resetScoreForm();renderScores();renderProgress()};$("cancelScore").onclick=resetScoreForm;
-function editScore(id){const s=scores.find(x=>x.id===id);if(!s)return;$("scoreId").value=s.id;$("scoreDate").value=s.date;$("scoreType").value=s.type;$("scoreListening").value=s.listening;$("scoreReading").value=s.reading;$("scoreWriting").value=s.writing;$("scoreSpeaking").value=s.speaking;$("scoreNotes").value=s.notes;$("scoreForm").querySelector("button[type=submit]").textContent="Save changes";$("cancelScore").hidden=false;$("scoreDate").focus()}
-function deleteScore(id){if(confirm("Delete this score result? This cannot be undone.")){scores=scores.filter(x=>x.id!==id);write(STORE.scores,scores);renderScores();renderProgress()}}
-function renderScores(){const sorted=[...scores].filter(validScore).sort((a,b)=>a.date.localeCompare(b.date));$("scoreRows").replaceChildren();sorted.forEach(s=>{const tr=document.createElement("tr"),vals=[s.date,s.type,s.listening+"/40 · est. "+rawBand(s.listening,"Listening"),s.reading+"/40 · est. "+rawBand(s.reading,"Reading"),Number(s.writing).toFixed(1),Number(s.speaking).toFixed(1),overall(s).toFixed(1),s.notes||"—"];vals.forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});const td=document.createElement("td"),edit=document.createElement("button"),del=document.createElement("button");edit.className=del.className="btn small";edit.textContent="Edit";del.textContent="Delete";del.classList.add("danger");edit.onclick=()=>editScore(s.id);del.onclick=()=>deleteScore(s.id);td.append(edit," ",del);tr.append(td);$("scoreRows").append(tr)});const latest=sorted.at(-1),best=sorted.length?Math.max(...sorted.map(overall)):null;$("latestScore").textContent=latest?overall(latest).toFixed(1):"—";$("bestScore").textContent=best!==null?best.toFixed(1):"—";$("trend").replaceChildren();sorted.slice(-12).forEach(s=>{const b=document.createElement("i"),o=overall(s);b.style.height=Math.max(6,o/9*100)+"%";b.title=s.date+" · estimated "+o.toFixed(1);b.setAttribute("aria-label",b.title);$("trend").append(b)})}
+  if(lastFocus&&lastFocus.focus) lastFocus.focus();
+}
 
-function validError(x){return x&&typeof x.id==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(x.date)&&ALL_MODULES.includes(x.module)&&["New","Reviewing","Fixed"].includes(x.status)&&["topic","mistake","cause","correction","rule","prevention"].every(k=>typeof x[k]==="string"&&x[k].length<=1000)}
-function resetErrorForm(){$("errorForm").reset();$("errorId").value="";$("errorDate").value=plan[selected].date;$("errorForm").querySelector("button[type=submit]").textContent="Add error";$("cancelError").hidden=true}
-$("errorForm").onsubmit=e=>{e.preventDefault();const item={id:$("errorId").value||String(Date.now()),date:$("errorDate").value,module:$("errorModule").value,topic:$("errorTopic").value.trim(),mistake:$("errorMistake").value.trim(),cause:$("errorCause").value.trim(),correction:$("errorCorrection").value.trim(),rule:$("errorRule").value.trim(),prevention:$("errorPrevention").value.trim(),status:$("errorStatus").value};if(!validError(item))return alert("Please complete every Error Log field.");const at=errors.findIndex(x=>x.id===item.id);if(at>=0)errors[at]=item;else errors.push(item);write(STORE.errors,errors);resetErrorForm();renderErrors()};$("cancelError").onclick=resetErrorForm;
-function editError(id){const x=errors.find(e=>e.id===id);if(!x)return;$("errorId").value=x.id;$("errorDate").value=x.date;$("errorModule").value=x.module;$("errorTopic").value=x.topic;$("errorMistake").value=x.mistake;$("errorCause").value=x.cause;$("errorCorrection").value=x.correction;$("errorRule").value=x.rule;$("errorPrevention").value=x.prevention;$("errorStatus").value=x.status;$("errorForm").querySelector("button[type=submit]").textContent="Save changes";$("cancelError").hidden=false;$("errorPanel").open=true;$("errorDate").focus()}
-function deleteError(id){if(confirm("Delete this Error Log entry?")){errors=errors.filter(x=>x.id!==id);write(STORE.errors,errors);renderErrors()}}
-["filterModule","filterStatus","filterFrom","filterTo"].forEach(id=>$(id).onchange=renderErrors);
-function renderErrors(){const mod=$("filterModule").value,status=$("filterStatus").value,from=$("filterFrom").value,to=$("filterTo").value,list=errors.filter(validError).filter(x=>(!mod||x.module===mod)&&(!status||x.status===status)&&(!from||x.date>=from)&&(!to||x.date<=to)).sort((a,b)=>b.date.localeCompare(a.date));$("errorList").replaceChildren();if(!list.length){const p=document.createElement("p");p.className="note";p.textContent="No Error Log entries match these filters.";$("errorList").append(p)}list.forEach(x=>{const a=document.createElement("article");a.className="error-entry";const h=document.createElement("header"),title=document.createElement("b"),badge=document.createElement("span");title.textContent=x.date+" · "+x.module+" · "+x.topic;badge.className="badge";badge.textContent=x.status;h.append(title,badge);a.append(h);[["Mistake",x.mistake],["Cause",x.cause],["Correction",x.correction],["Rule / strategy",x.rule],["Prevention",x.prevention]].forEach(v=>{const p=document.createElement("p"),strong=document.createElement("strong");strong.textContent=v[0]+": ";p.append(strong,document.createTextNode(v[1]));a.append(p)});const edit=document.createElement("button"),del=document.createElement("button");edit.className=del.className="btn small";edit.textContent="Edit";del.textContent="Delete";del.classList.add("danger");edit.onclick=()=>editError(x.id);del.onclick=()=>deleteError(x.id);a.append(edit," ",del);$("errorList").append(a)})}
+$("modalClose").onclick=closeModal;
+$("modal").addEventListener("click",e=>{
+  if(e.target===$("modal")) closeModal();
+});
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&$("modal").open) closeModal();
+});
 
-function backup(){return{schemaVersion:1,exportedAt:new Date().toISOString(),done,diagnostic,priorities,scores,errors,moved,skipped}}
-function validateBackup(x){if(!x||x.schemaVersion!==1||typeof x.done!=="object"||typeof x.diagnostic!=="object"||typeof x.priorities!=="object"||!Array.isArray(x.scores)||!Array.isArray(x.errors)||typeof x.moved!=="object"||typeof x.skipped!=="object")return false;if(x.scores.length>1000||x.errors.length>5000)return false;if(!x.scores.every(validScore)||!x.errors.every(validError))return false;if(!Object.values(x.done).every(v=>typeof v==="boolean")||!Object.values(x.skipped).every(v=>typeof v==="boolean"))return false;if(!Object.values(x.priorities).every(v=>MODULES.slice(0,4).includes(v)))return false;const dates=new Set(plan.map(p=>p.date));if(!Object.values(x.moved).every(v=>v&&typeof v.id==="string"&&dates.has(v.source)&&dates.has(v.target)&&["morning","evening"].includes(v.block)&&typeof v.title==="string"&&v.title.length<300&&typeof v.short==="string"&&v.short.length<500&&typeof v.detail==="string"&&v.detail.length<2000&&Number.isFinite(v.duration)&&v.duration>0&&v.duration<=210))return false;return true}
-$("exportData").onclick=()=>{const blob=new Blob([JSON.stringify(backup(),null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download="ielts-planner-backup-"+today+".json";a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
-$("importFile").onchange=e=>{const file=e.target.files[0];if(!file)return;const reader=new FileReader();reader.onload=()=>{try{const x=JSON.parse(reader.result);if(!validateBackup(x))throw Error("Invalid structure");if(!confirm("Import this backup and replace current planner data?"))return;done=x.done;diagnostic=x.diagnostic;priorities=x.priorities;scores=x.scores;errors=x.errors;moved=x.moved;skipped=x.skipped;write(STORE.done,done);write(STORE.diag,diagnostic);write(STORE.priorities,priorities);write(STORE.scores,scores);write(STORE.errors,errors);write(STORE.moved,moved);write(STORE.skipped,skipped);location.reload()}catch(err){alert("Import failed: the JSON backup is invalid.")}};reader.readAsText(file);e.target.value=""};
-$("resetData").onclick=async()=>{const scope=cloudUser?"this device and your synchronized cloud account":"this device",answer=prompt("This permanently clears planner progress, scores, priorities, rescheduling and Error Log data from "+scope+". Type RESET to continue.");if(answer!=="RESET")return;if(cloudUser){if(!navigator.onLine||!firebaseApi||!cloudRef)return alert("Connect to the internet before resetting synchronized data.");try{if(cloudUnsubscribe){cloudUnsubscribe();cloudUnsubscribe=null}await firebaseApi.deleteDoc(cloudRef)}catch(e){setSyncStatus("Cloud reset failed · no local data was removed.","error");return alert("The cloud data could not be reset. Check your connection and Firestore rules.")}}Object.values(STORE).forEach(k=>{try{localStorage.removeItem(k)}catch(e){}});try{localStorage.removeItem("ielts-central-error-log");localStorage.removeItem(SYNC_META)}catch(e){}location.reload()};
+/* =========================================================
+   CLOUD SYNC
+   ========================================================= */
+function currentCloudData(){
+  return {done,diagnostic,priorities,scores,errors,moved,skipped};
+}
 
-function init(){const quoteIndex=today<START?0:today>END?motivationQuotes.length-1:Math.max(0,plan.findIndex(p=>p.date===today));$("motivationQuote").textContent="“"+motivationQuotes[quoteIndex]+"”";renderDiagnostic();renderScores();renderErrors();resetScoreForm();resetErrorForm();renderDay();bindSyncUI();startFirebase().catch(()=>{})}
+function hasCloudData(x){
+  return Object.keys(x.done||{}).some(k=>x.done[k]) ||
+    Object.values(x.diagnostic||{}).some(v=>v!==null&&v!==""&&v!==undefined) ||
+    Object.keys(x.priorities||{}).length>0 ||
+    (x.scores||[]).length>0 ||
+    (x.errors||[]).length>0 ||
+    Object.keys(x.moved||{}).length>0 ||
+    Object.keys(x.skipped||{}).some(k=>x.skipped[k]);
+}
+
+function mergeFlags(a={},b={}){
+  const result={...a,...b};
+  new Set([...Object.keys(a),...Object.keys(b)]).forEach(k=>result[k]=Boolean(a[k]||b[k]));
+  return result;
+}
+
+function mergeObjects(a={},b={}){
+  const result={...a};
+  Object.entries(b).forEach(([k,v])=>{
+    if(v!==null&&v!==""&&v!==undefined) result[k]=v;
+  });
+  return result;
+}
+
+function mergeById(a=[],b=[]){
+  return [...new Map([...a,...b].map(x=>[x.id,x])).values()];
+}
+
+function mergeInitialCloud(remote,local){
+  return{
+    done:mergeFlags(remote.done,local.done),
+    diagnostic:mergeObjects(remote.diagnostic,local.diagnostic),
+    priorities:mergeObjects(remote.priorities,local.priorities),
+    scores:mergeById(remote.scores,local.scores),
+    errors:mergeById(remote.errors,local.errors),
+    moved:{...(remote.moved||{}),...(local.moved||{})},
+    skipped:mergeFlags(remote.skipped,local.skipped)
+  };
+}
+
+function validCloudData(data){
+  return validateBackup({
+    schemaVersion:1,
+    done:data?.done,
+    diagnostic:data?.diagnostic,
+    priorities:data?.priorities,
+    scores:data?.scores,
+    errors:data?.errors,
+    moved:data?.moved,
+    skipped:data?.skipped
+  });
+}
+
+function setSyncStatus(message,state="local"){
+  $("syncStatus").textContent=message;
+  $("syncPanel").dataset.state=state;
+}
+
+function applyCloudData(data,updatedAt){
+  if(!validCloudData(data)) throw Error("Cloud planner data has an invalid structure.");
+
+  applyingCloud=true;
+
+  done=data.done;
+  diagnostic=data.diagnostic;
+  priorities=data.priorities;
+  scores=data.scores;
+  errors=data.errors;
+  moved=data.moved;
+  skipped=data.skipped;
+
+  writeLocal(STORE.done,done);
+  writeLocal(STORE.diag,diagnostic);
+  writeLocal(STORE.priorities,priorities);
+  writeLocal(STORE.scores,scores);
+  writeLocal(STORE.errors,errors);
+  writeLocal(STORE.moved,moved);
+  writeLocal(STORE.skipped,skipped);
+  setLocalSyncTime(updatedAt);
+
+  applyingCloud=false;
+
+  renderDiagnostic();
+  renderScores();
+  renderErrors();
+  renderDay();
+}
+
+function scheduleCloudSave(){
+  if(!cloudUser||!cloudRef||!firebaseApi) return;
+  clearTimeout(cloudSaveTimer);
+  cloudSaveTimer=setTimeout(()=>saveCloudNow(),700);
+}
+
+async function saveCloudNow(){
+  if(!cloudUser||!cloudRef||!firebaseApi||applyingCloud) return;
+
+  clearTimeout(cloudSaveTimer);
+
+  let updatedAt=localSyncTime();
+
+  if(!updatedAt){
+    updatedAt=Date.now();
+    setLocalSyncTime(updatedAt);
+  }
+
+  const data=currentCloudData();
+
+  if(new Blob([JSON.stringify(data)]).size>900000){
+    setSyncStatus("Sync paused · planner data is too large for one cloud record.","error");
+    return;
+  }
+
+  setSyncStatus("Synchronizing changes…");
+
+  try{
+    await firebaseApi.setDoc(cloudRef,{schemaVersion:1,updatedAt,data});
+    setSyncStatus(
+      "Synced across devices · "+new Date().toLocaleTimeString([], {hour:"2-digit",minute:"2-digit"}),
+      "synced"
+    );
+  }catch(e){
+    setSyncStatus("Cloud save failed · local copy is safe.","error");
+  }
+}
+
+async function connectCloudUser(user){
+  if(cloudUnsubscribe){
+    cloudUnsubscribe();
+    cloudUnsubscribe=null;
+  }
+
+  cloudUser=user;
+  $("syncForm").hidden=Boolean(user);
+  $("syncAccount").hidden=!user;
+  $("syncUser").textContent=user?.email||"";
+
+  if(!user){
+    cloudRef=null;
+    setSyncStatus(navigator.onLine ? "Local mode · sign in to synchronize." : "Offline · local data is still saved.");
+    return;
+  }
+
+  cloudRef=firebaseApi.doc(firebaseApi.db,"users",user.uid,"planner","state");
+  setSyncStatus("Connecting to your cloud planner…");
+
+  cloudUnsubscribe=firebaseApi.onSnapshot(
+    cloudRef,
+    async snapshot=>{
+      try{
+        const local=currentCloudData();
+        const localTime=localSyncTime();
+
+        if(!snapshot.exists()){
+          if(hasCloudData(local)){
+            if(!localTime) setLocalSyncTime(Date.now());
+            await saveCloudNow();
+          }else{
+            setSyncStatus("Cloud connected · your first change will be synchronized.","synced");
+          }
+          return;
+        }
+
+        const record=snapshot.data();
+
+        if(record.schemaVersion!==1||!validCloudData(record.data)){
+          throw Error("Invalid cloud data");
+        }
+
+        const remoteTime=Number(record.updatedAt)||0;
+
+        if(!localTime&&hasCloudData(local)){
+          const merged=mergeInitialCloud(record.data,local);
+          const mergedAt=Date.now();
+          applyCloudData(merged,mergedAt);
+          await saveCloudNow();
+        }else if(remoteTime>localTime){
+          applyCloudData(record.data,remoteTime);
+          setSyncStatus("Updated from another device.","synced");
+        }else if(localTime>remoteTime){
+          await saveCloudNow();
+        }else{
+          setSyncStatus("Synced across devices.","synced");
+        }
+      }catch(e){
+        setSyncStatus("Cloud data could not be applied · local copy is safe.","error");
+      }
+    },
+    ()=>setSyncStatus("Cloud connection failed · check Firestore rules.","error")
+  );
+}
+
+function startFirebase(){
+  if(firebaseApi) return Promise.resolve(firebaseApi);
+  if(firebaseLoadPromise) return firebaseLoadPromise;
+
+  if(!navigator.onLine){
+    setSyncStatus("Offline · local data is still saved.");
+    return Promise.reject(Error("Offline"));
+  }
+
+  setSyncStatus("Loading secure cloud sync…");
+
+  firebaseLoadPromise=(async()=>{
+    const version="11.10.0";
+
+    const [appSdk,authSdk,storeSdk]=await Promise.all([
+      import("https://www.gstatic.com/firebasejs/"+version+"/firebase-app.js"),
+      import("https://www.gstatic.com/firebasejs/"+version+"/firebase-auth.js"),
+      import("https://www.gstatic.com/firebasejs/"+version+"/firebase-firestore.js")
+    ]);
+
+    const app=appSdk.initializeApp(FIREBASE_CONFIG);
+    const auth=authSdk.getAuth(app);
+    const db=storeSdk.getFirestore(app);
+
+    try{
+      await authSdk.setPersistence(auth,authSdk.browserLocalPersistence);
+    }catch(e){}
+
+    firebaseApi={
+      auth,db,
+      signIn:authSdk.signInWithEmailAndPassword,
+      signOut:authSdk.signOut,
+      doc:storeSdk.doc,
+      setDoc:storeSdk.setDoc,
+      deleteDoc:storeSdk.deleteDoc,
+      onSnapshot:storeSdk.onSnapshot
+    };
+
+    authSdk.onAuthStateChanged(auth,connectCloudUser);
+
+    return firebaseApi;
+  })().catch(e=>{
+    firebaseLoadPromise=null;
+    setSyncStatus("Cloud sync unavailable · local mode continues.","error");
+    throw e;
+  });
+
+  return firebaseLoadPromise;
+}
+
+function bindSyncUI(){
+  $("syncForm").onsubmit=async e=>{
+    e.preventDefault();
+    setSyncStatus("Signing in…");
+
+    try{
+      const api=await startFirebase();
+      await api.signIn(api.auth,$("syncEmail").value.trim(),$("syncPassword").value);
+      $("syncPassword").value="";
+    }catch(err){
+      const message=
+        err?.code==="auth/invalid-credential" ? "Incorrect email or password." :
+        err?.code==="auth/too-many-requests" ? "Too many attempts · try again later." :
+        "Sign-in failed · check Authentication setup.";
+
+      setSyncStatus(message,"error");
+    }
+  };
+
+  $("syncSignOut").onclick=async()=>{
+    if(firebaseApi) await firebaseApi.signOut(firebaseApi.auth);
+  };
+
+  $("syncNow").onclick=()=>{
+    setLocalSyncTime(Date.now());
+    saveCloudNow();
+  };
+
+  window.addEventListener("offline",()=>{
+    setSyncStatus("Offline · changes remain saved on this device.");
+  });
+
+  window.addEventListener("online",()=>{
+    startFirebase().then(()=>scheduleCloudSave()).catch(()=>{});
+  });
+}
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+function bindTasks(){
+  document.querySelectorAll("[data-task]").forEach(x=>{
+    x.onchange=()=>{
+      done[x.dataset.task]=x.checked;
+      write(STORE.done,done);
+      renderProgress();
+      renderCalendar();
+    };
+  });
+
+  document.querySelectorAll("[data-info]").forEach(b=>{
+    b.onclick=()=>{
+      const t=tasksFor(selected).find(x=>x.id===b.dataset.info);
+      if(t) showModal(resolve(t.title),resolve(t.detail)+"\n\nSuccess: "+resolve(t.short));
+    };
+  });
+}
+
+function renderDay(){
+  const day=plan[selected];
+  const all=tasksFor(selected);
+  const morning=all.filter(t=>t.block==="morning");
+  const evening=all.filter(t=>t.block==="evening");
+  const main=day.main==="Priority" ? priority(day.priorityNumber) : day.main;
+
+  month=Number(day.date.slice(5,7));
+
+  $("dayNo").textContent="DAY "+(selected+1)+" OF "+PLAN_DAYS;
+  $("dateTitle").textContent=fmt(day.date);
+  $("module").textContent=main;
+  $("focus").textContent=resolve(day.focus);
+  $("topic").textContent=day.phase.name;
+  $("date").textContent=day.date;
+
+  $("sumMain").textContent=main;
+  $("sumSecondary").textContent=resolve(day.secondary);
+  $("sumMinutes").textContent=all.reduce((n,t)=>n+t.duration,0)+" min";
+  $("sumTarget").textContent=resolve(day.target);
+  $("sumPhase").textContent=day.phase.n+" · "+day.phase.name;
+
+  const long=[5,6].includes(utcDay(day.date));
+
+  $("morningTime").textContent=long ? "8:00–11:30 AM" : "6:00–7:30 AM";
+  $("eveningTime").textContent=long ? "7:00–9:00 PM" : "7:00–8:30 PM";
+
+  $("morningTasks").innerHTML=morning.map(renderTask).join("");
+  $("eveningTasks").innerHTML=evening.map(renderTask).join("");
+
+  $("resources").innerHTML=resourcesFor(day)
+    .slice(0,3)
+    .map(x=>`<a href="${x[1]}" target="_blank" rel="noopener noreferrer">${safe(x[0])}<span>↗</span></a>`)
+    .join("");
+
+  const required=requiredFor(selected);
+
+  $("reviewItems").innerHTML=
+    "<li>Complete all "+required.length+" required tasks; optional work does not affect completion.</li>"+
+    "<li>Record scores after timed work and structured errors after important mistakes.</li>"+
+    "<li>Use your existing course resources before adding new study material.</li>";
+
+  $("completionGoal").textContent=
+    resolve(day.target)+". Finish with evidence: a score, corrected output, recording or updated Error Log.";
+
+  $("prev").disabled=selected===0;
+  $("next").disabled=selected===plan.length-1;
+
+  bindTasks();
+  renderProgress();
+  renderMonths();
+  renderCalendar();
+}
+
+function renderProgress(){
+  const completed=plan.filter((_,i)=>dayComplete(i)).length;
+
+  const allRequired=plan.flatMap((_,i)=>requiredFor(i));
+  const unique=[...new Map(allRequired.map(t=>[t.id,t])).values()];
+  const doneCount=unique.filter(t=>done[t.id]).length;
+
+  $("daysComplete").textContent=completed;
+  $("tasksComplete").textContent=doneCount+"/"+unique.length;
+  $("bar").style.width=(unique.length ? doneCount/unique.length*100 : 0)+"%";
+
+  const endIndex=
+    today<START ? -1 :
+    today>END ? plan.length-1 :
+    plan.findIndex(x=>x.date===today);
+
+  let run=0;
+  for(let i=endIndex;i>=0&&dayComplete(i);i--) run++;
+
+  $("streak").textContent=run;
+
+  const td=new Date((today<START?START:today)+"T00:00:00Z");
+  const sun=new Date(td);
+  sun.setUTCDate(td.getUTCDate()-td.getUTCDay());
+
+  const sat=new Date(sun);
+  sat.setUTCDate(sun.getUTCDate()+6);
+
+  const ws=sun.toISOString().slice(0,10);
+  const we=sat.toISOString().slice(0,10);
+
+  const weekIndexes=plan
+    .map((p,i)=>({p,i}))
+    .filter(x=>x.p.date>=ws&&x.p.date<=we)
+    .map(x=>x.i);
+
+  const weekTasks=weekIndexes.flatMap(i=>requiredFor(i));
+  const weekUnique=[...new Map(weekTasks.map(t=>[t.id,t])).values()];
+
+  $("weeklyRate").textContent=
+    (weekUnique.length ? Math.round(weekUnique.filter(t=>done[t.id]).length/weekUnique.length*100) : 0)+"%";
+
+  $("daysLeft").textContent=
+    today>END ? 0 :
+    plan.filter(p=>p.date>=today).length;
+
+  const sorted=[...scores].sort((a,b)=>a.date.localeCompare(b.date));
+  $("latestBand").textContent=sorted.length ? overall(sorted.at(-1)).toFixed(1) : "—";
+}
+
+function renderMonths(){
+  $("months").innerHTML=[
+    [9,"September"],
+    [10,"October"],
+    [11,"November"]
+  ].map(x=>
+    `<button data-month="${x[0]}" class="${month===x[0]?"active":""}" aria-pressed="${month===x[0]}">${x[1]}</button>`
+  ).join("");
+
+  $("months").querySelectorAll("button").forEach(b=>{
+    b.onclick=()=>{
+      month=Number(b.dataset.month);
+      renderMonths();
+      renderCalendar();
+    };
+  });
+}
+
+function renderCalendar(){
+  const weekdays=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+  const daysInMonth=new Date(Date.UTC(2026,month,0)).getUTCDate();
+  const firstDay=new Date(Date.UTC(2026,month-1,1)).getUTCDay();
+
+  const cards=weekdays.map(x=>`<div class="weekday">${x}</div>`);
+
+  for(let i=0;i<firstDay;i++){
+    cards.push('<div class="calendar-blank" aria-hidden="true"></div>');
+  }
+
+  for(let dayNumber=1;dayNumber<=daysInMonth;dayNumber++){
+    const date="2026-"+String(month).padStart(2,"0")+"-"+String(dayNumber).padStart(2,"0");
+    const i=plan.findIndex(p=>p.date===date);
+
+    if(i>=0){
+      const p=plan[i];
+      const complete=dayComplete(i);
+      const missed=p.date<today&&!complete;
+      const main=p.main==="Priority" ? priority(p.priorityNumber) : p.main;
+
+      const status=
+        complete ? "Complete" :
+        missed ? "Missed" :
+        p.date===today ? "Today" :
+        "Planned";
+
+      cards.push(`
+        <button class="day
+          ${i===selected?"selected ":""}
+          ${p.date===today?"today ":""}
+          ${complete?"complete ":""}
+          ${missed?"missed ":""}
+          ${p.type==="mock"?"mock ":""}
+          ${p.type==="light"?"light ":""}"
+          data-day="${i}"
+          aria-label="${safe(fmt(p.date))}: ${safe(resolve(p.focus))}, ${status}">
+          <em>${dayNumber}</em>
+          <span class="badge module-${safe(main)}">${safe(icons[main]||"✓")} · ${safe(main)}</span>
+          <b>${safe(resolve(p.focus))}</b>
+          <small>${status}</small>
+        </button>
+      `);
+    }else if(date===EXAM){
+      cards.push(`
+        <button class="day exam-day ${today===EXAM?"today":""}" id="examCard" aria-label="14 November 2026, Exam Day, no study">
+          <em>14</em>
+          <span class="badge">Exam</span>
+          <b>Exam Day — No Study</b>
+          <small>Calm, prepared and on time</small>
+        </button>
+      `);
+    }else{
+      const label=date<START ? "Before preparation" : date>EXAM ? "After exam" : "No study scheduled";
+      cards.push(`
+        <div class="day outside-plan" aria-label="${safe(fmt(date))}: ${label}">
+          <em>${dayNumber}</em>
+          <b>${label}</b>
+          <small>No study task</small>
+        </div>
+      `);
+    }
+  }
+
+  while((cards.length-7)%7){
+    cards.push('<div class="calendar-blank" aria-hidden="true"></div>');
+  }
+
+  $("grid").innerHTML=cards.join("");
+
+  $("grid").querySelectorAll("[data-day]").forEach(b=>{
+    b.onclick=()=>{
+      selected=Number(b.dataset.day);
+      renderDay();
+      window.scrollTo({top:0,behavior:"smooth"});
+    };
+  });
+
+  const ex=$("examCard");
+  if(ex){
+    ex.onclick=()=>showModal(
+      "Exam Day — No Study",
+      "14 November 2026\n\nUse your familiar routine, arrive early and focus on calm execution. No study is scheduled."
+    );
+  }
+}
+
+$("prev").onclick=()=>{
+  if(selected>0){
+    selected--;
+    renderDay();
+  }
+};
+
+$("next").onclick=()=>{
+  if(selected<plan.length-1){
+    selected++;
+    renderDay();
+  }
+};
+
+/* =========================================================
+   MOVE / SKIP
+   ========================================================= */
+function moveUnfinished(){
+  const item=plan[selected].tasks.find(
+    t=>t.priority==="high"&&!done[t.id]&&!skipped[t.id]&&!moved[t.id]
+  );
+
+  if(!item){
+    return showModal("Nothing to move","There are no unrescheduled high-priority tasks on this day.");
+  }
+
+  const options=[];
+
+  for(let i=selected+1;i<plan.length;i++){
+    const p=plan[i];
+
+    if(fullMocks.has(p.date) || !(p.type==="review"||p.type==="light"||[5,6].includes(utcDay(p.date)))){
+      continue;
+    }
+
+    const long=[5,6].includes(utcDay(p.date));
+    const limits={morning:long?210:90,evening:long?120:90};
+
+    for(const block of ["morning","evening"]){
+      const used=tasksFor(i)
+        .filter(t=>t.block===block)
+        .reduce((n,t)=>n+t.duration,0);
+
+      if(limits[block]-used>=item.duration){
+        options.push({p,block});
+        break;
+      }
+    }
+
+    if(options.length===6) break;
+  }
+
+  if(!options.length){
+    return showModal(
+      "No safe catch-up block",
+      "No future catch-up block has enough unused time for “"+resolve(item.title)+"”. Skip it manually or keep it unfinished."
+    );
+  }
+
+  showModal(
+    "Move one priority task",
+    "Move “"+resolve(item.title)+"” only. Every suggested block has enough unused time.",
+    box=>{
+      const select=document.createElement("select");
+
+      options.forEach(x=>{
+        const o=document.createElement("option");
+        o.value=x.p.date+"|"+x.block;
+        o.textContent=x.p.date+" · "+x.block+" · "+resolve(x.p.focus);
+        select.append(o);
+      });
+
+      box.append(select);
+
+      const moveButton=document.createElement("button");
+      moveButton.className="btn primary";
+      moveButton.textContent="Move task";
+
+      moveButton.onclick=()=>{
+        const [target,block]=select.value.split("|");
+
+        moved[item.id]={
+          ...item,
+          source:plan[selected].date,
+          target,
+          block
+        };
+
+        write(STORE.moved,moved);
+        closeModal();
+        renderDay();
+      };
+
+      box.append(moveButton);
+    }
+  );
+}
+
+function skipUnfinished(){
+  const unfinished=plan[selected].tasks.filter(
+    t=>!done[t.id]&&!t.optional&&!skipped[t.id]
+  );
+
+  if(!unfinished.length){
+    return showModal("Nothing to skip","All required tasks are complete or already skipped.");
+  }
+
+  showModal(
+    "Skip unfinished tasks",
+    "Skipping removes these tasks from required progress. Use this only when rescheduling would create overload.",
+    box=>{
+      const b=document.createElement("button");
+      b.className="btn danger";
+      b.textContent="Skip "+unfinished.length+" task"+(unfinished.length>1?"s":"");
+
+      b.onclick=()=>{
+        unfinished.forEach(t=>skipped[t.id]=true);
+        write(STORE.skipped,skipped);
+        closeModal();
+        renderDay();
+      };
+
+      box.append(b);
+    }
+  );
+}
+
+$("moveTasks").onclick=moveUnfinished;
+$("skipTasks").onclick=skipUnfinished;
+
+/* =========================================================
+   DIAGNOSTIC / PRIORITIES
+   ========================================================= */
+function optionList(select,includeAll=false){
+  select.replaceChildren();
+
+  if(includeAll){
+    const o=document.createElement("option");
+    o.value="";
+    o.textContent="All modules";
+    select.append(o);
+  }
+
+  MODULES.concat(["Review"]).forEach(m=>{
+    const o=document.createElement("option");
+    o.value=m;
+    o.textContent=m;
+    select.append(o);
+  });
+}
+
+optionList($("errorModule"));
+optionList($("filterModule"),true);
+
+[1,2,3].forEach(n=>{
+  const s=$("priority"+n);
+
+  MODULES.slice(0,4).forEach(m=>{
+    const o=document.createElement("option");
+    o.value=m;
+    o.textContent=m;
+    s.append(o);
+  });
+
+  s.onchange=()=>{
+    priorities[n]=s.value;
+    write(STORE.priorities,priorities);
+    renderDiagnostic();
+    renderDay();
+  };
+});
+
+["diagListening","diagReading","diagWriting","diagSpeaking"].forEach(id=>{
+  $(id).oninput=()=>{
+    diagnostic[id.replace("diag","").toLowerCase()]=$(id).value==="" ? null : Number($(id).value);
+    write(STORE.diag,diagnostic);
+    renderDiagnostic();
+  };
+});
+
+function renderDiagnostic(){
+  const mapping={
+    diagListening:"listening",
+    diagReading:"reading",
+    diagWriting:"writing",
+    diagSpeaking:"speaking"
+  };
+
+  Object.entries(mapping).forEach(([id,key])=>{
+    if(document.activeElement!==$(id)){
+      $(id).value=diagnostic[key]??"";
+    }
+  });
+
+  const weak=weakestModules();
+
+  $("weakest").textContent=weak.length
+    ? "Suggested weakest: "+weak.map(x=>x[0]+" (est. "+x[1].toFixed(1)+")").join(" → ")
+    : "Enter all four results to identify the weakest modules.";
+
+  [1,2,3].forEach(n=>{
+    $("priority"+n).value=priority(n);
+  });
+}
+
+/* =========================================================
+   SCORES
+   ========================================================= */
+function validScore(s){
+  return s &&
+    typeof s.id==="string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(s.date) &&
+    typeof s.type==="string" &&
+    Number.isFinite(Number(s.listening)) &&
+    Number(s.listening)>=0 &&
+    Number(s.listening)<=40 &&
+    Number.isFinite(Number(s.reading)) &&
+    Number(s.reading)>=0 &&
+    Number(s.reading)<=40 &&
+    Number.isFinite(Number(s.writing)) &&
+    Number(s.writing)>=0 &&
+    Number(s.writing)<=9 &&
+    Number.isFinite(Number(s.speaking)) &&
+    Number(s.speaking)>=0 &&
+    Number(s.speaking)<=9 &&
+    typeof s.notes==="string" &&
+    s.notes.length<=500;
+}
+
+function resetScoreForm(){
+  $("scoreForm").reset();
+  $("scoreId").value="";
+  $("scoreDate").value=plan[selected].date;
+  $("scoreForm").querySelector("button[type=submit]").textContent="Add result";
+  $("cancelScore").hidden=true;
+}
+
+$("scoreForm").onsubmit=e=>{
+  e.preventDefault();
+
+  const item={
+    id:$("scoreId").value||String(Date.now()),
+    date:$("scoreDate").value,
+    type:$("scoreType").value,
+    listening:Number($("scoreListening").value),
+    reading:Number($("scoreReading").value),
+    writing:Number($("scoreWriting").value),
+    speaking:Number($("scoreSpeaking").value),
+    notes:$("scoreNotes").value.trim()
+  };
+
+  if(!validScore(item)){
+    return alert("Please enter valid score values.");
+  }
+
+  const at=scores.findIndex(x=>x.id===item.id);
+
+  if(at>=0) scores[at]=item;
+  else scores.push(item);
+
+  write(STORE.scores,scores);
+  resetScoreForm();
+  renderScores();
+  renderProgress();
+};
+
+$("cancelScore").onclick=resetScoreForm;
+
+function editScore(id){
+  const s=scores.find(x=>x.id===id);
+  if(!s) return;
+
+  $("scoreId").value=s.id;
+  $("scoreDate").value=s.date;
+  $("scoreType").value=s.type;
+  $("scoreListening").value=s.listening;
+  $("scoreReading").value=s.reading;
+  $("scoreWriting").value=s.writing;
+  $("scoreSpeaking").value=s.speaking;
+  $("scoreNotes").value=s.notes;
+
+  $("scoreForm").querySelector("button[type=submit]").textContent="Save changes";
+  $("cancelScore").hidden=false;
+  $("scoreDate").focus();
+}
+
+function deleteScore(id){
+  if(confirm("Delete this score result? This cannot be undone.")){
+    scores=scores.filter(x=>x.id!==id);
+    write(STORE.scores,scores);
+    renderScores();
+    renderProgress();
+  }
+}
+
+function renderScores(){
+  const sorted=[...scores]
+    .filter(validScore)
+    .sort((a,b)=>a.date.localeCompare(b.date));
+
+  $("scoreRows").replaceChildren();
+
+  sorted.forEach(s=>{
+    const tr=document.createElement("tr");
+
+    const vals=[
+      s.date,
+      s.type,
+      s.listening+"/40 · est. "+rawBand(s.listening,"Listening"),
+      s.reading+"/40 · est. "+rawBand(s.reading,"Reading"),
+      Number(s.writing).toFixed(1),
+      Number(s.speaking).toFixed(1),
+      overall(s).toFixed(1),
+      s.notes||"—"
+    ];
+
+    vals.forEach(v=>{
+      const td=document.createElement("td");
+      td.textContent=v;
+      tr.append(td);
+    });
+
+    const td=document.createElement("td");
+    const edit=document.createElement("button");
+    const del=document.createElement("button");
+
+    edit.className=del.className="btn small";
+    edit.textContent="Edit";
+    del.textContent="Delete";
+    del.classList.add("danger");
+
+    edit.onclick=()=>editScore(s.id);
+    del.onclick=()=>deleteScore(s.id);
+
+    td.append(edit," ",del);
+    tr.append(td);
+
+    $("scoreRows").append(tr);
+  });
+
+  const latest=sorted.at(-1);
+  const best=sorted.length ? Math.max(...sorted.map(overall)) : null;
+
+  $("latestScore").textContent=latest ? overall(latest).toFixed(1) : "—";
+  $("bestScore").textContent=best!==null ? best.toFixed(1) : "—";
+
+  $("trend").replaceChildren();
+
+  sorted.slice(-12).forEach(s=>{
+    const b=document.createElement("i");
+    const o=overall(s);
+    b.style.height=Math.max(6,o/9*100)+"%";
+    b.title=s.date+" · estimated "+o.toFixed(1);
+    b.setAttribute("aria-label",b.title);
+    $("trend").append(b);
+  });
+}
+
+/* =========================================================
+   ERROR LOG
+   ========================================================= */
+function validError(x){
+  return x &&
+    typeof x.id==="string" &&
+    /^\d{4}-\d{2}-\d{2}$/.test(x.date) &&
+    ALL_MODULES.includes(x.module) &&
+    ["New","Reviewing","Fixed"].includes(x.status) &&
+    ["topic","mistake","cause","correction","rule","prevention"].every(
+      k=>typeof x[k]==="string"&&x[k].length<=1000
+    );
+}
+
+function resetErrorForm(){
+  $("errorForm").reset();
+  $("errorId").value="";
+  $("errorDate").value=plan[selected].date;
+  $("errorForm").querySelector("button[type=submit]").textContent="Add error";
+  $("cancelError").hidden=true;
+}
+
+$("errorForm").onsubmit=e=>{
+  e.preventDefault();
+
+  const item={
+    id:$("errorId").value||String(Date.now()),
+    date:$("errorDate").value,
+    module:$("errorModule").value,
+    topic:$("errorTopic").value.trim(),
+    mistake:$("errorMistake").value.trim(),
+    cause:$("errorCause").value.trim(),
+    correction:$("errorCorrection").value.trim(),
+    rule:$("errorRule").value.trim(),
+    prevention:$("errorPrevention").value.trim(),
+    status:$("errorStatus").value
+  };
+
+  if(!validError(item)){
+    return alert("Please complete every Error Log field.");
+  }
+
+  const at=errors.findIndex(x=>x.id===item.id);
+
+  if(at>=0) errors[at]=item;
+  else errors.push(item);
+
+  write(STORE.errors,errors);
+  resetErrorForm();
+  renderErrors();
+};
+
+$("cancelError").onclick=resetErrorForm;
+
+function editError(id){
+  const x=errors.find(e=>e.id===id);
+  if(!x) return;
+
+  $("errorId").value=x.id;
+  $("errorDate").value=x.date;
+  $("errorModule").value=x.module;
+  $("errorTopic").value=x.topic;
+  $("errorMistake").value=x.mistake;
+  $("errorCause").value=x.cause;
+  $("errorCorrection").value=x.correction;
+  $("errorRule").value=x.rule;
+  $("errorPrevention").value=x.prevention;
+  $("errorStatus").value=x.status;
+
+  $("errorForm").querySelector("button[type=submit]").textContent="Save changes";
+  $("cancelError").hidden=false;
+  $("errorPanel").open=true;
+  $("errorDate").focus();
+}
+
+function deleteError(id){
+  if(confirm("Delete this Error Log entry?")){
+    errors=errors.filter(x=>x.id!==id);
+    write(STORE.errors,errors);
+    renderErrors();
+  }
+}
+
+["filterModule","filterStatus","filterFrom","filterTo"].forEach(id=>{
+  $(id).onchange=renderErrors;
+});
+
+function renderErrors(){
+  const mod=$("filterModule").value;
+  const status=$("filterStatus").value;
+  const from=$("filterFrom").value;
+  const to=$("filterTo").value;
+
+  const list=errors
+    .filter(validError)
+    .filter(x=>
+      (!mod||x.module===mod)&&
+      (!status||x.status===status)&&
+      (!from||x.date>=from)&&
+      (!to||x.date<=to)
+    )
+    .sort((a,b)=>b.date.localeCompare(a.date));
+
+  $("errorList").replaceChildren();
+
+  if(!list.length){
+    const p=document.createElement("p");
+    p.className="note";
+    p.textContent="No Error Log entries match these filters.";
+    $("errorList").append(p);
+  }
+
+  list.forEach(x=>{
+    const a=document.createElement("article");
+    a.className="error-entry";
+
+    const h=document.createElement("header");
+    const title=document.createElement("b");
+    const badge=document.createElement("span");
+
+    title.textContent=x.date+" · "+x.module+" · "+x.topic;
+    badge.className="badge";
+    badge.textContent=x.status;
+
+    h.append(title,badge);
+    a.append(h);
+
+    [
+      ["Mistake",x.mistake],
+      ["Cause",x.cause],
+      ["Correction",x.correction],
+      ["Rule / strategy",x.rule],
+      ["Prevention",x.prevention]
+    ].forEach(v=>{
+      const p=document.createElement("p");
+      const strong=document.createElement("strong");
+      strong.textContent=v[0]+": ";
+      p.append(strong,document.createTextNode(v[1]));
+      a.append(p);
+    });
+
+    const edit=document.createElement("button");
+    const del=document.createElement("button");
+
+    edit.className=del.className="btn small";
+    edit.textContent="Edit";
+    del.textContent="Delete";
+    del.classList.add("danger");
+
+    edit.onclick=()=>editError(x.id);
+    del.onclick=()=>deleteError(x.id);
+
+    a.append(edit," ",del);
+    $("errorList").append(a);
+  });
+}
+
+/* =========================================================
+   BACKUP
+   ========================================================= */
+function backup(){
+  return{
+    schemaVersion:1,
+    exportedAt:new Date().toISOString(),
+    done,
+    diagnostic,
+    priorities,
+    scores,
+    errors,
+    moved,
+    skipped
+  };
+}
+
+function validateBackup(x){
+  if(
+    !x ||
+    x.schemaVersion!==1 ||
+    typeof x.done!=="object" ||
+    typeof x.diagnostic!=="object" ||
+    typeof x.priorities!=="object" ||
+    !Array.isArray(x.scores) ||
+    !Array.isArray(x.errors) ||
+    typeof x.moved!=="object" ||
+    typeof x.skipped!=="object"
+  ){
+    return false;
+  }
+
+  if(x.scores.length>1000||x.errors.length>5000) return false;
+  if(!x.scores.every(validScore)||!x.errors.every(validError)) return false;
+  if(!Object.values(x.done).every(v=>typeof v==="boolean")) return false;
+  if(!Object.values(x.skipped).every(v=>typeof v==="boolean")) return false;
+  if(!Object.values(x.priorities).every(v=>MODULES.slice(0,4).includes(v))) return false;
+
+  const dates=new Set(plan.map(p=>p.date));
+
+  if(!Object.values(x.moved).every(v=>
+    v &&
+    typeof v.id==="string" &&
+    dates.has(v.source) &&
+    dates.has(v.target) &&
+    ["morning","evening"].includes(v.block) &&
+    typeof v.title==="string" &&
+    v.title.length<300 &&
+    typeof v.short==="string" &&
+    v.short.length<500 &&
+    typeof v.detail==="string" &&
+    v.detail.length<2000 &&
+    Number.isFinite(v.duration) &&
+    v.duration>0 &&
+    v.duration<=210
+  )){
+    return false;
+  }
+
+  return true;
+}
+
+$("exportData").onclick=()=>{
+  const blob=new Blob([JSON.stringify(backup(),null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+
+  a.href=url;
+  a.download="ielts-planner-backup-"+today+".json";
+  a.click();
+
+  setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+
+$("importFile").onchange=e=>{
+  const file=e.target.files[0];
+  if(!file) return;
+
+  const reader=new FileReader();
+
+  reader.onload=()=>{
+    try{
+      const x=JSON.parse(reader.result);
+
+      if(!validateBackup(x)) throw Error("Invalid structure");
+
+      if(!confirm("Import this backup and replace current planner data?")) return;
+
+      done=x.done;
+      diagnostic=x.diagnostic;
+      priorities=x.priorities;
+      scores=x.scores;
+      errors=x.errors;
+      moved=x.moved;
+      skipped=x.skipped;
+
+      write(STORE.done,done);
+      write(STORE.diag,diagnostic);
+      write(STORE.priorities,priorities);
+      write(STORE.scores,scores);
+      write(STORE.errors,errors);
+      write(STORE.moved,moved);
+      write(STORE.skipped,skipped);
+
+      location.reload();
+    }catch(err){
+      alert("Import failed: the JSON backup is invalid.");
+    }
+  };
+
+  reader.readAsText(file);
+  e.target.value="";
+};
+
+$("resetData").onclick=async()=>{
+  const scope=cloudUser
+    ? "this device and your synchronized cloud account"
+    : "this device";
+
+  const answer=prompt(
+    "This permanently clears planner progress, scores, priorities, rescheduling and Error Log data from "+scope+". Type RESET to continue."
+  );
+
+  if(answer!=="RESET") return;
+
+  if(cloudUser){
+    if(!navigator.onLine||!firebaseApi||!cloudRef){
+      return alert("Connect to the internet before resetting synchronized data.");
+    }
+
+    try{
+      if(cloudUnsubscribe){
+        cloudUnsubscribe();
+        cloudUnsubscribe=null;
+      }
+
+      await firebaseApi.deleteDoc(cloudRef);
+    }catch(e){
+      setSyncStatus("Cloud reset failed · no local data was removed.","error");
+      return alert("The cloud data could not be reset. Check your connection and Firestore rules.");
+    }
+  }
+
+  Object.values(STORE).forEach(k=>{
+    try{localStorage.removeItem(k)}catch(e){}
+  });
+
+  try{
+    localStorage.removeItem("ielts-central-error-log");
+    localStorage.removeItem(SYNC_META);
+  }catch(e){}
+
+  location.reload();
+};
+
+/* =========================================================
+   INIT
+   ========================================================= */
+function init(){
+  const quoteIndex=
+    today<START ? 0 :
+    today>END ? motivationQuotes.length-1 :
+    Math.max(0,plan.findIndex(p=>p.date===today));
+
+  $("motivationQuote").textContent=
+    "“"+motivationQuotes[quoteIndex%motivationQuotes.length]+"”";
+
+  renderDiagnostic();
+  renderScores();
+  renderErrors();
+  resetScoreForm();
+  resetErrorForm();
+  renderDay();
+  bindSyncUI();
+  startFirebase().catch(()=>{});
+}
+
 init();
 </script>
 </body>
