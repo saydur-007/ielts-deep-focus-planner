@@ -625,6 +625,7 @@ dialog::backdrop{background:#17231d88}
 const START="2026-09-01";
 const END="2026-11-13";
 const EXAM="2026-11-14";
+const RESOURCE_UPDATE_DATE="2026-09-10";
 
 const PLAN_DAYS =
   Math.floor(
@@ -669,7 +670,10 @@ const resourceLinks={
   british:"https://takeielts.britishcouncil.org/take-ielts/prepare",
   ielts:"https://ielts.org/take-a-test/preparation-resources",
   cambridge:"https://www.cambridgeenglish.org/exams-and-tests/ielts/preparation/",
-  mockPractice:"https://takeielts.britishcouncil.org/prepare/ielts-ready",puroPuri:"https://puropurimocktest.com/student/dashboard"};
+  mockPractice:"https://takeielts.britishcouncil.org/prepare/ielts-ready",
+  puroPuri:"https://puropurimocktest.com/student/full-mock-tests",
+  completePackage:"https://drive.google.com/drive/u/0/folders/1w_6LJQrD_jatqrCFczo5Nov5XclY71rl"
+};
 
 const icons={
   Listening:"L",Reading:"R",Writing:"W",Speaking:"S",Grammar:"G",
@@ -1293,6 +1297,16 @@ function taskModule(t){
 /* Resource hierarchy: user's courses first */
 function resourcesFor(day){
   const main=day.main==="Priority" ? priority(day.priorityNumber) : day.main;
+  const updated=day.date>=RESOURCE_UPDATE_DATE;
+  const includesMock=day.type==="mock" || day.tasks.some(t=>t.module==="Mock");
+
+  if(updated && includesMock){
+    return[
+      ["Puro Puri Full Mock Tests",resourceLinks.puroPuri],
+      ["Complete IELTS Package · Drive",resourceLinks.completePackage],
+      ["My score / analysis hub",resourceLinks.hub]
+    ];
+  }
 
   if(day.type==="mock"){
     return[
@@ -1305,6 +1319,7 @@ function resourcesFor(day){
   if(main==="Listening"){
     return[
       ["Munzereen Shahid · Listening",resourceLinks.listening],
+      ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
       ["British Council IELTS Ready",resourceLinks.mockPractice],
       ["Cambridge IELTS Practice",resourceLinks.cambridge]
     ];
@@ -1313,6 +1328,7 @@ function resourcesFor(day){
   if(main==="Reading"){
     return[
       ["Munzereen Shahid · Academic Reading",resourceLinks.reading],
+      ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
       ["British Council IELTS Ready",resourceLinks.mockPractice],
       ["Cambridge IELTS Practice",resourceLinks.cambridge]
     ];
@@ -1321,6 +1337,7 @@ function resourcesFor(day){
   if(main==="Writing"){
     return[
       ["Munzereen Shahid · Academic Writing",resourceLinks.writing],
+      ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
       ["Official IELTS Preparation",resourceLinks.ielts],
       ["Cambridge IELTS Practice",resourceLinks.cambridge]
     ];
@@ -1329,6 +1346,7 @@ function resourcesFor(day){
   if(main==="Speaking"){
     return[
       ["Munzereen Shahid · Speaking",resourceLinks.speaking],
+      ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
       ["Official IELTS Preparation",resourceLinks.ielts],
       ["British Council IELTS",resourceLinks.british]
     ];
@@ -1337,6 +1355,7 @@ function resourcesFor(day){
   if(main==="Grammar"){
     return[
       ["Complete English Grammar Course",resourceLinks.grammar],
+      ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
       ["My IELTS Course",resourceLinks.hub],
       ["IELTS Dictionary",resourceLinks.dictionary]
     ];
@@ -1344,6 +1363,7 @@ function resourcesFor(day){
 
   return[
     ["My IELTS Course",resourceLinks.hub],
+    ...(updated ? [["Complete IELTS Package · Drive",resourceLinks.completePackage]] : []),
     ["British Council IELTS Ready",resourceLinks.mockPractice],
     ["IELTS Dictionary",resourceLinks.dictionary]
   ];
@@ -1356,8 +1376,37 @@ function incomingFor(i){
     .map(([id,v])=>({...v,id,block:v.block||"evening",moved:true}));
 }
 
+function adjustedPlanTasks(i){
+  const day=plan[i];
+  const transferTwenty=day.date>=RESOURCE_UPDATE_DATE && [0,4].includes(utcDay(day.date));
+
+  if(!transferTwenty) return day.tasks;
+
+  const source=day.tasks.find(t=>t.block==="morning" && t.module!=="Vocabulary" && t.duration>20);
+  if(!source) return day.tasks;
+
+  return day.tasks.flatMap(t=>{
+    if(t!==source) return [t];
+
+    return[
+      {...t,duration:t.duration-20},
+      task(
+        t.id+"-pm20",
+        "evening",
+        t.module,
+        t.title+" · continuation",
+        20,
+        "Finish the final 20 minutes moved from the morning block.",
+        t.detail,
+        t.priority,
+        t.optional
+      )
+    ];
+  });
+}
+
 function tasksFor(i){
-  return [...plan[i].tasks,...incomingFor(i)];
+  return [...adjustedPlanTasks(i),...incomingFor(i)];
 }
 
 function requiredFor(i){
@@ -1774,10 +1823,12 @@ function renderDay(){
   $("sumTarget").textContent=resolve(day.target);
   $("sumPhase").textContent=day.phase.n+" · "+day.phase.name;
 
-  const long=[5,6].includes(utcDay(day.date));
+  const dayOfWeek=utcDay(day.date);
+  const long=[5,6].includes(dayOfWeek);
+  const adjustedHours=day.date>=RESOURCE_UPDATE_DATE && [0,4].includes(dayOfWeek);
 
-  $("morningTime").textContent=long ? "8:00–11:30 AM" : "6:00–7:30 AM";
-  $("eveningTime").textContent=long ? "7:00–9:00 PM" : "7:00–8:30 PM";
+  $("morningTime").textContent=adjustedHours ? "6:00–7:10 AM" : long ? "8:00–11:30 AM" : "6:00–7:30 AM";
+  $("eveningTime").textContent=adjustedHours ? "6:30–9:30 PM" : long ? "7:00–9:00 PM" : "7:00–8:30 PM";
 
   $("morningTasks").innerHTML=morning.map(renderTask).join("");
   $("eveningTasks").innerHTML=evening.map(renderTask).join("");
