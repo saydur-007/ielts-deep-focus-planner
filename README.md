@@ -2,6 +2,8 @@
 
 A responsive, single-page IELTS study planner for a Band 8.0 target. It provides a 74-day study schedule from **1 September to 13 November 2026**, ahead of the **14 November 2026** exam, with task tracking, diagnostic priorities, practice-score history, an IELTS error log, calendar navigation, offline storage, JSON backups, and optional Firebase synchronization across browsers and devices.
 
+
+
 ## Live site
 
 [Open the IELTS Deep Focus Planner](https://saydur-007.github.io/ielts-deep-focus-planner/)
@@ -78,6 +80,8 @@ flowchart TD
 | Cloud Firestore | Stores account-specific planner state at `users/{userId}/planner/state`. |
 
 Task changes update local state and storage, then schedule a cloud save when signed in. A Firestore listener receives changes from other devices. Synchronization compares state timestamps; newer state replaces older state, with an initial merge for existing local data without a sync timestamp. Simultaneous edits on multiple devices can overwrite older changes because ongoing synchronization operates on the whole planner state.
+
+![IELTS Deep Focus Planner architecture](assets/architecture.png)
 
 ## Run locally
 
