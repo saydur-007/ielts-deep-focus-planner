@@ -1,6 +1,6 @@
 # IELTS Deep Focus Planner
 
-A responsive, single-page IELTS study planner for a Band 8.0 target. It provides a 78-day study schedule, task tracking, diagnostic priorities, practice-score history, an IELTS error log, calendar navigation, offline storage, JSON backups, and optional Firebase synchronization across browsers and devices.
+A responsive, single-page IELTS study planner for a Band 8.0 target. It provides a 74-day study schedule from **1 September to 13 November 2026**, ahead of the **14 November 2026** exam, with task tracking, diagnostic priorities, practice-score history, an IELTS error log, calendar navigation, offline storage, JSON backups, and optional Firebase synchronization across browsers and devices.
 
 ## Live site
 
@@ -14,7 +14,7 @@ A responsive, single-page IELTS study planner for a Band 8.0 target. It provides
 - Baseline diagnostic and editable module priorities
 - Estimated IELTS score tracker and trend display
 - Structured central Error Log with filters and review status
-- Full August–November 2026 calendar
+- September–November 2026 calendar
 - Move or skip unfinished tasks without overloading normal study days
 - Local offline persistence through `localStorage`
 - Export and import of planner data as JSON
@@ -32,6 +32,52 @@ The application is contained in [`index.html`](./index.html) and uses:
 - GitHub Pages for hosting
 
 No package installation or build step is required.
+
+## Study schedule
+
+| Days | Morning | Evening |
+| --- | --- | --- |
+| Sunday–Thursday | 5:55–7:10 AM (75 minutes) | 6:30–9:30 PM (180 minutes) |
+| Friday–Saturday | 8:00–11:30 AM (210 minutes) | 7:00–9:00 PM (120 minutes) |
+
+The Sunday–Thursday hours apply throughout the plan. Morning work exceeding 75 minutes continues in the evening, preserving the day's total planned study time. Friday and Saturday retain their existing tasks and hours. Catch-up suggestions use these block capacities when checking available time.
+
+These windows show available study time; the **Planned** summary shows the total duration of assigned tasks, which may be shorter.
+
+## Architecture
+
+The application runs in the browser. GitHub Pages serves `index.html`, which contains the interface, schedule generation, task tracking, storage, and cloud synchronization logic.
+
+```mermaid
+flowchart TD
+    Hosting[GitHub Pages] -->|Serves index.html| UI
+    subgraph Browser[Browser · HTML, CSS, and vanilla JavaScript]
+        UI[Daily plan, calendar, progress, scores, and error log]
+        Logic[Schedule generation and task management]
+        Data[State and synchronization]
+        Local[(localStorage)]
+        JSON[JSON backup files]
+        UI <--> Logic
+        Logic <--> Data
+        Data <-->|Local saving and loading| Local
+        Data <-->|Import and export| JSON
+    end
+    UI <-->|Email and password sign-in| Auth[Firebase Authentication]
+    Auth -.->|User identity for cloud access| Data
+    Data <-->|Authenticated cloud sync| Firestore[(Cloud Firestore)]
+    Other[Another signed-in browser or device] <-->|Same account| Firestore
+```
+
+| Component | Responsibility |
+| --- | --- |
+| Interface | Displays study blocks, tasks, calendar, progress, scores, and the Error Log. |
+| Planner logic | Generates dated plans, adjusts weekday task blocks, and finds space for catch-up work. |
+| Local persistence | Saves progress and user-entered data in browser `localStorage`. |
+| JSON backups | Exports and restores planner data manually. |
+| Firebase Authentication | Signs users in with email and password for cloud access. |
+| Cloud Firestore | Stores account-specific planner state at `users/{userId}/planner/state`. |
+
+Task changes update local state and storage, then schedule a cloud save when signed in. A Firestore listener receives changes from other devices. Synchronization compares state timestamps; newer state replaces older state, with an initial merge for existing local data without a sync timestamp. Simultaneous edits on multiple devices can overwrite older changes because ongoing synchronization operates on the whole planner state.
 
 ## Run locally
 
