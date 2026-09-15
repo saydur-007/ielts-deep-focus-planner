@@ -1378,25 +1378,29 @@ function incomingFor(i){
 
 function adjustedPlanTasks(i){
   const day=plan[i];
-  const transferTwenty=day.date>=RESOURCE_UPDATE_DATE && [0,4].includes(utcDay(day.date));
+  if([5,6].includes(utcDay(day.date))) return day.tasks;
 
-  if(!transferTwenty) return day.tasks;
+  const morningMinutes=day.tasks
+    .filter(t=>t.block==="morning")
+    .reduce((total,t)=>total+t.duration,0);
+  const transferMinutes=Math.max(0,morningMinutes-75);
+  if(!transferMinutes) return day.tasks;
 
-  const source=day.tasks.find(t=>t.block==="morning" && t.module!=="Vocabulary" && t.duration>20);
+  const source=day.tasks.find(t=>t.block==="morning" && t.module!=="Vocabulary" && t.duration>transferMinutes);
   if(!source) return day.tasks;
 
   return day.tasks.flatMap(t=>{
     if(t!==source) return [t];
 
     return[
-      {...t,duration:t.duration-20},
+      {...t,duration:t.duration-transferMinutes},
       task(
         t.id+"-pm20",
         "evening",
         t.module,
         t.title+" · continuation",
-        20,
-        "Finish the final 20 minutes moved from the morning block.",
+        transferMinutes,
+        "Finish the final "+transferMinutes+" minutes moved from the morning block.",
         t.detail,
         t.priority,
         t.optional
@@ -1825,10 +1829,9 @@ function renderDay(){
 
   const dayOfWeek=utcDay(day.date);
   const long=[5,6].includes(dayOfWeek);
-  const adjustedHours=day.date>=RESOURCE_UPDATE_DATE && [0,4].includes(dayOfWeek);
 
-  $("morningTime").textContent=adjustedHours ? "6:00–7:10 AM" : long ? "8:00–11:30 AM" : "6:00–7:30 AM";
-  $("eveningTime").textContent=adjustedHours ? "6:30–9:30 PM" : long ? "7:00–9:00 PM" : "7:00–8:30 PM";
+  $("morningTime").textContent=long ? "8:00–11:30 AM" : "5:55–7:10 AM";
+  $("eveningTime").textContent=long ? "7:00–9:00 PM" : "6:30–9:30 PM";
 
   $("morningTasks").innerHTML=morning.map(renderTask).join("");
   $("eveningTasks").innerHTML=evening.map(renderTask).join("");
@@ -2048,7 +2051,7 @@ function moveUnfinished(){
     }
 
     const long=[5,6].includes(utcDay(p.date));
-    const limits={morning:long?210:90,evening:long?120:90};
+    const limits={morning:long?210:75,evening:long?120:180};
 
     for(const block of ["morning","evening"]){
       const used=tasksFor(i)
