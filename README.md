@@ -1,6 +1,6 @@
 # IELTS Deep Focus Planner
 
-A responsive, single-page IELTS study planner for a Band 8.0 target. It provides a 74-day study schedule from **1 September to 13 November 2026**, ahead of the **14 November 2026** exam, with task tracking, diagnostic priorities, practice-score history, an IELTS error log, calendar navigation, offline storage, JSON backups, and optional Firebase synchronization across browsers and devices.
+A responsive, single-page IELTS study planner for a Band 8.0 target. It provides a 47-day deep-focus schedule from **2 November to 18 December 2026**, ahead of the **19 December 2026** exam, with task tracking, diagnostic priorities, practice-score history, an IELTS error log, calendar navigation, offline storage, JSON backups, and optional Firebase synchronization across browsers and devices.
 
 
 
@@ -37,14 +37,20 @@ No package installation or build step is required.
 
 ## Study schedule
 
-| Days | Morning | Evening |
+| Block | Time | What happens |
 | --- | --- | --- |
-| Sunday–Thursday | 5:55–7:10 AM (75 minutes) | 6:30–9:30 PM (180 minutes) |
-| Friday–Saturday | 8:00–11:30 AM (210 minutes) | 7:00–9:00 PM (120 minutes) |
+| Morning | 6:00–7:30 AM (90 minutes) | 50 LanGeek words, 15-minute video recording, 30-minute book reading |
+| On the go | Office journey (daytime on Fri/Sat) | 20-minute listening |
+| Evening | 6:00–10:00 PM (240 minutes) | One 3-hour deep block on a single area, 1 page free-hand writing, note recap |
 
-The Sunday–Thursday hours apply throughout the plan. Morning work exceeding 75 minutes continues in the evening, preserving the day's total planned study time. Friday and Saturday retain their existing tasks and hours. Catch-up suggestions use these block capacities when checking available time.
+| Dates | Phase |
+| --- | --- |
+| 2–10 Nov | Finish the 10MS course: Speaking (2 days) → Writing (4 days) → Reading (3 days) |
+| 11–13 Nov | Complete English Grammar Course |
+| 14 Nov–16 Dec | One timed module test daily plus mixed revision; full mocks on 21 Nov (online), 28 Nov (exam centre), 5 and 12 Dec (home), each followed by an analysis day |
+| 17–18 Dec | Light review and exam preparation |
 
-These windows show available study time; the **Planned** summary shows the total duration of assigned tasks, which may be shorter.
+Unfinished high-priority tasks can be moved into free Friday/Saturday daytime slots.
 
 ## Architecture
 
